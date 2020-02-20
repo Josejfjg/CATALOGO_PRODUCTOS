@@ -51,7 +51,7 @@
             this.Pb_LDCOM.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Pb_LDCOM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Pb_LDCOM.Image = global::CATALOGO.Properties.Resources.BM_Principal;
-            this.Pb_LDCOM.Location = new System.Drawing.Point(6, 669);
+            this.Pb_LDCOM.Location = new System.Drawing.Point(6, 409);
             this.Pb_LDCOM.Name = "Pb_LDCOM";
             this.Pb_LDCOM.Size = new System.Drawing.Size(121, 61);
             this.Pb_LDCOM.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -68,7 +68,7 @@
             this.Barra.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Bn_Guardar,
             this.Bn_Salir});
-            this.Barra.Location = new System.Drawing.Point(843, 675);
+            this.Barra.Location = new System.Drawing.Point(676, 410);
             this.Barra.Name = "Barra";
             this.Barra.Size = new System.Drawing.Size(153, 60);
             this.Barra.TabIndex = 44;
@@ -109,24 +109,24 @@
             this.pictureBox1.Image = global::CATALOGO.Properties.Resources.BM_Logo;
             this.pictureBox1.Location = new System.Drawing.Point(0, 1);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(960, 60);
+            this.pictureBox1.Size = new System.Drawing.Size(783, 60);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 45;
             this.pictureBox1.TabStop = false;
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(181, 210);
+            this.txtDescripcion.Location = new System.Drawing.Point(170, 216);
             this.txtDescripcion.MaxLength = 150;
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(648, 64);
+            this.txtDescripcion.Size = new System.Drawing.Size(554, 64);
             this.txtDescripcion.TabIndex = 3;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(67, 213);
+            this.label6.Location = new System.Drawing.Point(56, 219);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(69, 13);
             this.label6.TabIndex = 51;
@@ -134,16 +134,16 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(181, 163);
+            this.txtNombre.Location = new System.Drawing.Point(170, 169);
             this.txtNombre.MaxLength = 100;
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(648, 20);
+            this.txtNombre.Size = new System.Drawing.Size(554, 20);
             this.txtNombre.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(67, 166);
+            this.label2.Location = new System.Drawing.Point(56, 172);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 13);
             this.label2.TabIndex = 50;
@@ -151,16 +151,16 @@
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(181, 117);
+            this.txtCodigo.Location = new System.Drawing.Point(170, 123);
             this.txtCodigo.MaxLength = 3;
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(648, 20);
+            this.txtCodigo.Size = new System.Drawing.Size(554, 20);
             this.txtCodigo.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(67, 120);
+            this.label1.Location = new System.Drawing.Point(56, 126);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 13);
             this.label1.TabIndex = 49;
@@ -171,7 +171,7 @@
             this.chkEstado.AutoSize = true;
             this.chkEstado.Checked = true;
             this.chkEstado.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkEstado.Location = new System.Drawing.Point(181, 298);
+            this.chkEstado.Location = new System.Drawing.Point(170, 304);
             this.chkEstado.Name = "chkEstado";
             this.chkEstado.Size = new System.Drawing.Size(56, 17);
             this.chkEstado.TabIndex = 4;
@@ -182,7 +182,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(959, 736);
+            this.ClientSize = new System.Drawing.Size(782, 476);
             this.Controls.Add(this.chkEstado);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.label6);

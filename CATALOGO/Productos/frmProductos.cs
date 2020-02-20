@@ -205,10 +205,6 @@ namespace CATALOGO.Productos
         {
             Cargar_Categoria();
         }
-        private void cmbSubCategoria_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Cargar_SubCategoria();
-        }
         #endregion
 
         #region "Metodos Privados"
@@ -251,6 +247,8 @@ namespace CATALOGO.Productos
 
             this.dtgGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.dtgGrid.MultiSelect = false;
+            dtgGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; //se ajustan las
+                                                                                //columnas al ancho del DataGridview para que no quede espacio en blanco
             this.dtgGrid.Refresh();
         }
         private void Refrescar_Grid()
@@ -448,11 +446,10 @@ namespace CATALOGO.Productos
             _Producto.Usuario_Modifica = _Trastienda.Usuario.Usuario_Id;
 
             _Producto.Descripcion_Corta = txtHablador.Text;
-            _Producto.Fabricante_Id = cmbCasa_Comercial.SelectedValue.ToString();
+            _Producto.Casa_Comercial_Id = cmbCasa_Comercial.SelectedValue.ToString();
             if (_Producto.Sucursales.Count == 0)
             {
                 _Producto.Sucursales = new List<tbProducto_Sucursal>();
-
             }
 
             if (_Producto.Impuestos.Count == 0)
@@ -665,6 +662,8 @@ namespace CATALOGO.Productos
 
             this.dtgGrid_Impuestos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.dtgGrid_Impuestos.MultiSelect = false;
+            this.dtgGrid_Impuestos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; //se ajustan las
+                                                                                //columnas al ancho del DataGridview para que no quede espacio en blanco
             this.dtgGrid_Impuestos.Refresh();
         }
         private void Refrescar_Grid_Impuestos()
@@ -733,8 +732,15 @@ namespace CATALOGO.Productos
                 }
             }
         }
+
         #endregion
 
-
+        private void txtHablador_TextChanged(object sender, EventArgs e)
+        {
+            if (txtHablador.Text.Length > 0)
+                lblHablador_Lent.Text = txtHablador.Text.Length.ToString();
+            else
+                lblHablador_Lent.Text = "";
+        }
     }
 }

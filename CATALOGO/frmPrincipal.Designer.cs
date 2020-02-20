@@ -37,20 +37,21 @@
             this.opmUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.opmProductos = new System.Windows.Forms.ToolStripMenuItem();
+            this.opmFamilias = new System.Windows.Forms.ToolStripMenuItem();
             this.opmCategorias = new System.Windows.Forms.ToolStripMenuItem();
             this.opmFabricantes = new System.Windows.Forms.ToolStripMenuItem();
-            this.opmFamilias = new System.Windows.Forms.ToolStripMenuItem();
             this.opmMarcas = new System.Windows.Forms.ToolStripMenuItem();
             this.opmUnidadDeMedida = new System.Windows.Forms.ToolStripMenuItem();
             this.opmImpuestos = new System.Windows.Forms.ToolStripMenuItem();
+            this.opmCasaComercial = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Barra = new System.Windows.Forms.ToolStrip();
             this.tsLista_Productos = new System.Windows.Forms.ToolStripButton();
             this.BarraEstado = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolEstado = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.opmCasaComercial = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.Menu_Principal.SuspendLayout();
             this.Barra.SuspendLayout();
             this.BarraEstado.SuspendLayout();
@@ -96,7 +97,7 @@
             // opmUsuarios
             // 
             this.opmUsuarios.Name = "opmUsuarios";
-            this.opmUsuarios.Size = new System.Drawing.Size(180, 22);
+            this.opmUsuarios.Size = new System.Drawing.Size(119, 22);
             this.opmUsuarios.Text = "Usuarios";
             this.opmUsuarios.Click += new System.EventHandler(this.opmUsuarios_Click);
             // 
@@ -118,51 +119,58 @@
             // opmProductos
             // 
             this.opmProductos.Name = "opmProductos";
-            this.opmProductos.Size = new System.Drawing.Size(180, 22);
+            this.opmProductos.Size = new System.Drawing.Size(171, 22);
             this.opmProductos.Text = "Productos";
             this.opmProductos.Click += new System.EventHandler(this.opmProductos_Click);
+            // 
+            // opmFamilias
+            // 
+            this.opmFamilias.Name = "opmFamilias";
+            this.opmFamilias.Size = new System.Drawing.Size(171, 22);
+            this.opmFamilias.Text = "Familias";
+            this.opmFamilias.Click += new System.EventHandler(this.opmFamilias_Click);
             // 
             // opmCategorias
             // 
             this.opmCategorias.Name = "opmCategorias";
-            this.opmCategorias.Size = new System.Drawing.Size(180, 22);
+            this.opmCategorias.Size = new System.Drawing.Size(171, 22);
             this.opmCategorias.Text = "Categorias";
             this.opmCategorias.Click += new System.EventHandler(this.opmCategorias_Click);
             // 
             // opmFabricantes
             // 
             this.opmFabricantes.Name = "opmFabricantes";
-            this.opmFabricantes.Size = new System.Drawing.Size(180, 22);
+            this.opmFabricantes.Size = new System.Drawing.Size(171, 22);
             this.opmFabricantes.Text = "Fabricantes";
             this.opmFabricantes.Click += new System.EventHandler(this.opmFabricantes_Click);
-            // 
-            // opmFamilias
-            // 
-            this.opmFamilias.Name = "opmFamilias";
-            this.opmFamilias.Size = new System.Drawing.Size(180, 22);
-            this.opmFamilias.Text = "Familias";
-            this.opmFamilias.Click += new System.EventHandler(this.opmFamilias_Click);
             // 
             // opmMarcas
             // 
             this.opmMarcas.Name = "opmMarcas";
-            this.opmMarcas.Size = new System.Drawing.Size(180, 22);
+            this.opmMarcas.Size = new System.Drawing.Size(171, 22);
             this.opmMarcas.Text = "Marcas";
             this.opmMarcas.Click += new System.EventHandler(this.opmMarcas_Click);
             // 
             // opmUnidadDeMedida
             // 
             this.opmUnidadDeMedida.Name = "opmUnidadDeMedida";
-            this.opmUnidadDeMedida.Size = new System.Drawing.Size(180, 22);
+            this.opmUnidadDeMedida.Size = new System.Drawing.Size(171, 22);
             this.opmUnidadDeMedida.Text = "Unidad de Medida";
             this.opmUnidadDeMedida.Click += new System.EventHandler(this.opmUnidadDeMedida_Click);
             // 
             // opmImpuestos
             // 
             this.opmImpuestos.Name = "opmImpuestos";
-            this.opmImpuestos.Size = new System.Drawing.Size(180, 22);
+            this.opmImpuestos.Size = new System.Drawing.Size(171, 22);
             this.opmImpuestos.Text = "Impuestos";
             this.opmImpuestos.Click += new System.EventHandler(this.opmImpuestos_Click);
+            // 
+            // opmCasaComercial
+            // 
+            this.opmCasaComercial.Name = "opmCasaComercial";
+            this.opmCasaComercial.Size = new System.Drawing.Size(171, 22);
+            this.opmCasaComercial.Text = "Casa Comercial";
+            this.opmCasaComercial.Click += new System.EventHandler(this.opmCasaComercial_Click);
             // 
             // helpMenu
             // 
@@ -202,25 +210,25 @@
             // BarraEstado
             // 
             this.BarraEstado.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel});
+            this.toolStripStatusLabel1,
+            this.toolEstado});
             this.BarraEstado.Location = new System.Drawing.Point(0, 549);
             this.BarraEstado.Name = "BarraEstado";
             this.BarraEstado.Size = new System.Drawing.Size(1377, 22);
             this.BarraEstado.TabIndex = 2;
             this.BarraEstado.Text = "StatusStrip";
             // 
-            // toolStripStatusLabel
+            // toolEstado
             // 
-            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-            this.toolStripStatusLabel.Size = new System.Drawing.Size(42, 17);
-            this.toolStripStatusLabel.Text = "Estado";
+            this.toolEstado.Name = "toolEstado";
+            this.toolEstado.Size = new System.Drawing.Size(42, 17);
+            this.toolEstado.Text = "Estado";
             // 
-            // opmCasaComercial
+            // toolStripStatusLabel1
             // 
-            this.opmCasaComercial.Name = "opmCasaComercial";
-            this.opmCasaComercial.Size = new System.Drawing.Size(180, 22);
-            this.opmCasaComercial.Text = "Casa Comercial";
-            this.opmCasaComercial.Click += new System.EventHandler(this.opmCasaComercial_Click);
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(53, 17);
+            this.toolStripStatusLabel1.Text = "Usuario: ";
             // 
             // frmPrincipal
             // 
@@ -256,7 +264,7 @@
         private System.Windows.Forms.MenuStrip Menu_Principal;
         private System.Windows.Forms.ToolStrip Barra;
         private System.Windows.Forms.StatusStrip BarraEstado;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
+        private System.Windows.Forms.ToolStripStatusLabel toolEstado;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fileMenu;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
@@ -274,6 +282,7 @@
         private System.Windows.Forms.ToolStripMenuItem seguridadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem opmUsuarios;
         private System.Windows.Forms.ToolStripMenuItem opmCasaComercial;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }
 

@@ -33,9 +33,10 @@ namespace CATALOGO
             _Trastienda = pTrastienda;
             _Categoria = pCategorias;
             _Salir = false;
+            CargarCombos();
             Limpiar_Pantalla();
             CargarDatos();
-            CargarCombos();
+          
             Configuracion_Grid();
             Cargar_SubCategoria();
             Refrescar_Grid();
@@ -215,6 +216,7 @@ namespace CATALOGO
                 txtDescripcion.Text = _Categoria.Descripcion;
                 chkEstado.Checked = _Categoria.Estado;
                 tapMain.Enabled = true;
+                cmbFamilia.SelectedValue = _Categoria.Familia_Id;
             }
         }
         private void CargarCombos()
@@ -275,6 +277,7 @@ namespace CATALOGO
             _Categoria.Fecha_Crea = System.DateTime.Now;
             _Categoria.Usuario_Crea = _Trastienda.Usuario.Usuario_Id;
             _Categoria.Usuario_Modifica = _Trastienda.Usuario.Usuario_Id;
+            _Categoria.Familia_Id = cmbFamilia.SelectedValue.ToString();
         }
         private void Guardar()
         {
@@ -405,6 +408,7 @@ namespace CATALOGO
                     DataGridViewRow row = this.dtgGrid.SelectedRows[0];
                     tbSubCategorias pro = new tbSubCategorias();
 
+                    pro.Familia_Id = _Categoria.Familia_Id;
                     pro.Categoria_Id = _Categoria.Categoria_Id;
                     pro.SubCategoria_Id = row.Cells[_clmCodigo].Value.ToString();
 
@@ -449,8 +453,8 @@ namespace CATALOGO
             }
         }
 
-        #endregion
 
+        #endregion
 
     }
 }

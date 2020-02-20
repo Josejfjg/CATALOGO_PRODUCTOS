@@ -67,6 +67,8 @@ namespace CATALOGO
 
             this.dtgGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.dtgGrid.MultiSelect = false;
+            dtgGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; //se ajustan las
+                                                                                //columnas al ancho del DataGridview para que no quede espacio en blanco
             this.dtgGrid.Refresh();
         }
 

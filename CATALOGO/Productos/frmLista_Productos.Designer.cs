@@ -33,6 +33,7 @@
             this.Bn_Agregar = new System.Windows.Forms.ToolStripButton();
             this.Bn_Modificar = new System.Windows.Forms.ToolStripButton();
             this.Bn_Eliminar = new System.Windows.Forms.ToolStripButton();
+            this.Bn_Importar = new System.Windows.Forms.ToolStripButton();
             this.Bn_Salir = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.chkTodas_SubCategorias = new System.Windows.Forms.CheckBox();
@@ -71,8 +72,9 @@
             this.Bn_Agregar,
             this.Bn_Modificar,
             this.Bn_Eliminar,
+            this.Bn_Importar,
             this.Bn_Salir});
-            this.Barra.Location = new System.Drawing.Point(1175, 655);
+            this.Barra.Location = new System.Drawing.Point(592, 550);
             this.Barra.Name = "Barra";
             this.Barra.Size = new System.Drawing.Size(309, 60);
             this.Barra.TabIndex = 41;
@@ -130,6 +132,20 @@
             this.Bn_Eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Bn_Eliminar.Click += new System.EventHandler(this.Bn_Eliminar_Click);
             // 
+            // Bn_Importar
+            // 
+            this.Bn_Importar.AutoSize = false;
+            this.Bn_Importar.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.Bn_Importar.Image = global::CATALOGO.Properties.Resources.F5;
+            this.Bn_Importar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.Bn_Importar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Bn_Importar.Name = "Bn_Importar";
+            this.Bn_Importar.Size = new System.Drawing.Size(57, 51);
+            this.Bn_Importar.Text = "Importar";
+            this.Bn_Importar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Bn_Importar.Visible = false;
+            this.Bn_Importar.Click += new System.EventHandler(this.Bn_Importar_Click);
+            // 
             // Bn_Salir
             // 
             this.Bn_Salir.AutoSize = false;
@@ -170,14 +186,14 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dtgGrid);
-            this.splitContainer1.Size = new System.Drawing.Size(1468, 634);
-            this.splitContainer1.SplitterDistance = 163;
+            this.splitContainer1.Size = new System.Drawing.Size(885, 539);
+            this.splitContainer1.SplitterDistance = 182;
             this.splitContainer1.TabIndex = 43;
             // 
             // chkTodas_SubCategorias
             // 
             this.chkTodas_SubCategorias.AutoSize = true;
-            this.chkTodas_SubCategorias.Location = new System.Drawing.Point(832, 139);
+            this.chkTodas_SubCategorias.Location = new System.Drawing.Point(647, 138);
             this.chkTodas_SubCategorias.Name = "chkTodas_SubCategorias";
             this.chkTodas_SubCategorias.Size = new System.Drawing.Size(143, 17);
             this.chkTodas_SubCategorias.TabIndex = 51;
@@ -188,7 +204,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(543, 138);
+            this.label7.Location = new System.Drawing.Point(419, 139);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(77, 13);
             this.label7.TabIndex = 50;
@@ -198,16 +214,16 @@
             // 
             this.cmbSubCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSubCategoria.FormattingEnabled = true;
-            this.cmbSubCategoria.Location = new System.Drawing.Point(626, 135);
+            this.cmbSubCategoria.Location = new System.Drawing.Point(502, 136);
             this.cmbSubCategoria.Name = "cmbSubCategoria";
-            this.cmbSubCategoria.Size = new System.Drawing.Size(200, 21);
+            this.cmbSubCategoria.Size = new System.Drawing.Size(139, 21);
             this.cmbSubCategoria.TabIndex = 49;
             this.cmbSubCategoria.SelectedIndexChanged += new System.EventHandler(this.cmbSubCategoria_SelectedIndexChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(274, 138);
+            this.label8.Location = new System.Drawing.Point(206, 139);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(58, 13);
             this.label8.TabIndex = 48;
@@ -217,9 +233,9 @@
             // 
             this.cmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategoria.FormattingEnabled = true;
-            this.cmbCategoria.Location = new System.Drawing.Point(338, 134);
+            this.cmbCategoria.Location = new System.Drawing.Point(270, 135);
             this.cmbCategoria.Name = "cmbCategoria";
-            this.cmbCategoria.Size = new System.Drawing.Size(200, 21);
+            this.cmbCategoria.Size = new System.Drawing.Size(139, 21);
             this.cmbCategoria.TabIndex = 47;
             this.cmbCategoria.SelectedIndexChanged += new System.EventHandler(this.cmbCategoria_SelectedIndexChanged);
             // 
@@ -238,7 +254,7 @@
             this.cmbFamilia.FormattingEnabled = true;
             this.cmbFamilia.Location = new System.Drawing.Point(64, 135);
             this.cmbFamilia.Name = "cmbFamilia";
-            this.cmbFamilia.Size = new System.Drawing.Size(200, 21);
+            this.cmbFamilia.Size = new System.Drawing.Size(139, 21);
             this.cmbFamilia.TabIndex = 45;
             this.cmbFamilia.SelectedIndexChanged += new System.EventHandler(this.cmbFamilia_SelectedIndexChanged);
             // 
@@ -250,23 +266,23 @@
             this.pictureBox1.Image = global::CATALOGO.Properties.Resources.BM_Logo;
             this.pictureBox1.Location = new System.Drawing.Point(-12, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1493, 88);
+            this.pictureBox1.Size = new System.Drawing.Size(910, 88);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 44;
             this.pictureBox1.TabStop = false;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(338, 100);
+            this.txtNombre.Location = new System.Drawing.Point(270, 101);
             this.txtNombre.MaxLength = 100;
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(200, 20);
+            this.txtNombre.Size = new System.Drawing.Size(139, 20);
             this.txtNombre.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(282, 103);
+            this.label2.Location = new System.Drawing.Point(214, 104);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 13);
             this.label2.TabIndex = 2;
@@ -277,7 +293,7 @@
             this.txtCodigo.Location = new System.Drawing.Point(64, 100);
             this.txtCodigo.MaxLength = 20;
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(200, 20);
+            this.txtCodigo.Size = new System.Drawing.Size(139, 20);
             this.txtCodigo.TabIndex = 1;
             // 
             // label1
@@ -298,7 +314,7 @@
             this.dtgGrid.Location = new System.Drawing.Point(0, 0);
             this.dtgGrid.Name = "dtgGrid";
             this.dtgGrid.ReadOnly = true;
-            this.dtgGrid.Size = new System.Drawing.Size(1468, 467);
+            this.dtgGrid.Size = new System.Drawing.Size(885, 353);
             this.dtgGrid.TabIndex = 0;
             // 
             // Pb_LDCOM
@@ -306,7 +322,7 @@
             this.Pb_LDCOM.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Pb_LDCOM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Pb_LDCOM.Image = global::CATALOGO.Properties.Resources.BM_Principal;
-            this.Pb_LDCOM.Location = new System.Drawing.Point(6, 654);
+            this.Pb_LDCOM.Location = new System.Drawing.Point(6, 549);
             this.Pb_LDCOM.Name = "Pb_LDCOM";
             this.Pb_LDCOM.Size = new System.Drawing.Size(121, 61);
             this.Pb_LDCOM.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -317,7 +333,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1473, 720);
+            this.ClientSize = new System.Drawing.Size(890, 615);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.Pb_LDCOM);
             this.Controls.Add(this.Barra);
@@ -364,5 +380,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cmbSubCategoria;
         private System.Windows.Forms.CheckBox chkTodas_SubCategorias;
+        internal System.Windows.Forms.ToolStripButton Bn_Importar;
     }
 }

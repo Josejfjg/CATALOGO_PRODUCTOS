@@ -29,7 +29,9 @@ namespace CATALOGO
         {
             _Trastienda = pTrastienda;
             _Salir = true;
+            toolEstado.Text = _Trastienda.Usuario.Nombre;
             ShowDialog();
+
             return _Salir;
         }
 

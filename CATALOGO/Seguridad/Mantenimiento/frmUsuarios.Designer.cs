@@ -47,9 +47,11 @@
             this.dtpFechaExpira = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.txtContrasena = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_LDCOM)).BeginInit();
             this.Barra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Pb_LDCOM
@@ -57,7 +59,7 @@
             this.Pb_LDCOM.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Pb_LDCOM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Pb_LDCOM.Image = global::CATALOGO.Properties.Resources.BM_Principal;
-            this.Pb_LDCOM.Location = new System.Drawing.Point(6, 669);
+            this.Pb_LDCOM.Location = new System.Drawing.Point(6, 409);
             this.Pb_LDCOM.Name = "Pb_LDCOM";
             this.Pb_LDCOM.Size = new System.Drawing.Size(121, 61);
             this.Pb_LDCOM.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -66,7 +68,7 @@
             // 
             // Barra
             // 
-            this.Barra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Barra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Barra.AutoSize = false;
             this.Barra.BackColor = System.Drawing.Color.Transparent;
             this.Barra.Dock = System.Windows.Forms.DockStyle.None;
@@ -74,9 +76,9 @@
             this.Barra.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Bn_Guardar,
             this.Bn_Salir});
-            this.Barra.Location = new System.Drawing.Point(843, 675);
+            this.Barra.Location = new System.Drawing.Point(633, 409);
             this.Barra.Name = "Barra";
-            this.Barra.Size = new System.Drawing.Size(153, 60);
+            this.Barra.Size = new System.Drawing.Size(150, 69);
             this.Barra.TabIndex = 44;
             this.Barra.Text = "ToolStrip1";
             // 
@@ -115,23 +117,23 @@
             this.pictureBox1.Image = global::CATALOGO.Properties.Resources.BM_Logo;
             this.pictureBox1.Location = new System.Drawing.Point(0, 1);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(960, 60);
+            this.pictureBox1.Size = new System.Drawing.Size(783, 60);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 45;
             this.pictureBox1.TabStop = false;
             // 
             // txtCorreo
             // 
-            this.txtCorreo.Location = new System.Drawing.Point(181, 210);
+            this.txtCorreo.Location = new System.Drawing.Point(227, 140);
             this.txtCorreo.MaxLength = 150;
             this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(648, 20);
+            this.txtCorreo.Size = new System.Drawing.Size(431, 20);
             this.txtCorreo.TabIndex = 2;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(67, 213);
+            this.label6.Location = new System.Drawing.Point(113, 143);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(44, 13);
             this.label6.TabIndex = 51;
@@ -139,16 +141,16 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(181, 163);
+            this.txtNombre.Location = new System.Drawing.Point(227, 114);
             this.txtNombre.MaxLength = 100;
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(648, 20);
+            this.txtNombre.Size = new System.Drawing.Size(431, 20);
             this.txtNombre.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(67, 166);
+            this.label2.Location = new System.Drawing.Point(113, 117);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 13);
             this.label2.TabIndex = 50;
@@ -157,7 +159,7 @@
             // txtCodigo
             // 
             this.txtCodigo.Enabled = false;
-            this.txtCodigo.Location = new System.Drawing.Point(181, 117);
+            this.txtCodigo.Location = new System.Drawing.Point(227, 88);
             this.txtCodigo.MaxLength = 3;
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.ReadOnly = true;
@@ -167,7 +169,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(67, 120);
+            this.label1.Location = new System.Drawing.Point(113, 91);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 13);
             this.label1.TabIndex = 49;
@@ -178,7 +180,7 @@
             this.chkEstado.AutoSize = true;
             this.chkEstado.Checked = true;
             this.chkEstado.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkEstado.Location = new System.Drawing.Point(181, 383);
+            this.chkEstado.Location = new System.Drawing.Point(227, 307);
             this.chkEstado.Name = "chkEstado";
             this.chkEstado.Size = new System.Drawing.Size(56, 17);
             this.chkEstado.TabIndex = 6;
@@ -188,7 +190,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(67, 304);
+            this.label3.Location = new System.Drawing.Point(8, 67);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 13);
             this.label3.TabIndex = 55;
@@ -196,16 +198,16 @@
             // 
             // txtLogin
             // 
-            this.txtLogin.Location = new System.Drawing.Point(181, 254);
+            this.txtLogin.Location = new System.Drawing.Point(122, 25);
             this.txtLogin.MaxLength = 50;
             this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(648, 20);
+            this.txtLogin.Size = new System.Drawing.Size(434, 20);
             this.txtLogin.TabIndex = 3;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(67, 257);
+            this.label4.Location = new System.Drawing.Point(8, 28);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(39, 13);
             this.label4.TabIndex = 54;
@@ -213,7 +215,7 @@
             // 
             // dtpFechaExpira
             // 
-            this.dtpFechaExpira.Location = new System.Drawing.Point(181, 342);
+            this.dtpFechaExpira.Location = new System.Drawing.Point(227, 281);
             this.dtpFechaExpira.Name = "dtpFechaExpira";
             this.dtpFechaExpira.Size = new System.Drawing.Size(200, 20);
             this.dtpFechaExpira.TabIndex = 5;
@@ -221,7 +223,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(67, 348);
+            this.label5.Location = new System.Drawing.Point(113, 287);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(75, 13);
             this.label5.TabIndex = 57;
@@ -232,24 +234,33 @@
             this.txtContrasena.BackColor = System.Drawing.Color.White;
             this.txtContrasena.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtContrasena.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContrasena.Location = new System.Drawing.Point(181, 302);
+            this.txtContrasena.Location = new System.Drawing.Point(122, 65);
             this.txtContrasena.MaxLength = 100;
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.PasswordChar = '●';
-            this.txtContrasena.Size = new System.Drawing.Size(648, 21);
+            this.txtContrasena.Size = new System.Drawing.Size(434, 21);
             this.txtContrasena.TabIndex = 4;
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.txtContrasena);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.txtLogin);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Location = new System.Drawing.Point(103, 166);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(600, 109);
+            this.panel1.TabIndex = 58;
             // 
             // frmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(959, 736);
-            this.Controls.Add(this.txtContrasena);
-            this.Controls.Add(this.label5);
+            this.ClientSize = new System.Drawing.Size(782, 476);
             this.Controls.Add(this.dtpFechaExpira);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtLogin);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.chkEstado);
             this.Controls.Add(this.txtCorreo);
             this.Controls.Add(this.label6);
@@ -273,6 +284,8 @@
             this.Barra.ResumeLayout(false);
             this.Barra.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -297,5 +310,6 @@
         private System.Windows.Forms.DateTimePicker dtpFechaExpira;
         private System.Windows.Forms.Label label5;
         internal System.Windows.Forms.TextBox txtContrasena;
+        private System.Windows.Forms.Panel panel1;
     }
 }

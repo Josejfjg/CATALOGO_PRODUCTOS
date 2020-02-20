@@ -65,7 +65,7 @@
             this.Bn_Modificar,
             this.Bn_Eliminar,
             this.Bn_Salir});
-            this.Barra.Location = new System.Drawing.Point(1175, 655);
+            this.Barra.Location = new System.Drawing.Point(686, 576);
             this.Barra.Name = "Barra";
             this.Barra.Size = new System.Drawing.Size(309, 60);
             this.Barra.TabIndex = 41;
@@ -138,8 +138,8 @@
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer1.Location = new System.Drawing.Point(3, 4);
             this.splitContainer1.Name = "splitContainer1";
@@ -156,29 +156,29 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dtgGrid);
-            this.splitContainer1.Size = new System.Drawing.Size(1468, 634);
-            this.splitContainer1.SplitterDistance = 133;
+            this.splitContainer1.Size = new System.Drawing.Size(979, 555);
+            this.splitContainer1.SplitterDistance = 143;
             this.splitContainer1.TabIndex = 43;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.Image = global::CATALOGO.Properties.Resources.BM_Logo;
             this.pictureBox1.Location = new System.Drawing.Point(-12, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1493, 88);
+            this.pictureBox1.Size = new System.Drawing.Size(1004, 88);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 44;
             this.pictureBox1.TabStop = false;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(258, 101);
+            this.txtNombre.Location = new System.Drawing.Point(277, 101);
             this.txtNombre.MaxLength = 100;
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(135, 20);
+            this.txtNombre.Size = new System.Drawing.Size(232, 20);
             this.txtNombre.TabIndex = 2;
             // 
             // label2
@@ -193,7 +193,7 @@
             // txtCodigo
             // 
             this.txtCodigo.Location = new System.Drawing.Point(63, 101);
-            this.txtCodigo.MaxLength = 10;
+            this.txtCodigo.MaxLength = 5;
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(135, 20);
             this.txtCodigo.TabIndex = 1;
@@ -216,7 +216,7 @@
             this.dtgGrid.Location = new System.Drawing.Point(0, 0);
             this.dtgGrid.Name = "dtgGrid";
             this.dtgGrid.ReadOnly = true;
-            this.dtgGrid.Size = new System.Drawing.Size(1468, 497);
+            this.dtgGrid.Size = new System.Drawing.Size(979, 408);
             this.dtgGrid.TabIndex = 0;
             // 
             // Pb_LDCOM
@@ -224,7 +224,7 @@
             this.Pb_LDCOM.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Pb_LDCOM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Pb_LDCOM.Image = global::CATALOGO.Properties.Resources.BM_Principal;
-            this.Pb_LDCOM.Location = new System.Drawing.Point(6, 654);
+            this.Pb_LDCOM.Location = new System.Drawing.Point(6, 575);
             this.Pb_LDCOM.Name = "Pb_LDCOM";
             this.Pb_LDCOM.Size = new System.Drawing.Size(121, 61);
             this.Pb_LDCOM.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -235,7 +235,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1473, 720);
+            this.ClientSize = new System.Drawing.Size(984, 641);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.Pb_LDCOM);
             this.Controls.Add(this.Barra);

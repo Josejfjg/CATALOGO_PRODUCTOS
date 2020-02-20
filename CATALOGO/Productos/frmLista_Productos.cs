@@ -101,9 +101,11 @@ namespace CATALOGO.Productos
 
             this.dtgGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.dtgGrid.MultiSelect = false;
+
+            dtgGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; //se ajustan las
+                                                                                //columnas al ancho del DataGridview para que no quede espacio en blanco (opcional)
             this.dtgGrid.Refresh();
         }
-
         private void Refrescar_Grid()
         {
             try
@@ -173,7 +175,6 @@ namespace CATALOGO.Productos
                 this.dtgGrid.Refresh();
             }
         }
-
         private void Eliminar_Producto()
         {
             try
@@ -204,7 +205,6 @@ namespace CATALOGO.Productos
                 MessageBox.Show("Se produjo un error al eliminar el producto" + "\n" + ex.Message, "Lista Productos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void Buscar()
         {
             Refrescar_Grid();
@@ -213,13 +213,11 @@ namespace CATALOGO.Productos
         {
             Buscar();
         }
-
         private void Bn_Salir_Click(object sender, EventArgs e)
         {
             _Salir = true;
             this.Close();
         }
-
         private void Bn_Agregar_Click(object sender, EventArgs e)
         {
             frmProductos frm = new frmProductos();
@@ -228,7 +226,6 @@ namespace CATALOGO.Productos
             else
                 Refrescar_Grid();
         }
-
         private void Bn_Modificar_Click(object sender, EventArgs e)
         {
             try
@@ -258,12 +255,10 @@ namespace CATALOGO.Productos
             }
 
         }
-
         private void Bn_Eliminar_Click(object sender, EventArgs e)
         {
             Eliminar_Producto();
         }
-
         private void frmLista_Productos_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
@@ -288,12 +283,10 @@ namespace CATALOGO.Productos
                     break;
             }
         }
-
         private void frmLista_Productos_FormClosed(object sender, FormClosedEventArgs e)
         {
             _Salir = true;
         }
-
         private void CargarCombos()
         {
             _dtFamilias = _Trastienda.WebApiProductos.ListaFamilia();
@@ -307,7 +300,6 @@ namespace CATALOGO.Productos
                 }
             }
         }
-
         private void cmbFamilia_SelectedIndexChanged(object sender, EventArgs e)
         {
             Cargar_Categoria();
@@ -347,20 +339,34 @@ namespace CATALOGO.Productos
                 }
             }
         }
-
         private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
             Cargar_SubCategoria();
         }
-
         private void chkTodas_SubCategorias_CheckedChanged(object sender, EventArgs e)
         {
             Buscar();
         }
-
         private void cmbSubCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
             Buscar();
         }
+        private void Bn_Importar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmImportar_Excel frm = new frmImportar_Excel();
+                if (frm.Execute(_Trastienda))
+                    Refrescar_Grid();
+                else
+                    Refrescar_Grid();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Se produjo un error iniciar la pantalla " + "\n" + ex.Message, "Importar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }

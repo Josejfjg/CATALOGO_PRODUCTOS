@@ -70,8 +70,8 @@ namespace CATALOGO.Seguridad
         {
             try
             {
-                //_Trastienda.Usuario = _Trastienda.WebApiSeguridad.Valida_Usuarios(txtUsuario.Text, ClsSeguridad.GetSHA256(txtContrasena.Text));
-                _Trastienda.Usuario = _Trastienda.WebApiSeguridad.Valida_Usuarios(txtUsuario.Text, txtContrasena.Text);
+                _Trastienda.Usuario = _Trastienda.WebApiSeguridad.Valida_Usuarios(txtUsuario.Text, ClsSeguridad.GetSHA256(txtContrasena.Text));
+                //_Trastienda.Usuario = _Trastienda.WebApiSeguridad.Valida_Usuarios(txtUsuario.Text, txtContrasena.Text);
 
                 if (_Trastienda.Usuario != null)
                 {

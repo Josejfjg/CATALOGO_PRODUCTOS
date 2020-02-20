@@ -209,13 +209,13 @@ namespace CATALOGOENLINEA
                 throw new Exception(ex.Message);
             }
         }
-        public bool EliminarCategoria(string pId)
+        public bool EliminarCategoria(tbCategorias pDatos)
         {
             try
             {
                 HttpClient _cliente = new HttpClient();
                 string _url = _Conexion + "/Categorias/Eliminar/";
-                string jsonMobile = JsonConvert.SerializeObject(pId);
+                string jsonMobile = JsonConvert.SerializeObject(pDatos);
                 var _Result = _cliente.PostAsync(_url, new StringContent(jsonMobile, Encoding.UTF8, "application/json")).Result;
                 string Status = _Result.Content.ReadAsStringAsync().Result;
                 if (_Result.IsSuccessStatusCode)
@@ -802,6 +802,7 @@ namespace CATALOGOENLINEA
             }
         }
         #endregion
+
         #region "Casa_Comercial"
         public List<tbCasa_Comercial> ListaCasa_Comercial()
         {

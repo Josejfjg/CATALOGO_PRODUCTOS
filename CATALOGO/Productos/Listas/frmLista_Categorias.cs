@@ -18,6 +18,7 @@ namespace CATALOGO
         private const int _clmNombre = 3;
         private const int _clmDescripcion = 4;
         private const int _clmEstado = 5;
+        private const int _clmFamilia_Id = 6;
 
 
         public bool Salir { get => _Salir; set => _Salir = value; }
@@ -46,7 +47,7 @@ namespace CATALOGO
         }
         private void Configuracion_Grid()
         {
-            this.dtgGrid.ColumnCount = 5;
+            this.dtgGrid.ColumnCount = 6;
 
             this.dtgGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.dtgGrid.RowHeadersVisible = false;
@@ -64,8 +65,13 @@ namespace CATALOGO
             col1.HeaderText = "Estado";
             this.dtgGrid.Columns.Add(col1);
 
+            this.dtgGrid.Columns[_clmFamilia_Id].Name = "Familia_Id";
+            this.dtgGrid.Columns[_clmFamilia_Id].Visible = false;
+
             this.dtgGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.dtgGrid.MultiSelect = false;
+            dtgGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; //se ajustan las
+                                                                                //columnas al ancho del DataGridview para que no quede espacio en blanco
             this.dtgGrid.Refresh();
         }
         private void Refrescar_Grid()
@@ -110,6 +116,7 @@ namespace CATALOGO
                             dtgGrid.Rows[index].Cells[_clmNombre].Value = _Row.Nombre;
                             dtgGrid.Rows[index].Cells[_clmDescripcion].Value = _Row.Descripcion;
                             dtgGrid.Rows[index].Cells[_clmEstado].Value = _Row.Estado;
+                            dtgGrid.Rows[index].Cells[_clmFamilia_Id].Value = _Row.Familia_Id;
                             dtgGrid.AutoGenerateColumns = true;
                             j++;
                         }
@@ -138,12 +145,13 @@ namespace CATALOGO
                     DataGridViewRow row = this.dtgGrid.SelectedRows[0];
                     tbCategorias pro = new tbCategorias();
 
-
+                    pro.Familia_Id = row.Cells[_clmFamilia_Id].Value.ToString();
                     pro.Categoria_Id = row.Cells[_clmCodigo].Value.ToString();
 
                     if (MessageBox.Show("Esta seguro que quiere eliminar el Categoria", "Categorias", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         tbSubCategorias _Sub = new tbSubCategorias();
+                        _Sub.Familia_Id = pro.Familia_Id;
                         _Sub.Categoria_Id = pro.Categoria_Id;
                         List<tbSubCategorias> _SubCategoria = _Trastienda.WebApiProductos.ListaSubCategorias_X_Categoria(_Sub);
                         if (_SubCategoria != null)
@@ -154,7 +162,7 @@ namespace CATALOGO
                                 return;
                             }
                         }
-                        if (_Trastienda.WebApiProductos.EliminarCategoria(pro.Categoria_Id))
+                        if (_Trastienda.WebApiProductos.EliminarCategoria(pro))
                             MessageBox.Show("Se elimino el Categoria correctamente", "Categorias", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         else
                             MessageBox.Show("Se produjo un error al eliminar el Categoria", "Categorias", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -215,6 +223,7 @@ namespace CATALOGO
                     DataGridViewRow row = this.dtgGrid.SelectedRows[0];
                     tbCategorias pro = new tbCategorias();
 
+                    pro.Familia_Id = row.Cells[_clmFamilia_Id].Value.ToString();
                     pro.Categoria_Id = row.Cells[_clmCodigo].Value.ToString();
                     pro.Nombre = row.Cells[_clmNombre].Value.ToString();
                     pro.Descripcion = row.Cells[_clmDescripcion].Value.ToString();
