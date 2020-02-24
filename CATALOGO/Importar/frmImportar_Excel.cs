@@ -16,7 +16,7 @@ namespace CATALOGO
         private DataSet _DatosExcel = new DataSet();
         private string _MessasErrorValidation = string.Empty;
         List<ExcelProductos> _ListProductos = new List<ExcelProductos>();
-        
+
         private List<ExcelProductos> _DTProductos;
         private const int _clmNum = 0;
         private const int _clmId = 1;
@@ -41,16 +41,16 @@ namespace CATALOGO
         private List<tbUnidad_Medida> _dtUnidad_Medida;
         private List<tbCasa_Comercial> _dtCasa_Comercial;
 
-        private string[] _ListaColumnas = new string[11] { "CODIGO BARRAS", 
-                                                           "CASA COMERCIAL", 
-                                                            "FABRICANTE", 
-                                                            "PRODUCTO", 
-                                                            "MARCA", 
-                                                            "DESCRIPCION", 
-                                                            "DESCRIPCION CORTA", 
-                                                            "UNDAD UNIDAD DE MEDIDA", 
-                                                            "FAMILIA", 
-                                                            "CATEGORIA", 
+        private string[] _ListaColumnas = new string[11] { "CODIGO BARRAS",
+                                                           "CASA COMERCIAL",
+                                                            "FABRICANTE",
+                                                            "PRODUCTO",
+                                                            "MARCA",
+                                                            "DESCRIPCION",
+                                                            "DESCRIPCION CORTA",
+                                                            "UNDAD UNIDAD DE MEDIDA",
+                                                            "FAMILIA",
+                                                            "CATEGORIA",
                                                             "SUBCATEGORIA" };
 
         public bool Salir { get => _Salir; set => _Salir = value; }
@@ -105,7 +105,7 @@ namespace CATALOGO
             }
             catch (Exception ex)
             {
-               
+
             }
         }
         #endregion
@@ -191,18 +191,18 @@ namespace CATALOGO
         private bool ValidaDatosExcel()
         {
             bool _resul = true;
-           
+
             try
             {
                 if (_DatosExcel.Tables.Count > 0)
-                {                   
+                {
                     foreach (string _str in _ListaColumnas)
                     {
-                      
+
                         if (!_DatosExcel.Tables[0].Columns.Contains(_str))
                         {
                             SetMessasError("No se encontro la columna " + _str);
-                            _resul = false;                            
+                            _resul = false;
                         }
 
                     }
@@ -323,7 +323,7 @@ namespace CATALOGO
 
                             //"SUBCATEGORIA"
                             tbSubCategorias _SubCategorias = new tbSubCategorias();
-                            _SubCategorias = _dtSubCategoria.Find(x => x.Nombre == row["SUBCATEGORIA"].ToString() && x.Familia_Id == _Prod.Familia_Id && x.Categoria_Id == _Prod.Categoria_Id );
+                            _SubCategorias = _dtSubCategoria.Find(x => x.Nombre == row["SUBCATEGORIA"].ToString() && x.Familia_Id == _Prod.Familia_Id && x.Categoria_Id == _Prod.Categoria_Id);
                             if (_SubCategorias == null)
                             {
                                 _resul = false;
@@ -334,9 +334,9 @@ namespace CATALOGO
                                 _Prod.SubCategoria_Id = _SubCategorias.SubCategoria_Id;
                                 _Prod.SubCategorias_Nombre = _SubCategorias.Nombre;
                             }
-                           
+
                             _Prod.Error = _MessasErrorValidation;
-                            
+
                             _ListProductos.Add(_Prod);
                         }
                     }
@@ -422,7 +422,7 @@ namespace CATALOGO
             dtgGrid.Columns[_clmError].Width = 200;
 
             dtgGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgGrid.MultiSelect = false;            
+            dtgGrid.MultiSelect = false;
             dtgGrid.Refresh();
         }
         private void Refrescar_Grid()
@@ -488,10 +488,10 @@ namespace CATALOGO
             public ExcelProductos()
             { }
 
-            public ExcelProductos(string pError )
-                {
-                    Error =  pError;
-                }
+            public ExcelProductos(string pError)
+            {
+                Error = pError;
+            }
         }
-    } 
+    }
 }

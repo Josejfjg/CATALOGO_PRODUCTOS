@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLista_Productos));
             this.Barra = new System.Windows.Forms.ToolStrip();
             this.Bn_Buscar = new System.Windows.Forms.ToolStripButton();
             this.Bn_Agregar = new System.Windows.Forms.ToolStripButton();
@@ -337,6 +338,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.Pb_LDCOM);
             this.Controls.Add(this.Barra);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "frmLista_Productos";
             this.Padding = new System.Windows.Forms.Padding(4);

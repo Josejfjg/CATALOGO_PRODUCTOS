@@ -49,9 +49,9 @@
             this.Barra = new System.Windows.Forms.ToolStrip();
             this.tsLista_Productos = new System.Windows.Forms.ToolStripButton();
             this.BarraEstado = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolEstado = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.Menu_Principal.SuspendLayout();
             this.Barra.SuspendLayout();
             this.BarraEstado.SuspendLayout();
@@ -218,17 +218,17 @@
             this.BarraEstado.TabIndex = 2;
             this.BarraEstado.Text = "StatusStrip";
             // 
-            // toolEstado
-            // 
-            this.toolEstado.Name = "toolEstado";
-            this.toolEstado.Size = new System.Drawing.Size(42, 17);
-            this.toolEstado.Text = "Estado";
-            // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(53, 17);
             this.toolStripStatusLabel1.Text = "Usuario: ";
+            // 
+            // toolEstado
+            // 
+            this.toolEstado.Name = "toolEstado";
+            this.toolEstado.Size = new System.Drawing.Size(42, 17);
+            this.toolEstado.Text = "Estado";
             // 
             // frmPrincipal
             // 

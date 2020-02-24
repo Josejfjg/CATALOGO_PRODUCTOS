@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NUnit.3.12.0\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -27,6 +28,8 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -100,6 +103,12 @@
     </Compile>
     <Compile Include="Productos\Listas\frmLista_Casa_Comercial.Designer.cs">
       <DependentUpon>frmLista_Casa_Comercial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="General\frmBuscar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="General\frmBuscar.Designer.cs">
+      <DependentUpon>frmBuscar.cs</DependentUpon>
     </Compile>
     <Compile Include="Productos\Listas\frmLista_Unidad_Medidas.cs">
       <SubType>Form</SubType>
@@ -214,6 +223,9 @@
     <EmbeddedResource Include="Productos\Listas\frmLista_Casa_Comercial.resx">
       <DependentUpon>frmLista_Casa_Comercial.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="General\frmBuscar.resx">
+      <DependentUpon>frmBuscar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Productos\Listas\frmLista_Unidad_Medidas.resx">
       <DependentUpon>frmLista_Unidad_Medidas.cs</DependentUpon>
     </EmbeddedResource>
@@ -287,8 +299,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\Productos.jpg" />
     <None Include="Resources\BM_Principal.png" />
     <Content Include="Bm_Icono.ico" />
+    <Content Include="Resources\Bm_Icono.ico" />
     <Content Include="Resources\ESC.gif" />
     <Content Include="Resources\ESCred.gif" />
     <Content Include="Resources\F1.gif" />
@@ -344,4 +358,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.12.0\build\NUnit.props'))" />
+  </Target>
 </Project>

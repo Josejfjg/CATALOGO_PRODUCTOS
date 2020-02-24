@@ -52,6 +52,7 @@ namespace CATALOGO.Productos
         }
         #endregion
 
+        #region "Metodos privados"
         private void Inicializa_Pantalla()
         {
             //InitializeComponent();
@@ -115,27 +116,21 @@ namespace CATALOGO.Productos
                 _Prod.Nombre = txtNombre.Text;
                 _Prod.Familia_Id = cmbFamilia.SelectedValue.ToString();
                 _Prod.Categoria_Id = cmbCategoria.SelectedValue.ToString();
+
                 if (!chkTodas_SubCategorias.Checked)
                     _Prod.SubCategoria_Id = cmbSubCategoria.SelectedValue.ToString();
+                else
+                    _Prod.SubCategoria_Id = "";
 
-                _DTProductos = _Trastienda.WebApiProductos.ListaProductos(_Prod);
-                List<tbProductos> _Datos = _DTProductos;
-                if (txtCodigo.Text != "")
-                {
-                    _Datos = _DTProductos.Where(x => x.Codigo_Barras == Convert.ToString(txtCodigo.Text)).ToList();
-                }
-                if (txtNombre.Text != "")
-                {
-                    _Datos = _DTProductos.Where(x => x.Nombre == Convert.ToString(txtNombre.Text)).ToList();
-                }
+                _DTProductos = _Trastienda.WebApiProductos.ListaProductos(_Prod);               
                 dtgGrid.Rows.Clear();
 
-                if (_Datos != null)
+                if (_DTProductos != null)
                 {
-                    if (_Datos.Count > 0)
+                    if (_DTProductos.Count > 0)
                     {
                         int j = 1;
-                        foreach (tbProductos _Row in _Datos)
+                        foreach (tbProductos _Row in _DTProductos)
                         {
                             var index = dtgGrid.Rows.Add();
                             dtgGrid.Rows[index].Cells[_clmNum].Value = j;
@@ -209,6 +204,121 @@ namespace CATALOGO.Productos
         {
             Refrescar_Grid();
         }
+        private void CargarCombos()
+        {
+            _dtFamilias = _Trastienda.WebApiProductos.ListaFamilia();
+            if (_dtFamilias != null)
+            {
+                if (_dtFamilias.Count > 0)
+                {
+                    cmbFamilia.ValueMember = "Familia_Id";
+                    cmbFamilia.DisplayMember = "Nombre";
+                    cmbFamilia.DataSource = _dtFamilias;
+                }
+            }
+        }
+        private void Cargar_Categoria()
+        {
+            tbCategorias _tb = new tbCategorias();
+            _tb.Familia_Id = cmbFamilia.SelectedValue.ToString();
+            _dtCategorias = _Trastienda.WebApiProductos.ListaCategorias(_tb);
+
+            if (_dtCategorias != null)
+            {
+                if (_dtCategorias.Count > 0)
+                {
+                    cmbCategoria.ValueMember = "Categoria_Id";
+                    cmbCategoria.DisplayMember = "Nombre";
+                    cmbCategoria.DataSource = _dtCategorias;
+                    //cmbSubCategoria.SelectedValue = ;                   
+                }
+            }
+        }
+        private void Cargar_SubCategoria()
+        {
+
+            tbSubCategorias _tb = new tbSubCategorias();
+            _tb.Familia_Id = cmbFamilia.SelectedValue.ToString();
+            _tb.Categoria_Id = cmbCategoria.SelectedValue.ToString();
+            _dtSubCategoria = _Trastienda.WebApiProductos.ListaSubCategorias(_tb);
+
+            if (_dtSubCategoria != null)
+            {
+                if (_dtSubCategoria.Count > 0)
+                {
+                    cmbSubCategoria.ValueMember = "SubCategoria_Id";
+                    cmbSubCategoria.DisplayMember = "Nombre";
+                    cmbSubCategoria.DataSource = _dtSubCategoria;
+                }
+            }
+        }
+        #endregion
+
+        #region "Eventos"
+        private void cmbFamilia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Cargar_Categoria();
+        }
+        private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Cargar_SubCategoria();
+        }
+        private void cmbSubCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Buscar();
+        }
+        private void Bn_Importar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmImportar_Excel frm = new frmImportar_Excel();
+                if (frm.Execute(_Trastienda))
+                    Refrescar_Grid();
+                else
+                    Refrescar_Grid();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Se produjo un error iniciar la pantalla " + "\n" + ex.Message, "Importar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void chkTodas_SubCategorias_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!chkTodas_SubCategorias.Checked)
+                cmbSubCategoria.Enabled = true;
+            else
+                cmbSubCategoria.Enabled = false;
+            Buscar();
+        }
+        private void frmLista_Productos_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.F1:
+                    Buscar();
+                    break;
+                case Keys.F2:
+                    Bn_Agregar_Click(null, null);
+                    break;
+                case Keys.F3:
+                    Bn_Modificar_Click(null, null);
+                    break;
+                case Keys.F4:
+                    Eliminar_Producto();
+                    break;
+                case Keys.Enter:
+                    Buscar();
+                    break;
+                case Keys.Escape:
+                    Bn_Salir_Click(null, null);
+                    break;
+            }
+        }
+        private void frmLista_Productos_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _Salir = true;
+        }
         private void Bn_Buscar_Click(object sender, EventArgs e)
         {
             Buscar();
@@ -259,114 +369,7 @@ namespace CATALOGO.Productos
         {
             Eliminar_Producto();
         }
-        private void frmLista_Productos_KeyDown(object sender, KeyEventArgs e)
-        {
-            switch (e.KeyCode)
-            {
-                case Keys.F1:
-                    Buscar();
-                    break;
-                case Keys.F2:
-                    Bn_Agregar_Click(null, null);
-                    break;
-                case Keys.F3:
-                    Bn_Modificar_Click(null, null);
-                    break;
-                case Keys.F4:
-                    Eliminar_Producto();
-                    break;
-                case Keys.Enter:
-                    Buscar();
-                    break;
-                case Keys.Escape:
-                    Bn_Salir_Click(null, null);
-                    break;
-            }
-        }
-        private void frmLista_Productos_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            _Salir = true;
-        }
-        private void CargarCombos()
-        {
-            _dtFamilias = _Trastienda.WebApiProductos.ListaFamilia();
-            if (_dtFamilias != null)
-            {
-                if (_dtFamilias.Count > 0)
-                {
-                    cmbFamilia.ValueMember = "Familia_Id";
-                    cmbFamilia.DisplayMember = "Nombre";
-                    cmbFamilia.DataSource = _dtFamilias;
-                }
-            }
-        }
-        private void cmbFamilia_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Cargar_Categoria();
-        }
-        private void Cargar_Categoria()
-        {
-            tbCategorias _tb = new tbCategorias();
-            _tb.Familia_Id = cmbFamilia.SelectedValue.ToString();
-            _dtCategorias = _Trastienda.WebApiProductos.ListaCategorias(_tb);
-
-            if (_dtCategorias != null)
-            {
-                if (_dtCategorias.Count > 0)
-                {
-                    cmbCategoria.ValueMember = "Categoria_Id";
-                    cmbCategoria.DisplayMember = "Nombre";
-                    cmbCategoria.DataSource = _dtCategorias;
-                    //cmbSubCategoria.SelectedValue = ;                   
-                }
-            }
-        }
-        private void Cargar_SubCategoria()
-        {
-
-            tbSubCategorias _tb = new tbSubCategorias();
-            _tb.Familia_Id = cmbFamilia.SelectedValue.ToString();
-            _tb.Categoria_Id = cmbCategoria.SelectedValue.ToString();
-            _dtSubCategoria = _Trastienda.WebApiProductos.ListaSubCategorias(_tb);
-
-            if (_dtSubCategoria != null)
-            {
-                if (_dtSubCategoria.Count > 0)
-                {
-                    cmbSubCategoria.ValueMember = "SubCategoria_Id";
-                    cmbSubCategoria.DisplayMember = "Nombre";
-                    cmbSubCategoria.DataSource = _dtSubCategoria;
-                }
-            }
-        }
-        private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Cargar_SubCategoria();
-        }
-        private void chkTodas_SubCategorias_CheckedChanged(object sender, EventArgs e)
-        {
-            Buscar();
-        }
-        private void cmbSubCategoria_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Buscar();
-        }
-        private void Bn_Importar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                frmImportar_Excel frm = new frmImportar_Excel();
-                if (frm.Execute(_Trastienda))
-                    Refrescar_Grid();
-                else
-                    Refrescar_Grid();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Se produjo un error iniciar la pantalla " + "\n" + ex.Message, "Importar", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        #endregion
 
     }
 }

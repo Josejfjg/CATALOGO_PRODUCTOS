@@ -36,7 +36,7 @@ namespace CATALOGO
             CargarCombos();
             Limpiar_Pantalla();
             CargarDatos();
-          
+
             Configuracion_Grid();
             Cargar_SubCategoria();
             Refrescar_Grid();

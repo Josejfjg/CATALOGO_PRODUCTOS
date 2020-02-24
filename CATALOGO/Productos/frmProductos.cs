@@ -2,6 +2,7 @@
 using CATALOGOOBJ;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -198,12 +199,102 @@ namespace CATALOGO.Productos
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("Se produjo un error" + "\n" + ex.Message, "Productos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void cmbFamilia_SelectedIndexChanged(object sender, EventArgs e)
         {
             Cargar_Categoria();
+        }
+        private void txtHablador_TextChanged(object sender, EventArgs e)
+        {
+            if (txtHablador.Text.Length > 0)
+                lblHablador_Lent.Text = txtHablador.Text.Length.ToString();
+            else
+                lblHablador_Lent.Text = "";
+        }
+        private void btnBuscar_Casa_Comercial_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataTable table = new DataTable();
+                table.Columns.Add("Codigo", typeof(string));
+                table.Columns.Add("Nombre", typeof(string));
+                foreach (tbCasa_Comercial str in _dtCasa_Comercial)
+                {
+                    DataRow row = table.NewRow();
+                    row["Codigo"] = str.Casa_Comercial_Id;
+                    row["Nombre"] = str.Nombre;
+                    table.Rows.Add(row);
+                }
+
+                frmBuscar frm = new frmBuscar();
+                if (frm.Execute(_Trastienda, table))
+                {
+                    txtCodigo_Casa_Comercial.Text = frm.Codigo;
+                    txtNombre_Casa_Comercial.Text = frm.Nombre;
+                }           
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Se produjo un error al agregar la casa comercial" + "\n" + ex.Message, "Productos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void btnBuscar_Fabricante_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                DataTable table = new DataTable();
+                table.Columns.Add("Codigo", typeof(string));
+                table.Columns.Add("Nombre", typeof(string));
+                foreach (tbFabricantes str in _dtFabricantes)
+                {
+                    DataRow row = table.NewRow();
+                    row["Codigo"] = str.Fabricante_Id;
+                    row["Nombre"] = str.Nombre;
+                    table.Rows.Add(row);
+                }
+
+                frmBuscar frm = new frmBuscar();
+                if (frm.Execute(_Trastienda, table))
+                {
+                    txtCodigo_Fabricante.Text = frm.Codigo;
+                    txtNombre_Fabricante.Text = frm.Nombre;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Se produjo un error al agregar el fabricante" + "\n" + ex.Message, "Productos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void btnBuscar_Marca_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                DataTable table = new DataTable();
+                table.Columns.Add("Codigo", typeof(string));
+                table.Columns.Add("Nombre", typeof(string));
+                foreach (tbMarcas str in _dtMarcas)
+                {
+                    DataRow row = table.NewRow();
+                    row["Codigo"] = str.Marca_Id;
+                    row["Nombre"] = str.Nombre;
+                    table.Rows.Add(row);
+                }
+
+                frmBuscar frm = new frmBuscar();
+                if (frm.Execute(_Trastienda, table))
+                {
+                    txtCodigo_Marca.Text = frm.Codigo;
+                    txtNombre_Marca.Text = frm.Nombre;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Se produjo un error al agregar la casa comercial" + "\n" + ex.Message, "Productos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         #endregion
 
@@ -291,6 +382,7 @@ namespace CATALOGO.Productos
             catch (Exception ex)
             {
                 this.dtgGrid.Refresh();
+                throw new Exception(ex.Message);
             }
         }
         private void CargarDatos()
@@ -312,10 +404,13 @@ namespace CATALOGO.Productos
                 cmbFamilia.SelectedValue = _Producto.Familia_Id;
                 cmbCategoria.SelectedValue = _Producto.Categoria_Id;
                 cmbSubCategoria.SelectedValue = _Producto.SubCategoria_Id;
-                cmbMarca.SelectedValue = _Producto.Marca_Id;
-                cmbFabricante.SelectedValue = _Producto.Fabricante_Id;
+                txtCodigo_Marca.Text = _Producto.Marca_Id;
+                txtNombre_Marca.Text = _Producto.Marca_Nombre;
+                txtCodigo_Fabricante.Text = _Producto.Fabricante_Id;
+                txtNombre_Fabricante.Text = _Producto.Fabricante_Nombre;
+                txtCodigo_Casa_Comercial.Text = _Producto.Casa_Comercial_Id;
+                txtNombre_Casa_Comercial.Text = _Producto.Casa_Comercial_Nombre; ;
                 chkEstado.Checked = _Producto.Estado;
-                cmbCasa_Comercial.SelectedValue = _Producto.Casa_Comercial_Id;
                 txtHablador.Text = _Producto.Descripcion_Corta;
 
                 //Cargar_SubCategoria(_Producto.SubCategoria_Id);
@@ -345,15 +440,7 @@ namespace CATALOGO.Productos
 
             _dtSucursales = _Trastienda.WebApiSeguridad.ListaSucursales();
 
-            if (_dtFabricantes != null)
-            {
-                if (_dtFabricantes.Count > 0)
-                {
-                    cmbFabricante.ValueMember = "Fabricante_Id";
-                    cmbFabricante.DisplayMember = "Nombre";
-                    cmbFabricante.DataSource = _dtFabricantes;
-                }
-            }
+
             if (_dtFamilias != null)
             {
                 if (_dtFamilias.Count > 0)
@@ -361,15 +448,6 @@ namespace CATALOGO.Productos
                     cmbFamilia.ValueMember = "Familia_Id";
                     cmbFamilia.DisplayMember = "Nombre";
                     cmbFamilia.DataSource = _dtFamilias;
-                }
-            }
-            if (_dtMarcas != null)
-            {
-                if (_dtCategorias.Count > 0)
-                {
-                    cmbMarca.ValueMember = "Marca_Id";
-                    cmbMarca.DisplayMember = "Nombre";
-                    cmbMarca.DataSource = _dtMarcas;
                 }
             }
             if (_dtUnidad_Medida != null)
@@ -381,7 +459,6 @@ namespace CATALOGO.Productos
                     cmbUnidad_Medida.DataSource = _dtUnidad_Medida;
                 }
             }
-
             /*SUCURSALES*/
             if (_dtSucursales != null)
             {
@@ -393,46 +470,59 @@ namespace CATALOGO.Productos
                     cmbSuc_Sucursal.SelectedItem = 1;
                 }
             }
-
-            if (_dtCasa_Comercial != null)
-            {
-                if (_dtCasa_Comercial.Count > 0)
-                {
-                    cmbCasa_Comercial.ValueMember = "Casa_Comercial_Id";
-                    cmbCasa_Comercial.DisplayMember = "Nombre";
-                    cmbCasa_Comercial.DataSource = _dtCasa_Comercial;
-                }
-            }
         }
         private bool Validar_Datos()
         {
             bool res = true;
+            string message = "";
+
             if (txtCodigo.Text == "")
             {
                 res = false;
-                MessageBox.Show("Debe agregar el codigo del producto", "Productos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                message += "Debe agregar el codigo del producto ";
                 txtCodigo.Focus();
             }
             if (txtContenido.Text == "")
             {
                 res = false;
-                MessageBox.Show("Debe agregar el contenido del producto", "Productos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                message += "\n" + "Debe agregar el contenido del producto ";
                 txtContenido.Focus();
             }
             if (txtNombre.Text == "")
             {
                 res = false;
-                MessageBox.Show("Debe agregar el nombre del producto", "Productos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                message +=  "\n" + "Debe agregar el nombre del producto ";
                 txtNombre.Focus();
             }
+            if (txtCodigo_Casa_Comercial.Text == "")
+            {
+                res = false;
+                message += "\n" + "Debe agregar una casa comercial ";
+                txtCodigo_Casa_Comercial.Focus();
+            }
 
+            if (txtCodigo_Fabricante.Text == "")
+            {
+                res = false;
+                message += "\n" + "Debe agregar un fabricante ";
+                txtCodigo_Fabricante.Focus();
+            }
+
+            if (txtCodigo_Marca.Text == "")
+            {
+                res = false;
+                message += "\n" + "Debe agregar una marca ";
+            }
+
+            if(!res)
+                MessageBox.Show(message, "Productos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return res;
         }
         private void Llenar_Datos()
         {
             _Producto.Codigo_Barras = txtCodigo.Text;
-            _Producto.Fabricante_Id = cmbFabricante.SelectedValue.ToString();
-            _Producto.Marca_Id = cmbMarca.SelectedValue.ToString();
+            _Producto.Fabricante_Id = txtCodigo_Fabricante.Text;
+            _Producto.Marca_Id = txtCodigo_Marca.Text;
             _Producto.Unidad_Medida_Id = cmbUnidad_Medida.SelectedValue.ToString();
             _Producto.Familia_Id = cmbFamilia.SelectedValue.ToString();
             _Producto.Categoria_Id = cmbCategoria.SelectedValue.ToString();
@@ -446,7 +536,7 @@ namespace CATALOGO.Productos
             _Producto.Usuario_Modifica = _Trastienda.Usuario.Usuario_Id;
 
             _Producto.Descripcion_Corta = txtHablador.Text;
-            _Producto.Casa_Comercial_Id = cmbCasa_Comercial.SelectedValue.ToString();
+            _Producto.Casa_Comercial_Id = txtCodigo_Casa_Comercial.Text;
             if (_Producto.Sucursales.Count == 0)
             {
                 _Producto.Sucursales = new List<tbProducto_Sucursal>();
@@ -663,7 +753,7 @@ namespace CATALOGO.Productos
             this.dtgGrid_Impuestos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.dtgGrid_Impuestos.MultiSelect = false;
             this.dtgGrid_Impuestos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; //se ajustan las
-                                                                                //columnas al ancho del DataGridview para que no quede espacio en blanco
+                                                                                               //columnas al ancho del DataGridview para que no quede espacio en blanco
             this.dtgGrid_Impuestos.Refresh();
         }
         private void Refrescar_Grid_Impuestos()
@@ -732,15 +822,8 @@ namespace CATALOGO.Productos
                 }
             }
         }
-
         #endregion
 
-        private void txtHablador_TextChanged(object sender, EventArgs e)
-        {
-            if (txtHablador.Text.Length > 0)
-                lblHablador_Lent.Text = txtHablador.Text.Length.ToString();
-            else
-                lblHablador_Lent.Text = "";
-        }
+
     }
 }
