@@ -265,7 +265,8 @@ namespace CATALOGO.Productos
         }
         private void cmbSubCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Buscar();
+            dtgGrid.Rows.Clear();
+            //Buscar();
         }
         private void Bn_Importar_Click(object sender, EventArgs e)
         {
@@ -369,7 +370,25 @@ namespace CATALOGO.Productos
         {
             Eliminar_Producto();
         }
+        private void BtnBuscar_Click(object sender, EventArgs e)
+        {
+            frmBuscar_Producto frm = new frmBuscar_Producto();
+            if (frm.Execute(_Trastienda))
+                if (frm.Salir)
+                {
+                    txtCodigo.Text = frm.Producto.Codigo_Barras;
+                    txtNombre.Text = frm.Producto.Nombre;
+                    cmbFamilia.SelectedValue = frm.Producto.Familia_Id;
+                    cmbCategoria.SelectedValue = frm.Producto.Categoria_Id;
+                    cmbSubCategoria.SelectedValue = frm.Producto.SubCategoria_Id;
+
+                    Refrescar_Grid();
+                }
+            //else
+            //    Refrescar_Grid();
+        }
         #endregion
+
 
     }
 }

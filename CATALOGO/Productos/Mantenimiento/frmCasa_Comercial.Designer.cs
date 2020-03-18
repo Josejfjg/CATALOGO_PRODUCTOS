@@ -151,6 +151,7 @@
             // 
             // txtCodigo
             // 
+            this.txtCodigo.Enabled = false;
             this.txtCodigo.Location = new System.Drawing.Point(156, 94);
             this.txtCodigo.MaxLength = 5;
             this.txtCodigo.Name = "txtCodigo";

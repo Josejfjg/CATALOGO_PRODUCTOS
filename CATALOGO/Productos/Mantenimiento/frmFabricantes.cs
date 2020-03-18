@@ -82,7 +82,7 @@ namespace CATALOGO
         {
             _Modifica = false;
             txtCodigo.Text = "";
-            txtCodigo.Enabled = true;
+            //txtCodigo.Enabled = true;
             txtNombre.Text = "";
             txtDescripcion.Text = "";
             chkEstado.Checked = true;
@@ -90,12 +90,12 @@ namespace CATALOGO
         private bool Validar_Datos()
         {
             bool res = true;
-            if (txtCodigo.Text == "")
-            {
-                res = false;
-                MessageBox.Show("Debe agregar el codigo del fabricante", "Fabricantes", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtCodigo.Focus();
-            }
+            //if (txtCodigo.Text == "")
+            //{
+            //    res = false;
+            //    MessageBox.Show("Debe agregar el codigo del fabricante", "Fabricantes", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    txtCodigo.Focus();
+            //}
             if (txtNombre.Text == "")
             {
                 res = false;
@@ -138,6 +138,7 @@ namespace CATALOGO
                     if (_res != null)
                         if (_res.Fabricante_Id != "")
                         {
+                            txtCodigo.Text = _res.Fabricante_Id;
                             MessageBox.Show("Se guardo el fabricante correctamente", "Fabricantes", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             _Salir = true;
                             this.Close();

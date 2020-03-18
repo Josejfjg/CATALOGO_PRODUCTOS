@@ -287,6 +287,7 @@
             // 
             // txtSubC_Codigo
             // 
+            this.txtSubC_Codigo.Enabled = false;
             this.txtSubC_Codigo.Location = new System.Drawing.Point(124, 38);
             this.txtSubC_Codigo.MaxLength = 3;
             this.txtSubC_Codigo.Name = "txtSubC_Codigo";
@@ -415,6 +416,7 @@
             // 
             // txtCodigo
             // 
+            this.txtCodigo.Enabled = false;
             this.txtCodigo.Location = new System.Drawing.Point(135, 45);
             this.txtCodigo.MaxLength = 3;
             this.txtCodigo.Name = "txtCodigo";

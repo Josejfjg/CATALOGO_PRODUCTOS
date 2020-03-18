@@ -129,7 +129,7 @@ namespace CATALOGO
                 {
                     //el nombre del archivo sera asignado al textbox
                     txtDirectorio.Text = dialog.FileName;
-                    return LlenarGrid(dialog.FileName); //se manda a llamar al metodo
+                    return ImportarExcel(dialog.FileName); //se manda a llamar al metodo
                 }
                 else
                     return false;
@@ -140,7 +140,7 @@ namespace CATALOGO
                 return false;
             }
         }
-        private bool LlenarGrid(string archivo)
+        private bool ImportarExcel(string archivo)
         {
             //Declaramos las variables
             OleDbConnection conexion = null;
@@ -174,7 +174,11 @@ namespace CATALOGO
                 //dataadapter.Fill(dataset);//llenamos el dataset
 
                 _DatosExcel = dataset;
-                dtgGrid.DataSource = dataset.Tables[0]; //le asignamos al DataGridView el contenido del dataSet
+                Configuracion_Grid();
+
+                //dtgGrid.DataSource = dataset.Tables[0]; //le asignamos al DataGridView el contenido del dataSet
+                Refrescar_Grid_Excel();
+
                 conexion.Close();//cerramos la conexion
                 dtgGrid.AllowUserToAddRows = false;       //eliminamos la ultima fila del datagridview que se autoagrega
 
@@ -393,37 +397,90 @@ namespace CATALOGO
 
             dtgGrid.Columns[_clmNum].Name = "N°";
             dtgGrid.Columns[_clmNum].Width = 30;
-            dtgGrid.Columns[_clmId].Name = "Id";
-            dtgGrid.Columns[_clmId].Visible = false;
-            dtgGrid.Columns[_clmCodigo].Name = "Codigo";
-            dtgGrid.Columns[_clmNombre].Name = "Nombre";
-            dtgGrid.Columns[_clmNombre].Width = 130;
-            dtgGrid.Columns[_clmDescripcion].Name = "Descripcion";
-            dtgGrid.Columns[_clmDescripcion].Width = 150;
-            dtgGrid.Columns[_clmCasa_Comercial].Name = "Casa Comercial";
-            dtgGrid.Columns[_clmCasa_Comercial].Width = 180;
-            dtgGrid.Columns[_clmFabricante].Name = "Fabricante";
-            dtgGrid.Columns[_clmFabricante].Width = 150;
-            dtgGrid.Columns[_clmMarca].Name = "Marca";
-            dtgGrid.Columns[_clmMarca].Width = 150;
-            dtgGrid.Columns[_clmUnidad_Medida].Name = "Unidad de Medida";
-            dtgGrid.Columns[_clmUnidad_Medida].Width = 80;
-            dtgGrid.Columns[_clmContenido].Name = "Contenido";
-            dtgGrid.Columns[_clmContenido].DefaultCellStyle.Format = "#,##0.00";
-            dtgGrid.Columns[_clmContenido].Width = 80;
-            dtgGrid.Columns[_clmFamilia].Name = "Familia";
-            dtgGrid.Columns[_clmFamilia].Width = 150;
-            dtgGrid.Columns[_clmCategoria].Name = "Categoria";
-            dtgGrid.Columns[_clmCategoria].Width = 180;
-            dtgGrid.Columns[_clmSubCategoria].Name = "SubCategoria";
-            dtgGrid.Columns[_clmSubCategoria].Width = 200;
 
-            dtgGrid.Columns[_clmError].Name = "Error";
-            dtgGrid.Columns[_clmError].Width = 200;
+            int i = 0;
+            foreach (DataColumn column in _DatosExcel.Tables[0].Columns)
+            {
+                i += 1;
+                dtgGrid.Columns[i].Name = column.ColumnName;
+
+                //dtgGrid.Columns[_clmId].Name = "Id";
+                //dtgGrid.Columns[_clmId].Visible = false;
+                //dtgGrid.Columns[_clmCodigo].Name = "Codigo";
+                //dtgGrid.Columns[_clmNombre].Name = "Nombre";
+                //dtgGrid.Columns[_clmNombre].Width = 130;
+                //dtgGrid.Columns[_clmDescripcion].Name = "Descripcion";
+                //dtgGrid.Columns[_clmDescripcion].Width = 150;
+                //dtgGrid.Columns[_clmCasa_Comercial].Name = "Casa Comercial";
+                //dtgGrid.Columns[_clmCasa_Comercial].Width = 180;
+                //dtgGrid.Columns[_clmFabricante].Name = "Fabricante";
+                //dtgGrid.Columns[_clmFabricante].Width = 150;
+                //dtgGrid.Columns[_clmMarca].Name = "Marca";
+                //dtgGrid.Columns[_clmMarca].Width = 150;
+                //dtgGrid.Columns[_clmUnidad_Medida].Name = "Unidad de Medida";
+                //dtgGrid.Columns[_clmUnidad_Medida].Width = 80;
+                //dtgGrid.Columns[_clmContenido].Name = "Contenido";
+                //dtgGrid.Columns[_clmContenido].DefaultCellStyle.Format = "#,##0.00";
+                //dtgGrid.Columns[_clmContenido].Width = 80;
+                //dtgGrid.Columns[_clmFamilia].Name = "Familia";
+                //dtgGrid.Columns[_clmFamilia].Width = 150;
+                //dtgGrid.Columns[_clmCategoria].Name = "Categoria";
+                //dtgGrid.Columns[_clmCategoria].Width = 180;
+                //dtgGrid.Columns[_clmSubCategoria].Name = "SubCategoria";
+                //dtgGrid.Columns[_clmSubCategoria].Width = 200; 
+            }
+                dtgGrid.Columns[_clmError].Name = "Error";
+                dtgGrid.Columns[_clmError].Width = 200;
+           
 
             dtgGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgGrid.MultiSelect = false;
             dtgGrid.Refresh();
+        }
+        private void Refrescar_Grid_Excel()
+        {
+            try
+            {
+                dtgGrid.Rows.Clear();
+
+                if (_ListProductos != null)
+                {
+                    if (_ListProductos.Count > 0)
+                    {
+                        int j = 1;
+                        foreach (DataRow _Row in _DatosExcel.Tables[0].Rows)
+                        {                            
+                            var index = dtgGrid.Rows.Add();
+                            dtgGrid.Rows[index].Cells[_clmNum].Value = j;
+                            dtgGrid.Rows[index].Cells[_clmNum].Tag = j - 1;
+                            
+                            for(int y = 0; y < _DatosExcel.Tables[0].Columns.Count; y ++)
+                            {                                
+                                dtgGrid.Rows[index].Cells[y+1].Value = _Row[y];
+
+                            }
+                            dtgGrid.AutoGenerateColumns = true;
+                            j++;
+                        }
+                    }
+                    else
+                        MessageBox.Show("No se encontraron productos", "Productos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron productos", "Productos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                dtgGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; //se ajustan las
+                                                                                    //columnas al ancho del DataGridview para que no quede espacio en blanco (opcional)                
+                this.dtgGrid.Refresh();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(" Problemas al cargar los productos. /n/n " + ex.Message, "Productos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.dtgGrid.Refresh();
+            }
         }
         private void Refrescar_Grid()
         {

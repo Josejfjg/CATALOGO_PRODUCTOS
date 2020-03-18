@@ -28,12 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductos));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tapMain = new System.Windows.Forms.TabControl();
             this.tabProducto = new System.Windows.Forms.TabPage();
+            this.btnBuscar_Casa_Comercial = new System.Windows.Forms.Button();
+            this.btnBuscar_Fabricante = new System.Windows.Forms.Button();
+            this.btnBuscar_Marca = new System.Windows.Forms.Button();
+            this.txtNombre_Marca = new System.Windows.Forms.TextBox();
+            this.txtCodigo_Marca = new System.Windows.Forms.TextBox();
+            this.txtNombre_Fabricante = new System.Windows.Forms.TextBox();
+            this.txtCodigo_Fabricante = new System.Windows.Forms.TextBox();
+            this.txtNombre_Casa_Comercial = new System.Windows.Forms.TextBox();
+            this.txtCodigo_Casa_Comercial = new System.Windows.Forms.TextBox();
             this.lblHablador_Lent = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.txtHablador = new System.Windows.Forms.TextBox();
@@ -84,15 +93,6 @@
             this.Bn_Salir = new System.Windows.Forms.ToolStripButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Pb_LDCOM = new System.Windows.Forms.PictureBox();
-            this.txtCodigo_Casa_Comercial = new System.Windows.Forms.TextBox();
-            this.txtNombre_Casa_Comercial = new System.Windows.Forms.TextBox();
-            this.txtNombre_Fabricante = new System.Windows.Forms.TextBox();
-            this.txtCodigo_Fabricante = new System.Windows.Forms.TextBox();
-            this.txtNombre_Marca = new System.Windows.Forms.TextBox();
-            this.txtCodigo_Marca = new System.Windows.Forms.TextBox();
-            this.btnBuscar_Marca = new System.Windows.Forms.Button();
-            this.btnBuscar_Fabricante = new System.Windows.Forms.Button();
-            this.btnBuscar_Casa_Comercial = new System.Windows.Forms.Button();
             this.tapMain.SuspendLayout();
             this.tabProducto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtContenido)).BeginInit();
@@ -169,6 +169,93 @@
             this.tabProducto.Text = "Producto :";
             this.tabProducto.UseVisualStyleBackColor = true;
             // 
+            // btnBuscar_Casa_Comercial
+            // 
+            this.btnBuscar_Casa_Comercial.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBuscar_Casa_Comercial.BackgroundImage")));
+            this.btnBuscar_Casa_Comercial.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBuscar_Casa_Comercial.Location = new System.Drawing.Point(722, 124);
+            this.btnBuscar_Casa_Comercial.Name = "btnBuscar_Casa_Comercial";
+            this.btnBuscar_Casa_Comercial.Size = new System.Drawing.Size(40, 20);
+            this.btnBuscar_Casa_Comercial.TabIndex = 39;
+            this.btnBuscar_Casa_Comercial.UseVisualStyleBackColor = true;
+            this.btnBuscar_Casa_Comercial.Click += new System.EventHandler(this.btnBuscar_Casa_Comercial_Click);
+            // 
+            // btnBuscar_Fabricante
+            // 
+            this.btnBuscar_Fabricante.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBuscar_Fabricante.BackgroundImage")));
+            this.btnBuscar_Fabricante.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBuscar_Fabricante.Location = new System.Drawing.Point(722, 160);
+            this.btnBuscar_Fabricante.Name = "btnBuscar_Fabricante";
+            this.btnBuscar_Fabricante.Size = new System.Drawing.Size(40, 20);
+            this.btnBuscar_Fabricante.TabIndex = 38;
+            this.btnBuscar_Fabricante.UseVisualStyleBackColor = true;
+            this.btnBuscar_Fabricante.Click += new System.EventHandler(this.btnBuscar_Fabricante_Click);
+            // 
+            // btnBuscar_Marca
+            // 
+            this.btnBuscar_Marca.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBuscar_Marca.BackgroundImage")));
+            this.btnBuscar_Marca.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBuscar_Marca.Location = new System.Drawing.Point(722, 195);
+            this.btnBuscar_Marca.Name = "btnBuscar_Marca";
+            this.btnBuscar_Marca.Size = new System.Drawing.Size(40, 20);
+            this.btnBuscar_Marca.TabIndex = 37;
+            this.btnBuscar_Marca.UseVisualStyleBackColor = true;
+            this.btnBuscar_Marca.Click += new System.EventHandler(this.btnBuscar_Marca_Click);
+            // 
+            // txtNombre_Marca
+            // 
+            this.txtNombre_Marca.Location = new System.Drawing.Point(502, 195);
+            this.txtNombre_Marca.MaxLength = 100;
+            this.txtNombre_Marca.Name = "txtNombre_Marca";
+            this.txtNombre_Marca.ReadOnly = true;
+            this.txtNombre_Marca.Size = new System.Drawing.Size(214, 20);
+            this.txtNombre_Marca.TabIndex = 36;
+            // 
+            // txtCodigo_Marca
+            // 
+            this.txtCodigo_Marca.Location = new System.Drawing.Point(442, 195);
+            this.txtCodigo_Marca.MaxLength = 100;
+            this.txtCodigo_Marca.Name = "txtCodigo_Marca";
+            this.txtCodigo_Marca.ReadOnly = true;
+            this.txtCodigo_Marca.Size = new System.Drawing.Size(54, 20);
+            this.txtCodigo_Marca.TabIndex = 35;
+            // 
+            // txtNombre_Fabricante
+            // 
+            this.txtNombre_Fabricante.Location = new System.Drawing.Point(502, 160);
+            this.txtNombre_Fabricante.MaxLength = 100;
+            this.txtNombre_Fabricante.Name = "txtNombre_Fabricante";
+            this.txtNombre_Fabricante.ReadOnly = true;
+            this.txtNombre_Fabricante.Size = new System.Drawing.Size(214, 20);
+            this.txtNombre_Fabricante.TabIndex = 34;
+            // 
+            // txtCodigo_Fabricante
+            // 
+            this.txtCodigo_Fabricante.Location = new System.Drawing.Point(442, 160);
+            this.txtCodigo_Fabricante.MaxLength = 100;
+            this.txtCodigo_Fabricante.Name = "txtCodigo_Fabricante";
+            this.txtCodigo_Fabricante.ReadOnly = true;
+            this.txtCodigo_Fabricante.Size = new System.Drawing.Size(54, 20);
+            this.txtCodigo_Fabricante.TabIndex = 33;
+            // 
+            // txtNombre_Casa_Comercial
+            // 
+            this.txtNombre_Casa_Comercial.Location = new System.Drawing.Point(502, 124);
+            this.txtNombre_Casa_Comercial.MaxLength = 100;
+            this.txtNombre_Casa_Comercial.Name = "txtNombre_Casa_Comercial";
+            this.txtNombre_Casa_Comercial.ReadOnly = true;
+            this.txtNombre_Casa_Comercial.Size = new System.Drawing.Size(214, 20);
+            this.txtNombre_Casa_Comercial.TabIndex = 32;
+            // 
+            // txtCodigo_Casa_Comercial
+            // 
+            this.txtCodigo_Casa_Comercial.Location = new System.Drawing.Point(442, 124);
+            this.txtCodigo_Casa_Comercial.MaxLength = 100;
+            this.txtCodigo_Casa_Comercial.Name = "txtCodigo_Casa_Comercial";
+            this.txtCodigo_Casa_Comercial.ReadOnly = true;
+            this.txtCodigo_Casa_Comercial.Size = new System.Drawing.Size(54, 20);
+            this.txtCodigo_Casa_Comercial.TabIndex = 31;
+            // 
             // lblHablador_Lent
             // 
             this.lblHablador_Lent.AutoSize = true;
@@ -207,6 +294,7 @@
             // 
             // txtContenido
             // 
+            this.txtContenido.DecimalPlaces = 3;
             this.txtContenido.Location = new System.Drawing.Point(112, 288);
             this.txtContenido.Maximum = new decimal(new int[] {
             99999,
@@ -438,6 +526,7 @@
             // 
             // txtSuc_Sugerido
             // 
+            this.txtSuc_Sugerido.DecimalPlaces = 3;
             this.txtSuc_Sugerido.Location = new System.Drawing.Point(557, 39);
             this.txtSuc_Sugerido.Maximum = new decimal(new int[] {
             1410065407,
@@ -450,6 +539,7 @@
             // 
             // txtSuc_Utilidad
             // 
+            this.txtSuc_Utilidad.DecimalPlaces = 3;
             this.txtSuc_Utilidad.Location = new System.Drawing.Point(557, 13);
             this.txtSuc_Utilidad.Maximum = new decimal(new int[] {
             1410065407,
@@ -462,6 +552,7 @@
             // 
             // txtSuc_Descuento
             // 
+            this.txtSuc_Descuento.DecimalPlaces = 3;
             this.txtSuc_Descuento.Location = new System.Drawing.Point(557, 66);
             this.txtSuc_Descuento.Maximum = new decimal(new int[] {
             1410065407,
@@ -474,6 +565,7 @@
             // 
             // txtSuc_Costo
             // 
+            this.txtSuc_Costo.DecimalPlaces = 3;
             this.txtSuc_Costo.Location = new System.Drawing.Point(81, 65);
             this.txtSuc_Costo.Maximum = new decimal(new int[] {
             1410065407,
@@ -571,35 +663,35 @@
             // 
             this.dtgGrid.AllowUserToAddRows = false;
             this.dtgGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgGrid.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtgGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgGrid.Location = new System.Drawing.Point(0, 0);
             this.dtgGrid.Name = "dtgGrid";
             this.dtgGrid.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dtgGrid.Size = new System.Drawing.Size(770, 197);
             this.dtgGrid.TabIndex = 0;
             // 
@@ -742,93 +834,6 @@
             this.Pb_LDCOM.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Pb_LDCOM.TabIndex = 42;
             this.Pb_LDCOM.TabStop = false;
-            // 
-            // txtCodigo_Casa_Comercial
-            // 
-            this.txtCodigo_Casa_Comercial.Location = new System.Drawing.Point(442, 124);
-            this.txtCodigo_Casa_Comercial.MaxLength = 100;
-            this.txtCodigo_Casa_Comercial.Name = "txtCodigo_Casa_Comercial";
-            this.txtCodigo_Casa_Comercial.ReadOnly = true;
-            this.txtCodigo_Casa_Comercial.Size = new System.Drawing.Size(54, 20);
-            this.txtCodigo_Casa_Comercial.TabIndex = 31;
-            // 
-            // txtNombre_Casa_Comercial
-            // 
-            this.txtNombre_Casa_Comercial.Location = new System.Drawing.Point(502, 124);
-            this.txtNombre_Casa_Comercial.MaxLength = 100;
-            this.txtNombre_Casa_Comercial.Name = "txtNombre_Casa_Comercial";
-            this.txtNombre_Casa_Comercial.ReadOnly = true;
-            this.txtNombre_Casa_Comercial.Size = new System.Drawing.Size(214, 20);
-            this.txtNombre_Casa_Comercial.TabIndex = 32;
-            // 
-            // txtNombre_Fabricante
-            // 
-            this.txtNombre_Fabricante.Location = new System.Drawing.Point(502, 160);
-            this.txtNombre_Fabricante.MaxLength = 100;
-            this.txtNombre_Fabricante.Name = "txtNombre_Fabricante";
-            this.txtNombre_Fabricante.ReadOnly = true;
-            this.txtNombre_Fabricante.Size = new System.Drawing.Size(214, 20);
-            this.txtNombre_Fabricante.TabIndex = 34;
-            // 
-            // txtCodigo_Fabricante
-            // 
-            this.txtCodigo_Fabricante.Location = new System.Drawing.Point(442, 160);
-            this.txtCodigo_Fabricante.MaxLength = 100;
-            this.txtCodigo_Fabricante.Name = "txtCodigo_Fabricante";
-            this.txtCodigo_Fabricante.ReadOnly = true;
-            this.txtCodigo_Fabricante.Size = new System.Drawing.Size(54, 20);
-            this.txtCodigo_Fabricante.TabIndex = 33;
-            // 
-            // txtNombre_Marca
-            // 
-            this.txtNombre_Marca.Location = new System.Drawing.Point(502, 195);
-            this.txtNombre_Marca.MaxLength = 100;
-            this.txtNombre_Marca.Name = "txtNombre_Marca";
-            this.txtNombre_Marca.ReadOnly = true;
-            this.txtNombre_Marca.Size = new System.Drawing.Size(214, 20);
-            this.txtNombre_Marca.TabIndex = 36;
-            // 
-            // txtCodigo_Marca
-            // 
-            this.txtCodigo_Marca.Location = new System.Drawing.Point(442, 195);
-            this.txtCodigo_Marca.MaxLength = 100;
-            this.txtCodigo_Marca.Name = "txtCodigo_Marca";
-            this.txtCodigo_Marca.ReadOnly = true;
-            this.txtCodigo_Marca.Size = new System.Drawing.Size(54, 20);
-            this.txtCodigo_Marca.TabIndex = 35;
-            // 
-            // btnBuscar_Marca
-            // 
-            this.btnBuscar_Marca.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBuscar_Marca.BackgroundImage")));
-            this.btnBuscar_Marca.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnBuscar_Marca.Location = new System.Drawing.Point(722, 195);
-            this.btnBuscar_Marca.Name = "btnBuscar_Marca";
-            this.btnBuscar_Marca.Size = new System.Drawing.Size(40, 20);
-            this.btnBuscar_Marca.TabIndex = 37;
-            this.btnBuscar_Marca.UseVisualStyleBackColor = true;
-            this.btnBuscar_Marca.Click += new System.EventHandler(this.btnBuscar_Marca_Click);
-            // 
-            // btnBuscar_Fabricante
-            // 
-            this.btnBuscar_Fabricante.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBuscar_Fabricante.BackgroundImage")));
-            this.btnBuscar_Fabricante.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnBuscar_Fabricante.Location = new System.Drawing.Point(722, 160);
-            this.btnBuscar_Fabricante.Name = "btnBuscar_Fabricante";
-            this.btnBuscar_Fabricante.Size = new System.Drawing.Size(40, 20);
-            this.btnBuscar_Fabricante.TabIndex = 38;
-            this.btnBuscar_Fabricante.UseVisualStyleBackColor = true;
-            this.btnBuscar_Fabricante.Click += new System.EventHandler(this.btnBuscar_Fabricante_Click);
-            // 
-            // btnBuscar_Casa_Comercial
-            // 
-            this.btnBuscar_Casa_Comercial.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBuscar_Casa_Comercial.BackgroundImage")));
-            this.btnBuscar_Casa_Comercial.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnBuscar_Casa_Comercial.Location = new System.Drawing.Point(722, 124);
-            this.btnBuscar_Casa_Comercial.Name = "btnBuscar_Casa_Comercial";
-            this.btnBuscar_Casa_Comercial.Size = new System.Drawing.Size(40, 20);
-            this.btnBuscar_Casa_Comercial.TabIndex = 39;
-            this.btnBuscar_Casa_Comercial.UseVisualStyleBackColor = true;
-            this.btnBuscar_Casa_Comercial.Click += new System.EventHandler(this.btnBuscar_Casa_Comercial_Click);
             // 
             // frmProductos
             // 
