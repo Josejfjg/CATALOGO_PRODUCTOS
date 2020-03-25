@@ -24,17 +24,17 @@ namespace CATALOGO
         private const int _clmSubCategoria = 4;
         private const int _clmNombre = 5;
         //private const int _clmDescripcion = 4;
-        private const int _clmCasa_Comercial = 6;
+        //private const int _clmCasa_Comercial = 6;
         //private const int _clmFabricante = 7;
         //private const int _clmMarca = 7;
         //private const int _clmUnidad_Medida = 8;
         //private const int _clmContenido = 9;
-        private const int _clmCompuesto = 7;
+        private const int _clmCompuesto = 6;
        
         //private const int _clmEstado = 9;
-        private const int _clmFamilia_id = 8;
-        private const int _clmCategoria_id = 9;
-        private const int _clmSubCategoria_id = 10;
+        private const int _clmFamilia_id = 7;
+        private const int _clmCategoria_id = 8;
+        private const int _clmSubCategoria_id = 9;
         #endregion
 
         #region "Variables publicas"
@@ -71,7 +71,7 @@ namespace CATALOGO
         }
         private void Configuracion_Grid()
         {
-            this.dtgGrid.ColumnCount = 11;
+            this.dtgGrid.ColumnCount = 10;
 
             this.dtgGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.dtgGrid.RowHeadersVisible = false;
@@ -90,9 +90,9 @@ namespace CATALOGO
             this.dtgGrid.Columns[_clmNombre].Name = "Nombre";
             this.dtgGrid.Columns[_clmNombre].Visible = false;
             //this.dtgGrid.Columns[_clmDescripcion].Name = "Descripcion";
-            //this.dtgGrid.Columns[_clmDescripcion].Width = 150;
-            this.dtgGrid.Columns[_clmCasa_Comercial].Name = "Casa Comercial";
-            this.dtgGrid.Columns[_clmCasa_Comercial].Width = 180;
+            ////this.dtgGrid.Columns[_clmDescripcion].Width = 150;
+            //this.dtgGrid.Columns[_clmCasa_Comercial].Name = "Casa Comercial";
+            //this.dtgGrid.Columns[_clmCasa_Comercial].Width = 180;
             //this.dtgGrid.Columns[_clmFabricante].Name = "Fabricante";
             //this.dtgGrid.Columns[_clmFabricante].Width = 150;
             //this.dtgGrid.Columns[_clmMarca].Name = "Marca";
@@ -149,7 +149,7 @@ namespace CATALOGO
                             dtgGrid.Rows[index].Cells[_clmCodigo].Value = _Row.Codigo_Barras;
                             dtgGrid.Rows[index].Cells[_clmNombre].Value = _Row.Nombre;
                             //dtgGrid.Rows[index].Cells[_clmDescripcion].Value = _Row.Descripcion;
-                            dtgGrid.Rows[index].Cells[_clmCasa_Comercial].Value = _Row.Casa_Comercial_Nombre;
+                            //dtgGrid.Rows[index].Cells[_clmCasa_Comercial].Value = _Row.Casa_Comercial_Nombre;
                             //dtgGrid.Rows[index].Cells[_clmFabricante].Value = _Row.Fabricante_Nombre;
                             //dtgGrid.Rows[index].Cells[_clmMarca].Value = _Row.Marca_Nombre;
                             //dtgGrid.Rows[index].Cells[_clmUnidad_Medida].Value = _Row.Unidad_Medida_Nombre;
