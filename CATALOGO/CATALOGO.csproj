@@ -299,6 +299,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\quitar.ico" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\agregar.ico" />
+    <None Include="Resources\busqueda.ico" />
+    <None Include="Resources\delete.png" />
     <Content Include="Resources\Productos.jpg" />
     <None Include="Resources\BM_Principal.png" />
     <Content Include="Bm_Icono.ico" />

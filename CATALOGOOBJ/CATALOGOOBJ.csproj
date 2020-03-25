@@ -44,6 +44,7 @@
     <Compile Include="Parametros\tbSucursales.cs" />
     <Compile Include="Productos\tbImpuestos.cs" />
     <Compile Include="Productos\tbCasa_Comercial.cs" />
+    <Compile Include="Productos\tbProducto_Casa_Comercial.cs" />
     <Compile Include="Productos\tbProducto_Impuestos.cs" />
     <Compile Include="Productos\tbUnidad_Medida.cs" />
     <Compile Include="Productos\tbSubCategorias.cs" />

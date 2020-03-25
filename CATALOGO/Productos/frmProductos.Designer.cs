@@ -28,14 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductos));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tapMain = new System.Windows.Forms.TabControl();
             this.tabProducto = new System.Windows.Forms.TabPage();
+            this.btnBuscar_Fabricante = new System.Windows.Forms.Button();
+            this.btnBuscar_Marca = new System.Windows.Forms.Button();
+            this.txtNombre_Marca = new System.Windows.Forms.TextBox();
+            this.txtCodigo_Marca = new System.Windows.Forms.TextBox();
+            this.txtNombre_Fabricante = new System.Windows.Forms.TextBox();
+            this.txtCodigo_Fabricante = new System.Windows.Forms.TextBox();
             this.lblHablador_Lent = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
             this.txtHablador = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.txtContenido = new System.Windows.Forms.NumericUpDown();
@@ -59,40 +67,45 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabSucursales = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.bmSuc_Mas = new System.Windows.Forms.Button();
+            this.bnSuc_Menos = new System.Windows.Forms.Button();
             this.chkSuc_Todas = new System.Windows.Forms.CheckBox();
             this.txtSuc_Sugerido = new System.Windows.Forms.NumericUpDown();
             this.txtSuc_Utilidad = new System.Windows.Forms.NumericUpDown();
-            this.txtSuc_Descuento = new System.Windows.Forms.NumericUpDown();
             this.txtSuc_Costo = new System.Windows.Forms.NumericUpDown();
             this.chkSuc_Estado = new System.Windows.Forms.CheckBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.cmbSuc_Sucursal = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtSuc_Producto_Id = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.dtgGrid = new System.Windows.Forms.DataGridView();
+            this.tabProveedor = new System.Windows.Forms.TabPage();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.bnProv_Mas = new System.Windows.Forms.Button();
+            this.bnProv_Menos = new System.Windows.Forms.Button();
+            this.btnBuscar_Proveedor = new System.Windows.Forms.Button();
+            this.txtNombre_Proveedor = new System.Windows.Forms.TextBox();
+            this.txtCodigo_Proveedor = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtProv_Descuento_Cliente = new System.Windows.Forms.NumericUpDown();
+            this.txtProv_Descuento_Factura = new System.Windows.Forms.NumericUpDown();
+            this.txtProv_Costo = new System.Windows.Forms.NumericUpDown();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txtProv_Producto_Id = new System.Windows.Forms.TextBox();
+            this.dtgGrid_Proveedor = new System.Windows.Forms.DataGridView();
             this.tapImpuestos = new System.Windows.Forms.TabPage();
             this.dtgGrid_Impuestos = new System.Windows.Forms.DataGridView();
             this.Barra = new System.Windows.Forms.ToolStrip();
             this.Bn_Guardar = new System.Windows.Forms.ToolStripButton();
-            this.Bn_Agregar = new System.Windows.Forms.ToolStripButton();
-            this.Bn_Modificar = new System.Windows.Forms.ToolStripButton();
-            this.Bn_Eliminar = new System.Windows.Forms.ToolStripButton();
             this.Bn_Salir = new System.Windows.Forms.ToolStripButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Pb_LDCOM = new System.Windows.Forms.PictureBox();
-            this.txtCodigo_Casa_Comercial = new System.Windows.Forms.TextBox();
-            this.txtNombre_Casa_Comercial = new System.Windows.Forms.TextBox();
-            this.txtNombre_Fabricante = new System.Windows.Forms.TextBox();
-            this.txtCodigo_Fabricante = new System.Windows.Forms.TextBox();
-            this.txtNombre_Marca = new System.Windows.Forms.TextBox();
-            this.txtCodigo_Marca = new System.Windows.Forms.TextBox();
-            this.btnBuscar_Marca = new System.Windows.Forms.Button();
-            this.btnBuscar_Fabricante = new System.Windows.Forms.Button();
-            this.btnBuscar_Casa_Comercial = new System.Windows.Forms.Button();
             this.tapMain.SuspendLayout();
             this.tabProducto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtContenido)).BeginInit();
@@ -103,9 +116,17 @@
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSuc_Sugerido)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSuc_Utilidad)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSuc_Descuento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSuc_Costo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgGrid)).BeginInit();
+            this.tabProveedor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProv_Descuento_Cliente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProv_Descuento_Factura)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProv_Costo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgGrid_Proveedor)).BeginInit();
             this.tapImpuestos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgGrid_Impuestos)).BeginInit();
             this.Barra.SuspendLayout();
@@ -119,27 +140,23 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tapMain.Controls.Add(this.tabProducto);
             this.tapMain.Controls.Add(this.tabSucursales);
+            this.tapMain.Controls.Add(this.tabProveedor);
             this.tapMain.Controls.Add(this.tapImpuestos);
             this.tapMain.Location = new System.Drawing.Point(-1, 62);
             this.tapMain.Name = "tapMain";
             this.tapMain.SelectedIndex = 0;
             this.tapMain.Size = new System.Drawing.Size(784, 350);
             this.tapMain.TabIndex = 43;
-            this.tapMain.SelectedIndexChanged += new System.EventHandler(this.tapMain_SelectedIndexChanged);
             // 
             // tabProducto
             // 
-            this.tabProducto.Controls.Add(this.btnBuscar_Casa_Comercial);
             this.tabProducto.Controls.Add(this.btnBuscar_Fabricante);
             this.tabProducto.Controls.Add(this.btnBuscar_Marca);
             this.tabProducto.Controls.Add(this.txtNombre_Marca);
             this.tabProducto.Controls.Add(this.txtCodigo_Marca);
             this.tabProducto.Controls.Add(this.txtNombre_Fabricante);
             this.tabProducto.Controls.Add(this.txtCodigo_Fabricante);
-            this.tabProducto.Controls.Add(this.txtNombre_Casa_Comercial);
-            this.tabProducto.Controls.Add(this.txtCodigo_Casa_Comercial);
             this.tabProducto.Controls.Add(this.lblHablador_Lent);
-            this.tabProducto.Controls.Add(this.label18);
             this.tabProducto.Controls.Add(this.txtHablador);
             this.tabProducto.Controls.Add(this.label17);
             this.tabProducto.Controls.Add(this.txtContenido);
@@ -169,6 +186,64 @@
             this.tabProducto.Text = "Producto :";
             this.tabProducto.UseVisualStyleBackColor = true;
             // 
+            // btnBuscar_Fabricante
+            // 
+            this.btnBuscar_Fabricante.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBuscar_Fabricante.BackgroundImage")));
+            this.btnBuscar_Fabricante.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBuscar_Fabricante.Location = new System.Drawing.Point(722, 122);
+            this.btnBuscar_Fabricante.Name = "btnBuscar_Fabricante";
+            this.btnBuscar_Fabricante.Size = new System.Drawing.Size(40, 20);
+            this.btnBuscar_Fabricante.TabIndex = 38;
+            this.btnBuscar_Fabricante.UseVisualStyleBackColor = true;
+            this.btnBuscar_Fabricante.Click += new System.EventHandler(this.btnBuscar_Fabricante_Click);
+            // 
+            // btnBuscar_Marca
+            // 
+            this.btnBuscar_Marca.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBuscar_Marca.BackgroundImage")));
+            this.btnBuscar_Marca.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBuscar_Marca.Location = new System.Drawing.Point(722, 157);
+            this.btnBuscar_Marca.Name = "btnBuscar_Marca";
+            this.btnBuscar_Marca.Size = new System.Drawing.Size(40, 20);
+            this.btnBuscar_Marca.TabIndex = 37;
+            this.btnBuscar_Marca.UseVisualStyleBackColor = true;
+            this.btnBuscar_Marca.Click += new System.EventHandler(this.btnBuscar_Marca_Click);
+            // 
+            // txtNombre_Marca
+            // 
+            this.txtNombre_Marca.Location = new System.Drawing.Point(502, 157);
+            this.txtNombre_Marca.MaxLength = 100;
+            this.txtNombre_Marca.Name = "txtNombre_Marca";
+            this.txtNombre_Marca.ReadOnly = true;
+            this.txtNombre_Marca.Size = new System.Drawing.Size(214, 20);
+            this.txtNombre_Marca.TabIndex = 36;
+            // 
+            // txtCodigo_Marca
+            // 
+            this.txtCodigo_Marca.Location = new System.Drawing.Point(442, 157);
+            this.txtCodigo_Marca.MaxLength = 100;
+            this.txtCodigo_Marca.Name = "txtCodigo_Marca";
+            this.txtCodigo_Marca.ReadOnly = true;
+            this.txtCodigo_Marca.Size = new System.Drawing.Size(54, 20);
+            this.txtCodigo_Marca.TabIndex = 35;
+            // 
+            // txtNombre_Fabricante
+            // 
+            this.txtNombre_Fabricante.Location = new System.Drawing.Point(502, 122);
+            this.txtNombre_Fabricante.MaxLength = 100;
+            this.txtNombre_Fabricante.Name = "txtNombre_Fabricante";
+            this.txtNombre_Fabricante.ReadOnly = true;
+            this.txtNombre_Fabricante.Size = new System.Drawing.Size(214, 20);
+            this.txtNombre_Fabricante.TabIndex = 34;
+            // 
+            // txtCodigo_Fabricante
+            // 
+            this.txtCodigo_Fabricante.Location = new System.Drawing.Point(442, 122);
+            this.txtCodigo_Fabricante.MaxLength = 100;
+            this.txtCodigo_Fabricante.Name = "txtCodigo_Fabricante";
+            this.txtCodigo_Fabricante.ReadOnly = true;
+            this.txtCodigo_Fabricante.Size = new System.Drawing.Size(54, 20);
+            this.txtCodigo_Fabricante.TabIndex = 33;
+            // 
             // lblHablador_Lent
             // 
             this.lblHablador_Lent.AutoSize = true;
@@ -176,15 +251,6 @@
             this.lblHablador_Lent.Name = "lblHablador_Lent";
             this.lblHablador_Lent.Size = new System.Drawing.Size(0, 13);
             this.lblHablador_Lent.TabIndex = 30;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(350, 124);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(86, 13);
-            this.label18.TabIndex = 29;
-            this.label18.Text = "Casa Comercial :";
             // 
             // txtHablador
             // 
@@ -241,7 +307,7 @@
             this.chkEstado.AutoSize = true;
             this.chkEstado.Checked = true;
             this.chkEstado.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkEstado.Location = new System.Drawing.Point(442, 233);
+            this.chkEstado.Location = new System.Drawing.Point(442, 195);
             this.chkEstado.Name = "chkEstado";
             this.chkEstado.Size = new System.Drawing.Size(56, 17);
             this.chkEstado.TabIndex = 13;
@@ -333,7 +399,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(393, 198);
+            this.label4.Location = new System.Drawing.Point(393, 160);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(43, 13);
             this.label4.TabIndex = 11;
@@ -342,7 +408,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(372, 163);
+            this.label3.Location = new System.Drawing.Point(372, 125);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 13);
             this.label3.TabIndex = 9;
@@ -403,15 +469,15 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.bmSuc_Mas);
+            this.splitContainer1.Panel1.Controls.Add(this.bnSuc_Menos);
             this.splitContainer1.Panel1.Controls.Add(this.chkSuc_Todas);
             this.splitContainer1.Panel1.Controls.Add(this.txtSuc_Sugerido);
             this.splitContainer1.Panel1.Controls.Add(this.txtSuc_Utilidad);
-            this.splitContainer1.Panel1.Controls.Add(this.txtSuc_Descuento);
             this.splitContainer1.Panel1.Controls.Add(this.txtSuc_Costo);
             this.splitContainer1.Panel1.Controls.Add(this.chkSuc_Estado);
             this.splitContainer1.Panel1.Controls.Add(this.label15);
             this.splitContainer1.Panel1.Controls.Add(this.label16);
-            this.splitContainer1.Panel1.Controls.Add(this.label14);
             this.splitContainer1.Panel1.Controls.Add(this.label13);
             this.splitContainer1.Panel1.Controls.Add(this.cmbSuc_Sucursal);
             this.splitContainer1.Panel1.Controls.Add(this.label10);
@@ -422,8 +488,30 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dtgGrid);
             this.splitContainer1.Size = new System.Drawing.Size(770, 318);
-            this.splitContainer1.SplitterDistance = 117;
+            this.splitContainer1.SplitterDistance = 111;
             this.splitContainer1.TabIndex = 7;
+            // 
+            // bmSuc_Mas
+            // 
+            this.bmSuc_Mas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bmSuc_Mas.BackgroundImage")));
+            this.bmSuc_Mas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bmSuc_Mas.Location = new System.Drawing.Point(656, 71);
+            this.bmSuc_Mas.Name = "bmSuc_Mas";
+            this.bmSuc_Mas.Size = new System.Drawing.Size(40, 35);
+            this.bmSuc_Mas.TabIndex = 46;
+            this.bmSuc_Mas.UseVisualStyleBackColor = true;
+            this.bmSuc_Mas.Click += new System.EventHandler(this.bmSuc_Mas_Click);
+            // 
+            // bnSuc_Menos
+            // 
+            this.bnSuc_Menos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bnSuc_Menos.BackgroundImage")));
+            this.bnSuc_Menos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bnSuc_Menos.Location = new System.Drawing.Point(702, 71);
+            this.bnSuc_Menos.Name = "bnSuc_Menos";
+            this.bnSuc_Menos.Size = new System.Drawing.Size(40, 35);
+            this.bnSuc_Menos.TabIndex = 45;
+            this.bnSuc_Menos.UseVisualStyleBackColor = true;
+            this.bnSuc_Menos.Click += new System.EventHandler(this.bnSuc_Menos_Click);
             // 
             // chkSuc_Todas
             // 
@@ -459,18 +547,6 @@
             this.txtSuc_Utilidad.Name = "txtSuc_Utilidad";
             this.txtSuc_Utilidad.Size = new System.Drawing.Size(185, 20);
             this.txtSuc_Utilidad.TabIndex = 20;
-            // 
-            // txtSuc_Descuento
-            // 
-            this.txtSuc_Descuento.Location = new System.Drawing.Point(557, 66);
-            this.txtSuc_Descuento.Maximum = new decimal(new int[] {
-            1410065407,
-            2,
-            0,
-            0});
-            this.txtSuc_Descuento.Name = "txtSuc_Descuento";
-            this.txtSuc_Descuento.Size = new System.Drawing.Size(185, 20);
-            this.txtSuc_Descuento.TabIndex = 19;
             // 
             // txtSuc_Costo
             // 
@@ -514,15 +590,6 @@
             this.label16.TabIndex = 13;
             this.label16.Text = "Utilidad";
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(487, 68);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(59, 13);
-            this.label14.TabIndex = 11;
-            this.label14.Text = "Descuento";
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -546,16 +613,16 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(11, 15);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(40, 13);
+            this.label10.Size = new System.Drawing.Size(50, 13);
             this.label10.TabIndex = 2;
-            this.label10.Text = "Codigo";
+            this.label10.Text = "Producto";
             // 
             // txtSuc_Producto_Id
             // 
             this.txtSuc_Producto_Id.Enabled = false;
             this.txtSuc_Producto_Id.Location = new System.Drawing.Point(81, 12);
             this.txtSuc_Producto_Id.Name = "txtSuc_Producto_Id";
-            this.txtSuc_Producto_Id.Size = new System.Drawing.Size(205, 20);
+            this.txtSuc_Producto_Id.Size = new System.Drawing.Size(393, 20);
             this.txtSuc_Producto_Id.TabIndex = 3;
             // 
             // label11
@@ -571,37 +638,255 @@
             // 
             this.dtgGrid.AllowUserToAddRows = false;
             this.dtgGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgGrid.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtgGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgGrid.Location = new System.Drawing.Point(0, 0);
             this.dtgGrid.Name = "dtgGrid";
             this.dtgGrid.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.dtgGrid.Size = new System.Drawing.Size(770, 197);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dtgGrid.Size = new System.Drawing.Size(770, 203);
             this.dtgGrid.TabIndex = 0;
+            // 
+            // tabProveedor
+            // 
+            this.tabProveedor.Controls.Add(this.splitContainer2);
+            this.tabProveedor.Location = new System.Drawing.Point(4, 22);
+            this.tabProveedor.Name = "tabProveedor";
+            this.tabProveedor.Padding = new System.Windows.Forms.Padding(3);
+            this.tabProveedor.Size = new System.Drawing.Size(776, 324);
+            this.tabProveedor.TabIndex = 3;
+            this.tabProveedor.Text = "Proveedor";
+            this.tabProveedor.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer2.Name = "splitContainer2";
+            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.bnProv_Mas);
+            this.splitContainer2.Panel1.Controls.Add(this.bnProv_Menos);
+            this.splitContainer2.Panel1.Controls.Add(this.btnBuscar_Proveedor);
+            this.splitContainer2.Panel1.Controls.Add(this.txtNombre_Proveedor);
+            this.splitContainer2.Panel1.Controls.Add(this.txtCodigo_Proveedor);
+            this.splitContainer2.Panel1.Controls.Add(this.label14);
+            this.splitContainer2.Panel1.Controls.Add(this.txtProv_Descuento_Cliente);
+            this.splitContainer2.Panel1.Controls.Add(this.txtProv_Descuento_Factura);
+            this.splitContainer2.Panel1.Controls.Add(this.txtProv_Costo);
+            this.splitContainer2.Panel1.Controls.Add(this.label19);
+            this.splitContainer2.Panel1.Controls.Add(this.label20);
+            this.splitContainer2.Panel1.Controls.Add(this.label21);
+            this.splitContainer2.Panel1.Controls.Add(this.label22);
+            this.splitContainer2.Panel1.Controls.Add(this.txtProv_Producto_Id);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.dtgGrid_Proveedor);
+            this.splitContainer2.Size = new System.Drawing.Size(770, 318);
+            this.splitContainer2.SplitterDistance = 111;
+            this.splitContainer2.TabIndex = 0;
+            // 
+            // bnProv_Mas
+            // 
+            this.bnProv_Mas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bnProv_Mas.BackgroundImage")));
+            this.bnProv_Mas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bnProv_Mas.Location = new System.Drawing.Point(658, 69);
+            this.bnProv_Mas.Name = "bnProv_Mas";
+            this.bnProv_Mas.Size = new System.Drawing.Size(40, 35);
+            this.bnProv_Mas.TabIndex = 44;
+            this.bnProv_Mas.UseVisualStyleBackColor = true;
+            this.bnProv_Mas.Click += new System.EventHandler(this.bnProv_Mas_Click);
+            // 
+            // bnProv_Menos
+            // 
+            this.bnProv_Menos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bnProv_Menos.BackgroundImage")));
+            this.bnProv_Menos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bnProv_Menos.Location = new System.Drawing.Point(704, 69);
+            this.bnProv_Menos.Name = "bnProv_Menos";
+            this.bnProv_Menos.Size = new System.Drawing.Size(40, 35);
+            this.bnProv_Menos.TabIndex = 43;
+            this.bnProv_Menos.UseVisualStyleBackColor = true;
+            this.bnProv_Menos.Click += new System.EventHandler(this.bnProv_Menos_Click);
+            // 
+            // btnBuscar_Proveedor
+            // 
+            this.btnBuscar_Proveedor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBuscar_Proveedor.BackgroundImage")));
+            this.btnBuscar_Proveedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBuscar_Proveedor.Location = new System.Drawing.Point(370, 43);
+            this.btnBuscar_Proveedor.Name = "btnBuscar_Proveedor";
+            this.btnBuscar_Proveedor.Size = new System.Drawing.Size(40, 20);
+            this.btnBuscar_Proveedor.TabIndex = 42;
+            this.btnBuscar_Proveedor.UseVisualStyleBackColor = true;
+            this.btnBuscar_Proveedor.Click += new System.EventHandler(this.btnBuscar_Proveedor_Click);
+            // 
+            // txtNombre_Proveedor
+            // 
+            this.txtNombre_Proveedor.Location = new System.Drawing.Point(150, 43);
+            this.txtNombre_Proveedor.MaxLength = 100;
+            this.txtNombre_Proveedor.Name = "txtNombre_Proveedor";
+            this.txtNombre_Proveedor.ReadOnly = true;
+            this.txtNombre_Proveedor.Size = new System.Drawing.Size(214, 20);
+            this.txtNombre_Proveedor.TabIndex = 41;
+            // 
+            // txtCodigo_Proveedor
+            // 
+            this.txtCodigo_Proveedor.Location = new System.Drawing.Point(90, 43);
+            this.txtCodigo_Proveedor.MaxLength = 100;
+            this.txtCodigo_Proveedor.Name = "txtCodigo_Proveedor";
+            this.txtCodigo_Proveedor.ReadOnly = true;
+            this.txtCodigo_Proveedor.Size = new System.Drawing.Size(54, 20);
+            this.txtCodigo_Proveedor.TabIndex = 40;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(14, 43);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(56, 13);
+            this.label14.TabIndex = 39;
+            this.label14.Text = "Proveedor";
+            // 
+            // txtProv_Descuento_Cliente
+            // 
+            this.txtProv_Descuento_Cliente.Location = new System.Drawing.Point(559, 16);
+            this.txtProv_Descuento_Cliente.Maximum = new decimal(new int[] {
+            1410065407,
+            2,
+            0,
+            0});
+            this.txtProv_Descuento_Cliente.Name = "txtProv_Descuento_Cliente";
+            this.txtProv_Descuento_Cliente.Size = new System.Drawing.Size(185, 20);
+            this.txtProv_Descuento_Cliente.TabIndex = 34;
+            // 
+            // txtProv_Descuento_Factura
+            // 
+            this.txtProv_Descuento_Factura.Location = new System.Drawing.Point(559, 44);
+            this.txtProv_Descuento_Factura.Maximum = new decimal(new int[] {
+            1410065407,
+            2,
+            0,
+            0});
+            this.txtProv_Descuento_Factura.Name = "txtProv_Descuento_Factura";
+            this.txtProv_Descuento_Factura.Size = new System.Drawing.Size(185, 20);
+            this.txtProv_Descuento_Factura.TabIndex = 33;
+            // 
+            // txtProv_Costo
+            // 
+            this.txtProv_Costo.Location = new System.Drawing.Point(90, 69);
+            this.txtProv_Costo.Maximum = new decimal(new int[] {
+            1410065407,
+            2,
+            0,
+            0});
+            this.txtProv_Costo.Name = "txtProv_Costo";
+            this.txtProv_Costo.Size = new System.Drawing.Size(134, 20);
+            this.txtProv_Costo.TabIndex = 32;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(443, 18);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(94, 13);
+            this.label19.TabIndex = 29;
+            this.label19.Text = "Descuento Cliente";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(443, 46);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(98, 13);
+            this.label20.TabIndex = 28;
+            this.label20.Text = "Descuento Factura";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(14, 71);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(34, 13);
+            this.label21.TabIndex = 27;
+            this.label21.Text = "Costo";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(14, 18);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(50, 13);
+            this.label22.TabIndex = 23;
+            this.label22.Text = "Producto";
+            // 
+            // txtProv_Producto_Id
+            // 
+            this.txtProv_Producto_Id.Enabled = false;
+            this.txtProv_Producto_Id.Location = new System.Drawing.Point(90, 17);
+            this.txtProv_Producto_Id.Name = "txtProv_Producto_Id";
+            this.txtProv_Producto_Id.Size = new System.Drawing.Size(320, 20);
+            this.txtProv_Producto_Id.TabIndex = 24;
+            // 
+            // dtgGrid_Proveedor
+            // 
+            this.dtgGrid_Proveedor.AllowUserToAddRows = false;
+            this.dtgGrid_Proveedor.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgGrid_Proveedor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dtgGrid_Proveedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgGrid_Proveedor.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dtgGrid_Proveedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgGrid_Proveedor.Location = new System.Drawing.Point(0, 0);
+            this.dtgGrid_Proveedor.Name = "dtgGrid_Proveedor";
+            this.dtgGrid_Proveedor.ReadOnly = true;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgGrid_Proveedor.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dtgGrid_Proveedor.Size = new System.Drawing.Size(770, 203);
+            this.dtgGrid_Proveedor.TabIndex = 1;
             // 
             // tapImpuestos
             // 
@@ -636,13 +921,10 @@
             this.Barra.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.Barra.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Bn_Guardar,
-            this.Bn_Agregar,
-            this.Bn_Modificar,
-            this.Bn_Eliminar,
             this.Bn_Salir});
-            this.Barra.Location = new System.Drawing.Point(462, 415);
+            this.Barra.Location = new System.Drawing.Point(639, 415);
             this.Barra.Name = "Barra";
-            this.Barra.Size = new System.Drawing.Size(321, 60);
+            this.Barra.Size = new System.Drawing.Size(144, 60);
             this.Barra.TabIndex = 44;
             this.Barra.Text = "ToolStrip1";
             // 
@@ -650,7 +932,7 @@
             // 
             this.Bn_Guardar.AutoSize = false;
             this.Bn_Guardar.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.Bn_Guardar.Image = global::CATALOGO.Properties.Resources.F1;
+            this.Bn_Guardar.Image = ((System.Drawing.Image)(resources.GetObject("Bn_Guardar.Image")));
             this.Bn_Guardar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.Bn_Guardar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Bn_Guardar.Name = "Bn_Guardar";
@@ -660,56 +942,11 @@
             this.Bn_Guardar.ToolTipText = "Guardar";
             this.Bn_Guardar.Click += new System.EventHandler(this.Bn_Guardar_Click);
             // 
-            // Bn_Agregar
-            // 
-            this.Bn_Agregar.AutoSize = false;
-            this.Bn_Agregar.Enabled = false;
-            this.Bn_Agregar.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.Bn_Agregar.Image = global::CATALOGO.Properties.Resources.F2;
-            this.Bn_Agregar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.Bn_Agregar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Bn_Agregar.Name = "Bn_Agregar";
-            this.Bn_Agregar.Size = new System.Drawing.Size(57, 51);
-            this.Bn_Agregar.Text = "Agregar";
-            this.Bn_Agregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.Bn_Agregar.ToolTipText = "Agregar";
-            this.Bn_Agregar.Click += new System.EventHandler(this.Bn_Agregar_Click);
-            // 
-            // Bn_Modificar
-            // 
-            this.Bn_Modificar.AutoSize = false;
-            this.Bn_Modificar.Enabled = false;
-            this.Bn_Modificar.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.Bn_Modificar.Image = global::CATALOGO.Properties.Resources.F3;
-            this.Bn_Modificar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.Bn_Modificar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Bn_Modificar.Name = "Bn_Modificar";
-            this.Bn_Modificar.Size = new System.Drawing.Size(57, 51);
-            this.Bn_Modificar.Text = "Modificar";
-            this.Bn_Modificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.Bn_Modificar.ToolTipText = "Eliminar";
-            this.Bn_Modificar.Click += new System.EventHandler(this.Bn_Modificar_Click);
-            // 
-            // Bn_Eliminar
-            // 
-            this.Bn_Eliminar.AutoSize = false;
-            this.Bn_Eliminar.Enabled = false;
-            this.Bn_Eliminar.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.Bn_Eliminar.Image = global::CATALOGO.Properties.Resources.F4;
-            this.Bn_Eliminar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.Bn_Eliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Bn_Eliminar.Name = "Bn_Eliminar";
-            this.Bn_Eliminar.Size = new System.Drawing.Size(57, 51);
-            this.Bn_Eliminar.Text = "Eliminar";
-            this.Bn_Eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.Bn_Eliminar.ToolTipText = "Eliminar";
-            this.Bn_Eliminar.Click += new System.EventHandler(this.Bn_Eliminar_Click);
-            // 
             // Bn_Salir
             // 
             this.Bn_Salir.AutoSize = false;
             this.Bn_Salir.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.Bn_Salir.Image = global::CATALOGO.Properties.Resources.ESCred;
+            this.Bn_Salir.Image = ((System.Drawing.Image)(resources.GetObject("Bn_Salir.Image")));
             this.Bn_Salir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.Bn_Salir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Bn_Salir.Name = "Bn_Salir";
@@ -723,7 +960,7 @@
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox1.Image = global::CATALOGO.Properties.Resources.BM_Logo;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 1);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(783, 60);
@@ -735,100 +972,13 @@
             // 
             this.Pb_LDCOM.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Pb_LDCOM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Pb_LDCOM.Image = global::CATALOGO.Properties.Resources.BM_Principal;
+            this.Pb_LDCOM.Image = ((System.Drawing.Image)(resources.GetObject("Pb_LDCOM.Image")));
             this.Pb_LDCOM.Location = new System.Drawing.Point(3, 414);
             this.Pb_LDCOM.Name = "Pb_LDCOM";
             this.Pb_LDCOM.Size = new System.Drawing.Size(121, 61);
             this.Pb_LDCOM.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Pb_LDCOM.TabIndex = 42;
             this.Pb_LDCOM.TabStop = false;
-            // 
-            // txtCodigo_Casa_Comercial
-            // 
-            this.txtCodigo_Casa_Comercial.Location = new System.Drawing.Point(442, 124);
-            this.txtCodigo_Casa_Comercial.MaxLength = 100;
-            this.txtCodigo_Casa_Comercial.Name = "txtCodigo_Casa_Comercial";
-            this.txtCodigo_Casa_Comercial.ReadOnly = true;
-            this.txtCodigo_Casa_Comercial.Size = new System.Drawing.Size(54, 20);
-            this.txtCodigo_Casa_Comercial.TabIndex = 31;
-            // 
-            // txtNombre_Casa_Comercial
-            // 
-            this.txtNombre_Casa_Comercial.Location = new System.Drawing.Point(502, 124);
-            this.txtNombre_Casa_Comercial.MaxLength = 100;
-            this.txtNombre_Casa_Comercial.Name = "txtNombre_Casa_Comercial";
-            this.txtNombre_Casa_Comercial.ReadOnly = true;
-            this.txtNombre_Casa_Comercial.Size = new System.Drawing.Size(214, 20);
-            this.txtNombre_Casa_Comercial.TabIndex = 32;
-            // 
-            // txtNombre_Fabricante
-            // 
-            this.txtNombre_Fabricante.Location = new System.Drawing.Point(502, 160);
-            this.txtNombre_Fabricante.MaxLength = 100;
-            this.txtNombre_Fabricante.Name = "txtNombre_Fabricante";
-            this.txtNombre_Fabricante.ReadOnly = true;
-            this.txtNombre_Fabricante.Size = new System.Drawing.Size(214, 20);
-            this.txtNombre_Fabricante.TabIndex = 34;
-            // 
-            // txtCodigo_Fabricante
-            // 
-            this.txtCodigo_Fabricante.Location = new System.Drawing.Point(442, 160);
-            this.txtCodigo_Fabricante.MaxLength = 100;
-            this.txtCodigo_Fabricante.Name = "txtCodigo_Fabricante";
-            this.txtCodigo_Fabricante.ReadOnly = true;
-            this.txtCodigo_Fabricante.Size = new System.Drawing.Size(54, 20);
-            this.txtCodigo_Fabricante.TabIndex = 33;
-            // 
-            // txtNombre_Marca
-            // 
-            this.txtNombre_Marca.Location = new System.Drawing.Point(502, 195);
-            this.txtNombre_Marca.MaxLength = 100;
-            this.txtNombre_Marca.Name = "txtNombre_Marca";
-            this.txtNombre_Marca.ReadOnly = true;
-            this.txtNombre_Marca.Size = new System.Drawing.Size(214, 20);
-            this.txtNombre_Marca.TabIndex = 36;
-            // 
-            // txtCodigo_Marca
-            // 
-            this.txtCodigo_Marca.Location = new System.Drawing.Point(442, 195);
-            this.txtCodigo_Marca.MaxLength = 100;
-            this.txtCodigo_Marca.Name = "txtCodigo_Marca";
-            this.txtCodigo_Marca.ReadOnly = true;
-            this.txtCodigo_Marca.Size = new System.Drawing.Size(54, 20);
-            this.txtCodigo_Marca.TabIndex = 35;
-            // 
-            // btnBuscar_Marca
-            // 
-            this.btnBuscar_Marca.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBuscar_Marca.BackgroundImage")));
-            this.btnBuscar_Marca.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnBuscar_Marca.Location = new System.Drawing.Point(722, 195);
-            this.btnBuscar_Marca.Name = "btnBuscar_Marca";
-            this.btnBuscar_Marca.Size = new System.Drawing.Size(40, 20);
-            this.btnBuscar_Marca.TabIndex = 37;
-            this.btnBuscar_Marca.UseVisualStyleBackColor = true;
-            this.btnBuscar_Marca.Click += new System.EventHandler(this.btnBuscar_Marca_Click);
-            // 
-            // btnBuscar_Fabricante
-            // 
-            this.btnBuscar_Fabricante.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBuscar_Fabricante.BackgroundImage")));
-            this.btnBuscar_Fabricante.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnBuscar_Fabricante.Location = new System.Drawing.Point(722, 160);
-            this.btnBuscar_Fabricante.Name = "btnBuscar_Fabricante";
-            this.btnBuscar_Fabricante.Size = new System.Drawing.Size(40, 20);
-            this.btnBuscar_Fabricante.TabIndex = 38;
-            this.btnBuscar_Fabricante.UseVisualStyleBackColor = true;
-            this.btnBuscar_Fabricante.Click += new System.EventHandler(this.btnBuscar_Fabricante_Click);
-            // 
-            // btnBuscar_Casa_Comercial
-            // 
-            this.btnBuscar_Casa_Comercial.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBuscar_Casa_Comercial.BackgroundImage")));
-            this.btnBuscar_Casa_Comercial.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnBuscar_Casa_Comercial.Location = new System.Drawing.Point(722, 124);
-            this.btnBuscar_Casa_Comercial.Name = "btnBuscar_Casa_Comercial";
-            this.btnBuscar_Casa_Comercial.Size = new System.Drawing.Size(40, 20);
-            this.btnBuscar_Casa_Comercial.TabIndex = 39;
-            this.btnBuscar_Casa_Comercial.UseVisualStyleBackColor = true;
-            this.btnBuscar_Casa_Comercial.Click += new System.EventHandler(this.btnBuscar_Casa_Comercial_Click);
             // 
             // frmProductos
             // 
@@ -859,9 +1009,18 @@
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtSuc_Sugerido)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSuc_Utilidad)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSuc_Descuento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSuc_Costo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgGrid)).EndInit();
+            this.tabProveedor.ResumeLayout(false);
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel1.PerformLayout();
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtProv_Descuento_Cliente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProv_Descuento_Factura)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProv_Costo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgGrid_Proveedor)).EndInit();
             this.tapImpuestos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgGrid_Impuestos)).EndInit();
             this.Barra.ResumeLayout(false);
@@ -907,32 +1066,42 @@
         private System.Windows.Forms.CheckBox chkSuc_Estado;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox cmbSuc_Sucursal;
         private System.Windows.Forms.NumericUpDown txtSuc_Sugerido;
         private System.Windows.Forms.NumericUpDown txtSuc_Utilidad;
-        private System.Windows.Forms.NumericUpDown txtSuc_Descuento;
         private System.Windows.Forms.NumericUpDown txtSuc_Costo;
         private System.Windows.Forms.TabPage tapImpuestos;
-        internal System.Windows.Forms.ToolStripButton Bn_Agregar;
-        internal System.Windows.Forms.ToolStripButton Bn_Eliminar;
-        internal System.Windows.Forms.ToolStripButton Bn_Modificar;
         private System.Windows.Forms.DataGridView dtgGrid_Impuestos;
         internal System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.CheckBox chkSuc_Todas;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox txtHablador;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label lblHablador_Lent;
-        private System.Windows.Forms.Button btnBuscar_Casa_Comercial;
         private System.Windows.Forms.Button btnBuscar_Fabricante;
         private System.Windows.Forms.Button btnBuscar_Marca;
         private System.Windows.Forms.TextBox txtNombre_Marca;
         private System.Windows.Forms.TextBox txtCodigo_Marca;
         private System.Windows.Forms.TextBox txtNombre_Fabricante;
         private System.Windows.Forms.TextBox txtCodigo_Fabricante;
-        private System.Windows.Forms.TextBox txtNombre_Casa_Comercial;
-        private System.Windows.Forms.TextBox txtCodigo_Casa_Comercial;
+        private System.Windows.Forms.TabPage tabProveedor;
+        private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.NumericUpDown txtProv_Descuento_Cliente;
+        private System.Windows.Forms.NumericUpDown txtProv_Descuento_Factura;
+        private System.Windows.Forms.NumericUpDown txtProv_Costo;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox txtProv_Producto_Id;
+        private System.Windows.Forms.DataGridView dtgGrid_Proveedor;
+        private System.Windows.Forms.Button btnBuscar_Proveedor;
+        private System.Windows.Forms.TextBox txtNombre_Proveedor;
+        private System.Windows.Forms.TextBox txtCodigo_Proveedor;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button bnProv_Mas;
+        private System.Windows.Forms.Button bmSuc_Mas;
+        private System.Windows.Forms.Button bnSuc_Menos;
+        private System.Windows.Forms.Button bnProv_Menos;
     }
 }

@@ -75,9 +75,9 @@
             this.Bn_Eliminar,
             this.Bn_Importar,
             this.Bn_Salir});
-            this.Barra.Location = new System.Drawing.Point(592, 550);
+            this.Barra.Location = new System.Drawing.Point(541, 550);
             this.Barra.Name = "Barra";
-            this.Barra.Size = new System.Drawing.Size(309, 60);
+            this.Barra.Size = new System.Drawing.Size(360, 60);
             this.Barra.TabIndex = 41;
             this.Barra.Text = "ToolStrip1";
             // 
@@ -144,7 +144,6 @@
             this.Bn_Importar.Size = new System.Drawing.Size(57, 51);
             this.Bn_Importar.Text = "Importar";
             this.Bn_Importar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.Bn_Importar.Visible = false;
             this.Bn_Importar.Click += new System.EventHandler(this.Bn_Importar_Click);
             // 
             // Bn_Salir

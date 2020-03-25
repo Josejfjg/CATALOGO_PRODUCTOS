@@ -19,8 +19,8 @@ namespace CATALOGOOBJ
         private string _Categoria_Nombre;
         private string _SubCategoria_Id;
         private string _SubCategorias_Nombre;
-        private string _Casa_Comercial_Id;
-        private string _Casa_Comercial_Nombre;
+        //private string _Casa_Comercial_Id;
+        //private string _Casa_Comercial_Nombre;
         private string _Nombre;
         private string _Descripcion;
         private string _Descripcion_Corta;
@@ -32,6 +32,7 @@ namespace CATALOGOOBJ
         private int _Usuario_Modifica;
         private List<tbProducto_Sucursal> _Sucursales;
         private List<tbProducto_Impuestos> _Impuestos;
+        private List<tbProducto_Casa_Comercial> _Casas_Comerciales;
 
 
         public int Producto_Id { get => _Producto_Id; set => _Producto_Id = value; }
@@ -52,14 +53,15 @@ namespace CATALOGOOBJ
         public int Usuario_Modifica { get => _Usuario_Modifica; set => _Usuario_Modifica = value; }
         public List<tbProducto_Sucursal> Sucursales { get => _Sucursales; set => _Sucursales = value; }
         public List<tbProducto_Impuestos> Impuestos { get => _Impuestos; set => _Impuestos = value; }
+        public List<tbProducto_Casa_Comercial> Casas_Comerciales { get => _Casas_Comerciales; set => _Casas_Comerciales = value; }
         public string Fabricante_Nombre { get => _Fabricante_Nombre; set => _Fabricante_Nombre = value; }
         public string Marca_Nombre { get => _Marca_Nombre; set => _Marca_Nombre = value; }
         public string Unidad_Medida_Nombre { get => _Unidad_Medida_Nombre; set => _Unidad_Medida_Nombre = value; }
         public string Familia_Nombre { get => _Familia_Nombre; set => _Familia_Nombre = value; }
         public string Categoria_Nombre { get => _Categoria_Nombre; set => _Categoria_Nombre = value; }
         public string SubCategorias_Nombre { get => _SubCategorias_Nombre; set => _SubCategorias_Nombre = value; }
-        public string Casa_Comercial_Id { get => _Casa_Comercial_Id; set => _Casa_Comercial_Id = value; }
-        public string Casa_Comercial_Nombre { get => _Casa_Comercial_Nombre; set => _Casa_Comercial_Nombre = value; }
+        //public string Casa_Comercial_Id { get => _Casa_Comercial_Id; set => _Casa_Comercial_Id = value; }
+        //public string Casa_Comercial_Nombre { get => _Casa_Comercial_Nombre; set => _Casa_Comercial_Nombre = value; }
         public string Descripcion_Corta { get => _Descripcion_Corta; set => _Descripcion_Corta = value; }
 
         public tbProductos()
@@ -88,9 +90,10 @@ namespace CATALOGOOBJ
             _Usuario_Modifica = 0;
             _Sucursales = new List<tbProducto_Sucursal>();
             _Impuestos = new List<tbProducto_Impuestos>();
+            _Casas_Comerciales = new List<tbProducto_Casa_Comercial>();
             _Descripcion_Corta = "";
-            _Casa_Comercial_Id = "";
-            _Casa_Comercial_Nombre = "";
+            //_Casa_Comercial_Id = "";
+            //_Casa_Comercial_Nombre = "";
         }
     }
 }

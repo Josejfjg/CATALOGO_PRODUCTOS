@@ -18,16 +18,23 @@ namespace CATALOGO.Productos
         private const int _colSuc_Id = 2;
         private const int _colNombre = 3;
         private const int _colCosto = 4;
-        private const int _colDescuento = 5;
-        private const int _colUtilidad = 6;
-        private const int _colSugerido = 7;
-        private const int _colSincronizado = 8;
-        private const int _colEstado = 9;
+        private const int _colUtilidad = 5;
+        private const int _colSugerido = 6;
+        private const int _colSincronizado = 7;
+        private const int _colEstado = 8;
 
         private const int _colImp_Impuesto_id = 1;
         private const int _colImp_Nombre = 2;
         private const int _colImp_Descripcion = 3;
         private const int _colImp_Activo = 4;
+
+        private const int _colProveedor_Num = 0;
+        private const int _colProveedor_Codigo = 1;
+        private const int _colProveedor_Nombre = 2;
+        private const int _colProveedor_Costo = 3;
+        private const int _colProveedor_Descuento_Cliente = 4;
+        private const int _colProveedor_Descuento_Factura = 5;
+
 
         private TTrastienda _Trastienda;
         private List<tbCategorias> _dtCategorias;
@@ -58,6 +65,9 @@ namespace CATALOGO.Productos
             Refrescar_Grid_Impuestos();
             Refrescar_Grid();
             Limpiar_Sucursales();
+            Configuracion_Grid_Proveedor();
+            Limpiar_Proveedor();
+            Refrescar_Grid_Proveedor();
             this.ShowDialog();
             return _Salir;
         }
@@ -82,50 +92,7 @@ namespace CATALOGO.Productos
         private void Bn_Guardar_Click(object sender, EventArgs e)
         {
             Guardar();
-        }
-        private void tapMain_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            switch (tapMain.SelectedTab.Name)
-            {
-                case "tabProducto":
-                    Bn_Agregar.Enabled = false;
-                    Bn_Modificar.Enabled = false;
-                    Bn_Eliminar.Enabled = false;
-                    Bn_Guardar.Enabled = true;
-                    break;
-                case "tabSucursales":
-                    Bn_Agregar.Enabled = true;
-                    Bn_Modificar.Enabled = true;
-                    Bn_Eliminar.Enabled = true;
-                    Bn_Guardar.Enabled = true;
-                    break;
-                case "tapImpuestos":
-                    Bn_Agregar.Enabled = false;
-                    Bn_Modificar.Enabled = false;
-                    Bn_Eliminar.Enabled = false;
-                    Bn_Guardar.Enabled = true;
-                    break;
-
-            }
-        }
-        private void Bn_Agregar_Click(object sender, EventArgs e)
-        {
-            switch (tapMain.SelectedTab.Name)
-            {
-                case "tabSucursales":
-                    Agregar_Sucursales();
-                    break;
-            }
-        }
-        private void Bn_Eliminar_Click(object sender, EventArgs e)
-        {
-            switch (tapMain.SelectedTab.Name)
-            {
-                case "tabSucursales":
-                    Eliminar_Sucursal();
-                    break;
-            }
-        }
+        }            
         private void Bn_Modificar_Click(object sender, EventArgs e)
         {
             switch (tapMain.SelectedTab.Name)
@@ -133,11 +100,15 @@ namespace CATALOGO.Productos
                 case "tabSucursales":
                     Modificar_Sucursal();
                     break;
+                case "tabProveedor":
+                    Modificar_Proveedores();
+                    break;
             }
         }
         private void txtCodigo_TextChanged(object sender, EventArgs e)
         {
             txtSuc_Producto_Id.Text = txtCodigo.Text;
+            txtProv_Producto_Id.Text = txtSuc_Producto_Id.Text;
         }
         private void dtgGrid_Impuestos_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -166,19 +137,7 @@ namespace CATALOGO.Productos
             {
                 case Keys.F1:
                     Guardar();
-                    break;
-                case Keys.F2:
-                    if (Bn_Agregar.Enabled == true)
-                        Bn_Agregar_Click(null, null);
-                    break;
-                case Keys.F3:
-                    if (Bn_Agregar.Enabled == true)
-                        Bn_Modificar_Click(null, null);
-                    break;
-                case Keys.F4:
-                    if (Bn_Eliminar.Enabled == true)
-                        Bn_Eliminar_Click(null, null);
-                    break;
+                    break;               
                 case Keys.Escape:
                     Bn_Salir_Click(null, null);
                     break;
@@ -213,36 +172,8 @@ namespace CATALOGO.Productos
             else
                 lblHablador_Lent.Text = "";
         }
-        private void btnBuscar_Casa_Comercial_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                DataTable table = new DataTable();
-                table.Columns.Add("Codigo", typeof(string));
-                table.Columns.Add("Nombre", typeof(string));
-                foreach (tbCasa_Comercial str in _dtCasa_Comercial)
-                {
-                    DataRow row = table.NewRow();
-                    row["Codigo"] = str.Casa_Comercial_Id;
-                    row["Nombre"] = str.Nombre;
-                    table.Rows.Add(row);
-                }
-
-                frmBuscar frm = new frmBuscar();
-                if (frm.Execute(_Trastienda, table))
-                {
-                    txtCodigo_Casa_Comercial.Text = frm.Codigo;
-                    txtNombre_Casa_Comercial.Text = frm.Nombre;
-                }           
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Se produjo un error al agregar la casa comercial" + "\n" + ex.Message, "Productos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
         private void btnBuscar_Fabricante_Click(object sender, EventArgs e)
         {
-
             try
             {
                 DataTable table = new DataTable();
@@ -296,6 +227,50 @@ namespace CATALOGO.Productos
                 MessageBox.Show("Se produjo un error al agregar la casa comercial" + "\n" + ex.Message, "Productos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void btnBuscar_Proveedor_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataTable table = new DataTable();
+                table.Columns.Add("Codigo", typeof(string));
+                table.Columns.Add("Nombre", typeof(string));
+                foreach (tbCasa_Comercial str in _dtCasa_Comercial)
+                {
+                    DataRow row = table.NewRow();
+                    row["Codigo"] = str.Casa_Comercial_Id;
+                    row["Nombre"] = str.Nombre;
+                    table.Rows.Add(row);
+                }
+
+                frmBuscar frm = new frmBuscar();
+                if (frm.Execute(_Trastienda, table))
+                {
+                    txtCodigo_Proveedor.Text = frm.Codigo;
+                    txtNombre_Proveedor.Text = frm.Nombre;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Se produjo un error al agregar el proveedor" + "\n" + ex.Message, "Productos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void bnProv_Mas_Click(object sender, EventArgs e)
+        {
+            Agregar_Proveedores();
+        }
+        private void bnProv_Menos_Click(object sender, EventArgs e)
+        { 
+            Eliminar_Proveedores();          
+        }
+        private void bmSuc_Mas_Click(object sender, EventArgs e)
+        {
+            Agregar_Sucursales();
+        }
+
+        private void bnSuc_Menos_Click(object sender, EventArgs e)
+        {
+            Eliminar_Sucursal();
+        }
         #endregion
 
         #region "Metodos Privados"
@@ -305,7 +280,7 @@ namespace CATALOGO.Productos
         }
         private void Configuracion_Grid()
         {
-            this.dtgGrid.ColumnCount = 8;
+            this.dtgGrid.ColumnCount = 7;
 
             this.dtgGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.dtgGrid.RowHeadersVisible = false;
@@ -315,10 +290,7 @@ namespace CATALOGO.Productos
             this.dtgGrid.Columns[_colSuc_Id].Name = "Suc_Id";
             this.dtgGrid.Columns[_colNombre].Name = "Nombre";
             this.dtgGrid.Columns[_colCosto].Name = "Costo";
-            //this.dtgGrid.Columns[_colImp_Impuesto_id].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             this.dtgGrid.Columns[_colCosto].DefaultCellStyle.Format = "#,##0.00";
-            this.dtgGrid.Columns[_colDescuento].Name = "Descuento";
-            this.dtgGrid.Columns[_colDescuento].DefaultCellStyle.Format = "#,##0.00";
             this.dtgGrid.Columns[_colUtilidad].Name = "Utilidad";
             this.dtgGrid.Columns[_colUtilidad].DefaultCellStyle.Format = "#,##0.00";
             this.dtgGrid.Columns[_colSugerido].Name = "Sugerido";
@@ -361,7 +333,6 @@ namespace CATALOGO.Productos
                             dtgGrid.Rows[index].Cells[_colSuc_Id].Value = _Row.Sucursal_Id;
                             dtgGrid.Rows[index].Cells[_colNombre].Value = _Row.Sucursal_Nombre;
                             dtgGrid.Rows[index].Cells[_colCosto].Value = _Row.Costo;
-                            dtgGrid.Rows[index].Cells[_colDescuento].Value = _Row.Descuento;
                             dtgGrid.Rows[index].Cells[_colUtilidad].Value = _Row.Utilidad;
                             dtgGrid.Rows[index].Cells[_colSugerido].Value = _Row.Sugerido;
                             dtgGrid.Rows[index].Cells[_colSincronizado].Value = _Row.Sincronizado;
@@ -408,14 +379,10 @@ namespace CATALOGO.Productos
                 txtNombre_Marca.Text = _Producto.Marca_Nombre;
                 txtCodigo_Fabricante.Text = _Producto.Fabricante_Id;
                 txtNombre_Fabricante.Text = _Producto.Fabricante_Nombre;
-                txtCodigo_Casa_Comercial.Text = _Producto.Casa_Comercial_Id;
-                txtNombre_Casa_Comercial.Text = _Producto.Casa_Comercial_Nombre; ;
                 chkEstado.Checked = _Producto.Estado;
                 txtHablador.Text = _Producto.Descripcion_Corta;
-
-                //Cargar_SubCategoria(_Producto.SubCategoria_Id);
                 txtSuc_Producto_Id.Text = _Producto.Nombre + " " + _Producto.Marca_Nombre + " " + _Producto.Descripcion + " " + Convert.ToInt32(_Producto.Contenido).ToString() + " " + _Producto.Unidad_Medida_Nombre;
-
+                txtProv_Producto_Id.Text = txtSuc_Producto_Id.Text;
             }
         }
         private void Limpiar_Pantalla()
@@ -494,13 +461,6 @@ namespace CATALOGO.Productos
                 message +=  "\n" + "Debe agregar el nombre del producto ";
                 txtNombre.Focus();
             }
-            if (txtCodigo_Casa_Comercial.Text == "")
-            {
-                res = false;
-                message += "\n" + "Debe agregar una casa comercial ";
-                txtCodigo_Casa_Comercial.Focus();
-            }
-
             if (txtCodigo_Fabricante.Text == "")
             {
                 res = false;
@@ -536,7 +496,7 @@ namespace CATALOGO.Productos
             _Producto.Usuario_Modifica = _Trastienda.Usuario.Usuario_Id;
 
             _Producto.Descripcion_Corta = txtHablador.Text;
-            _Producto.Casa_Comercial_Id = txtCodigo_Casa_Comercial.Text;
+            //_Producto.Casa_Comercial_Id = txtCodigo_Casa_Comercial.Text;
             if (_Producto.Sucursales.Count == 0)
             {
                 _Producto.Sucursales = new List<tbProducto_Sucursal>();
@@ -607,8 +567,7 @@ namespace CATALOGO.Productos
         {
             cmbSuc_Sucursal.Enabled = true;
             cmbSuc_Sucursal.SelectedItem = 1;
-            txtSuc_Costo.Value = 0;
-            txtSuc_Descuento.Value = 0;
+            txtSuc_Costo.Value = 0;         
             txtSuc_Utilidad.Value = 0;
             txtSuc_Sugerido.Value = 0;
             chkSuc_Estado.Checked = true;
@@ -623,7 +582,6 @@ namespace CATALOGO.Productos
                 _tb.Sucursal_Id = pId;
                 _tb.Sucursal_Nombre = pNombre;
                 _tb.Costo = txtSuc_Costo.Value;
-                _tb.Descuento = txtSuc_Descuento.Value;
                 _tb.Utilidad = txtSuc_Utilidad.Value;
                 _tb.Sugerido = txtSuc_Sugerido.Value;
                 _tb.Estado = chkSuc_Estado.Checked;
@@ -707,12 +665,10 @@ namespace CATALOGO.Productos
                     DataGridViewRow row = this.dtgGrid.SelectedRows[0];
 
                     cmbSuc_Sucursal.Enabled = false;
-                    //chkSuc_Todas.Enabled = false;
                     cmbSuc_Sucursal.SelectedValue = Convert.ToInt32(row.Cells[_colSuc_Id].Value);
-                    txtSuc_Costo.Value = Convert.ToDecimal(row.Cells[_colCosto].Value);
-                    txtSuc_Descuento.Value = Convert.ToDecimal(row.Cells[_colDescuento].Value); ;
-                    txtSuc_Utilidad.Value = Convert.ToDecimal(row.Cells[_colUtilidad].Value); ;
-                    txtSuc_Sugerido.Value = Convert.ToDecimal(row.Cells[_colSugerido].Value); ;
+                    txtSuc_Costo.Value = Convert.ToDecimal(row.Cells[_colCosto].Value);                   
+                    txtSuc_Utilidad.Value = Convert.ToDecimal(row.Cells[_colUtilidad].Value); 
+                    txtSuc_Sugerido.Value = Convert.ToDecimal(row.Cells[_colSugerido].Value); 
                     chkSuc_Estado.Checked = Convert.ToBoolean(row.Cells[_colEstado].Value); ;
                 }
             }
@@ -822,8 +778,166 @@ namespace CATALOGO.Productos
                 }
             }
         }
-        #endregion
+        private void Agregar_Proveedores()
+        {
+            try
+            {
+                if (txtCodigo_Proveedor.Text != "")
+                {
+                    tbProducto_Casa_Comercial _tb = new tbProducto_Casa_Comercial();
+                    _tb.Casa_Comercial_Id = txtCodigo_Proveedor.Text;
+                    _tb.Casa_Comercial_Nombre = txtNombre_Proveedor.Text;
+                    _tb.Costo = txtProv_Costo.Value;
+                    _tb.Descuento_Cliente = txtProv_Descuento_Cliente.Value;
+                    _tb.Descuento_Factura = txtProv_Descuento_Factura.Value;
+                    _tb.Usuario_Crea = _Trastienda.Usuario.Usuario_Id;
 
+                    tbProducto_Casa_Comercial product = _Producto.Casas_Comerciales.FirstOrDefault(x => x.Casa_Comercial_Id == _tb.Casa_Comercial_Id);
+                    if (product != null)
+                    {
+                        if (MessageBox.Show("Ya existe el proveedor : " + txtNombre_Proveedor + " \n ¿Desea modificarlo?", "Productos", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            _tb.Usuario_Crea = _Trastienda.Usuario.Usuario_Id;
+                            product = _tb;
+
+                            _Producto.Casas_Comerciales.Remove(_Producto.Casas_Comerciales.FirstOrDefault(x => x.Casa_Comercial_Id == _tb.Casa_Comercial_Id));
+                            _Producto.Casas_Comerciales.Add(_tb);
+                        }
+                    }
+                    else
+                    {
+                        _Producto.Casas_Comerciales.Add(_tb);
+                    }
+
+                    Limpiar_Proveedor();
+                    Refrescar_Grid_Proveedor();
+                }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar un proveedor", "Producto por Proveedor", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtCodigo_Proveedor.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Se produjo un error al agregar la relacion entre producto y proveedor " + "\n" + ex.Message, "Producto por Sucursal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Limpiar_Proveedor();
+                Refrescar_Grid();
+            }
+        }
+        private void Eliminar_Proveedores()
+        {
+            try
+            {
+                if (dtgGrid_Proveedor.SelectedRows.Count > 0)
+                {
+                    DataGridViewRow row = this.dtgGrid_Proveedor.SelectedRows[0];
+
+                    if (MessageBox.Show("Esta seguro que quiere eliminar proveedor", "Productos", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        _Producto.Casas_Comerciales.Remove(_Producto.Casas_Comerciales.FirstOrDefault(x => x.Casa_Comercial_Id == row.Cells[_colProveedor_Codigo].Value.ToString()));
+                        Refrescar_Grid_Proveedor();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Se produjo un error al eliminar la relacion entre producto y proveedor " + "\n" + ex.Message, "Producto por Sucursal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void Modificar_Proveedores()
+        {
+            try
+            {
+                if (dtgGrid_Proveedor.SelectedRows.Count > 0)
+                {
+                    DataGridViewRow row = this.dtgGrid_Proveedor.SelectedRows[0];
+
+                    txtCodigo_Proveedor.Text = row.Cells[_colProveedor_Codigo].Value.ToString();
+                    txtNombre_Proveedor.Text = row.Cells[_colProveedor_Nombre].Value.ToString();
+                    txtProv_Costo.Value = Convert.ToDecimal(row.Cells[_colProveedor_Costo].Value);
+                    txtProv_Descuento_Cliente.Value = Convert.ToDecimal(row.Cells[_colProveedor_Descuento_Cliente].Value);
+                    txtProv_Descuento_Factura.Value = Convert.ToDecimal(row.Cells[_colProveedor_Descuento_Factura].Value);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Se produjo un error al cargar los datos de la relacion entre producto con sucursal seleccionada " + "\n" + ex.Message, "Producto por Sucursal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void Limpiar_Proveedor()
+        {
+            txtProv_Costo.Value = 0;
+            txtProv_Descuento_Cliente.Value = 0;
+            txtProv_Descuento_Factura.Value = 0;
+            txtCodigo_Proveedor.Text = "";
+            txtNombre_Proveedor.Text = "";
+        }
+        private void Configuracion_Grid_Proveedor()
+        {
+            this.dtgGrid_Proveedor.ColumnCount = 6;
+
+            this.dtgGrid_Proveedor.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+            this.dtgGrid_Proveedor.RowHeadersVisible = false;
+
+            this.dtgGrid_Proveedor .Columns[_colNum].Name = "N°";
+            this.dtgGrid_Proveedor.Columns[_colProveedor_Codigo].Name = "Codigo";           
+            this.dtgGrid_Proveedor.Columns[_colProveedor_Nombre].Name = "Proveedor";
+            this.dtgGrid_Proveedor.Columns[_colProveedor_Costo].Name = "Costo";
+            this.dtgGrid_Proveedor.Columns[_colCosto].DefaultCellStyle.Format = "#,##0.00";
+            this.dtgGrid_Proveedor.Columns[_colProveedor_Descuento_Cliente].Name = "Descuento Cliente";
+            this.dtgGrid_Proveedor.Columns[_colProveedor_Descuento_Cliente].DefaultCellStyle.Format = "#,##0.00";
+            this.dtgGrid_Proveedor.Columns[_colProveedor_Descuento_Factura].Name = "Descuento Factura";
+            this.dtgGrid_Proveedor.Columns[_colProveedor_Descuento_Factura].DefaultCellStyle.Format = "#,##0.00";
+
+            this.dtgGrid_Proveedor.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            this.dtgGrid_Proveedor.MultiSelect = false;
+            this.dtgGrid_Proveedor.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; //se ajustan las
+                                                                                //columnas al ancho del DataGridview para que no quede espacio en blanco
+            this.dtgGrid_Proveedor.Refresh();
+        }
+        private void Refrescar_Grid_Proveedor()
+        {
+            dtgGrid_Proveedor.Rows.Clear();
+            try
+            {
+                if (_Producto.Casas_Comerciales != null)
+                {
+                    if (_Producto.Casas_Comerciales.Count > 0)
+                    {
+                        int j = 1;
+                        foreach (tbProducto_Casa_Comercial _Row in _Producto.Casas_Comerciales)
+                        {
+                            var index = dtgGrid_Proveedor.Rows.Add();
+                            dtgGrid_Proveedor.Rows[index].Cells[_colProveedor_Num].Value = j;
+                            dtgGrid_Proveedor.Rows[index].Cells[_colProveedor_Num].Tag = j - 1;
+                            dtgGrid_Proveedor.Rows[index].Cells[_colProveedor_Codigo].Value = _Row.Casa_Comercial_Id;
+                            dtgGrid_Proveedor.Rows[index].Cells[_colProveedor_Nombre].Value = _Row.Casa_Comercial_Nombre;
+                            dtgGrid_Proveedor.Rows[index].Cells[_colProveedor_Costo].Value = _Row.Costo;
+                            dtgGrid_Proveedor.Rows[index].Cells[_colProveedor_Descuento_Cliente].Value = _Row.Descuento_Cliente;
+                            dtgGrid_Proveedor.Rows[index].Cells[_colProveedor_Descuento_Factura].Value = _Row.Descuento_Factura;
+                            dtgGrid_Proveedor.AutoGenerateColumns = true;
+                            j++;
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron productos", "Productos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                this.dtgGrid_Proveedor.Refresh();
+
+            }
+            catch (Exception ex)
+            {
+                this.dtgGrid_Proveedor.Refresh();
+                throw new Exception(ex.Message);
+            }
+        }
+
+
+
+        #endregion
 
     }
 }
