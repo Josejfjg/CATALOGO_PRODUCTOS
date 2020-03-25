@@ -32,17 +32,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tapMain = new System.Windows.Forms.TabControl();
             this.tabProducto = new System.Windows.Forms.TabPage();
+            this.btnBuscar_Casa_Comercial = new System.Windows.Forms.Button();
             this.btnBuscar_Fabricante = new System.Windows.Forms.Button();
             this.btnBuscar_Marca = new System.Windows.Forms.Button();
             this.txtNombre_Marca = new System.Windows.Forms.TextBox();
             this.txtCodigo_Marca = new System.Windows.Forms.TextBox();
             this.txtNombre_Fabricante = new System.Windows.Forms.TextBox();
             this.txtCodigo_Fabricante = new System.Windows.Forms.TextBox();
+            this.txtNombre_Casa_Comercial = new System.Windows.Forms.TextBox();
+            this.txtCodigo_Casa_Comercial = new System.Windows.Forms.TextBox();
             this.lblHablador_Lent = new System.Windows.Forms.Label();
             this.txtHablador = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -186,11 +186,22 @@
             this.tabProducto.Text = "Producto :";
             this.tabProducto.UseVisualStyleBackColor = true;
             // 
+            // btnBuscar_Casa_Comercial
+            // 
+            this.btnBuscar_Casa_Comercial.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBuscar_Casa_Comercial.BackgroundImage")));
+            this.btnBuscar_Casa_Comercial.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBuscar_Casa_Comercial.Location = new System.Drawing.Point(722, 124);
+            this.btnBuscar_Casa_Comercial.Name = "btnBuscar_Casa_Comercial";
+            this.btnBuscar_Casa_Comercial.Size = new System.Drawing.Size(40, 20);
+            this.btnBuscar_Casa_Comercial.TabIndex = 39;
+            this.btnBuscar_Casa_Comercial.UseVisualStyleBackColor = true;
+            this.btnBuscar_Casa_Comercial.Click += new System.EventHandler(this.btnBuscar_Casa_Comercial_Click);
+            // 
             // btnBuscar_Fabricante
             // 
             this.btnBuscar_Fabricante.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBuscar_Fabricante.BackgroundImage")));
             this.btnBuscar_Fabricante.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnBuscar_Fabricante.Location = new System.Drawing.Point(722, 122);
+            this.btnBuscar_Fabricante.Location = new System.Drawing.Point(722, 160);
             this.btnBuscar_Fabricante.Name = "btnBuscar_Fabricante";
             this.btnBuscar_Fabricante.Size = new System.Drawing.Size(40, 20);
             this.btnBuscar_Fabricante.TabIndex = 38;
@@ -201,7 +212,7 @@
             // 
             this.btnBuscar_Marca.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBuscar_Marca.BackgroundImage")));
             this.btnBuscar_Marca.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnBuscar_Marca.Location = new System.Drawing.Point(722, 157);
+            this.btnBuscar_Marca.Location = new System.Drawing.Point(722, 195);
             this.btnBuscar_Marca.Name = "btnBuscar_Marca";
             this.btnBuscar_Marca.Size = new System.Drawing.Size(40, 20);
             this.btnBuscar_Marca.TabIndex = 37;
@@ -210,7 +221,7 @@
             // 
             // txtNombre_Marca
             // 
-            this.txtNombre_Marca.Location = new System.Drawing.Point(502, 157);
+            this.txtNombre_Marca.Location = new System.Drawing.Point(502, 195);
             this.txtNombre_Marca.MaxLength = 100;
             this.txtNombre_Marca.Name = "txtNombre_Marca";
             this.txtNombre_Marca.ReadOnly = true;
@@ -219,7 +230,7 @@
             // 
             // txtCodigo_Marca
             // 
-            this.txtCodigo_Marca.Location = new System.Drawing.Point(442, 157);
+            this.txtCodigo_Marca.Location = new System.Drawing.Point(442, 195);
             this.txtCodigo_Marca.MaxLength = 100;
             this.txtCodigo_Marca.Name = "txtCodigo_Marca";
             this.txtCodigo_Marca.ReadOnly = true;
@@ -228,7 +239,7 @@
             // 
             // txtNombre_Fabricante
             // 
-            this.txtNombre_Fabricante.Location = new System.Drawing.Point(502, 122);
+            this.txtNombre_Fabricante.Location = new System.Drawing.Point(502, 160);
             this.txtNombre_Fabricante.MaxLength = 100;
             this.txtNombre_Fabricante.Name = "txtNombre_Fabricante";
             this.txtNombre_Fabricante.ReadOnly = true;
@@ -237,12 +248,30 @@
             // 
             // txtCodigo_Fabricante
             // 
-            this.txtCodigo_Fabricante.Location = new System.Drawing.Point(442, 122);
+            this.txtCodigo_Fabricante.Location = new System.Drawing.Point(442, 160);
             this.txtCodigo_Fabricante.MaxLength = 100;
             this.txtCodigo_Fabricante.Name = "txtCodigo_Fabricante";
             this.txtCodigo_Fabricante.ReadOnly = true;
             this.txtCodigo_Fabricante.Size = new System.Drawing.Size(54, 20);
             this.txtCodigo_Fabricante.TabIndex = 33;
+            // 
+            // txtNombre_Casa_Comercial
+            // 
+            this.txtNombre_Casa_Comercial.Location = new System.Drawing.Point(502, 124);
+            this.txtNombre_Casa_Comercial.MaxLength = 100;
+            this.txtNombre_Casa_Comercial.Name = "txtNombre_Casa_Comercial";
+            this.txtNombre_Casa_Comercial.ReadOnly = true;
+            this.txtNombre_Casa_Comercial.Size = new System.Drawing.Size(214, 20);
+            this.txtNombre_Casa_Comercial.TabIndex = 32;
+            // 
+            // txtCodigo_Casa_Comercial
+            // 
+            this.txtCodigo_Casa_Comercial.Location = new System.Drawing.Point(442, 124);
+            this.txtCodigo_Casa_Comercial.MaxLength = 100;
+            this.txtCodigo_Casa_Comercial.Name = "txtCodigo_Casa_Comercial";
+            this.txtCodigo_Casa_Comercial.ReadOnly = true;
+            this.txtCodigo_Casa_Comercial.Size = new System.Drawing.Size(54, 20);
+            this.txtCodigo_Casa_Comercial.TabIndex = 31;
             // 
             // lblHablador_Lent
             // 
@@ -273,6 +302,7 @@
             // 
             // txtContenido
             // 
+            this.txtContenido.DecimalPlaces = 3;
             this.txtContenido.Location = new System.Drawing.Point(112, 288);
             this.txtContenido.Maximum = new decimal(new int[] {
             99999,
@@ -526,6 +556,7 @@
             // 
             // txtSuc_Sugerido
             // 
+            this.txtSuc_Sugerido.DecimalPlaces = 3;
             this.txtSuc_Sugerido.Location = new System.Drawing.Point(557, 39);
             this.txtSuc_Sugerido.Maximum = new decimal(new int[] {
             1410065407,
@@ -538,6 +569,7 @@
             // 
             // txtSuc_Utilidad
             // 
+            this.txtSuc_Utilidad.DecimalPlaces = 3;
             this.txtSuc_Utilidad.Location = new System.Drawing.Point(557, 13);
             this.txtSuc_Utilidad.Maximum = new decimal(new int[] {
             1410065407,
@@ -548,8 +580,22 @@
             this.txtSuc_Utilidad.Size = new System.Drawing.Size(185, 20);
             this.txtSuc_Utilidad.TabIndex = 20;
             // 
+            // txtSuc_Descuento
+            // 
+            this.txtSuc_Descuento.DecimalPlaces = 3;
+            this.txtSuc_Descuento.Location = new System.Drawing.Point(557, 66);
+            this.txtSuc_Descuento.Maximum = new decimal(new int[] {
+            1410065407,
+            2,
+            0,
+            0});
+            this.txtSuc_Descuento.Name = "txtSuc_Descuento";
+            this.txtSuc_Descuento.Size = new System.Drawing.Size(185, 20);
+            this.txtSuc_Descuento.TabIndex = 19;
+            // 
             // txtSuc_Costo
             // 
+            this.txtSuc_Costo.DecimalPlaces = 3;
             this.txtSuc_Costo.Location = new System.Drawing.Point(81, 65);
             this.txtSuc_Costo.Maximum = new decimal(new int[] {
             1410065407,
@@ -667,7 +713,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtgGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dtgGrid.Size = new System.Drawing.Size(770, 203);
+            this.dtgGrid.Size = new System.Drawing.Size(770, 197);
             this.dtgGrid.TabIndex = 0;
             // 
             // tabProveedor

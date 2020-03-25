@@ -82,7 +82,7 @@ namespace CATALOGO
         {
             _Modifica = false;
             txtCodigo.Text = "";
-            txtCodigo.Enabled = true;
+            //txtCodigo.Enabled = true;
             txtNombre.Text = "";
             txtDescripcion.Text = "";
             chkEstado.Checked = true;
@@ -90,12 +90,12 @@ namespace CATALOGO
         private bool Validar_Datos()
         {
             bool res = true;
-            if (txtCodigo.Text == "")
-            {
-                res = false;
-                MessageBox.Show("Debe agregar el codigo", "Casa_Comercial", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtCodigo.Focus();
-            }
+            //if (txtCodigo.Text == "")
+            //{
+            //    res = false;
+            //    MessageBox.Show("Debe agregar el codigo", "Casa_Comercial", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    txtCodigo.Focus();
+            //}
             if (txtNombre.Text == "")
             {
                 res = false;
@@ -138,11 +138,11 @@ namespace CATALOGO
                     if (_res != null)
                         if (_res.Casa_Comercial_Id != "")
                         {
+
                             MessageBox.Show("Se guardaron los datos correctamente", "Casa_Comercial", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             _Salir = true;
                             this.Close();
                         }
-
                 }
             }
             catch (Exception ex)

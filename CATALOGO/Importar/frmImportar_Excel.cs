@@ -429,9 +429,9 @@ namespace CATALOGO
                 //dtgGrid.Columns[_clmSubCategoria].Name = "SubCategoria";
                 //dtgGrid.Columns[_clmSubCategoria].Width = 200; 
             }
-            dtgGrid.Columns[_clmError].Name = "Error";
-            dtgGrid.Columns[_clmError].Width = 200;
-
+                dtgGrid.Columns[_clmError].Name = "Error";
+                dtgGrid.Columns[_clmError].Width = 200;
+           
 
             dtgGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgGrid.MultiSelect = false;
@@ -449,14 +449,14 @@ namespace CATALOGO
                     {
                         int j = 1;
                         foreach (DataRow _Row in _DatosExcel.Tables[0].Rows)
-                        {
+                        {                            
                             var index = dtgGrid.Rows.Add();
                             dtgGrid.Rows[index].Cells[_clmNum].Value = j;
                             dtgGrid.Rows[index].Cells[_clmNum].Tag = j - 1;
-
-                            for (int y = 0; y < _DatosExcel.Tables[0].Columns.Count; y++)
-                            {
-                                dtgGrid.Rows[index].Cells[y + 1].Value = _Row[y];
+                            
+                            for(int y = 0; y < _DatosExcel.Tables[0].Columns.Count; y ++)
+                            {                                
+                                dtgGrid.Rows[index].Cells[y+1].Value = _Row[y];
 
                             }
                             dtgGrid.AutoGenerateColumns = true;

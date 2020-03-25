@@ -238,7 +238,7 @@ namespace CATALOGO
             _Modifica = false;
             cmbFamilia.Enabled = true;
             txtCodigo.Text = "";
-            txtCodigo.Enabled = true;
+            //txtCodigo.Enabled = true;
             txtNombre.Text = "";
             txtDescripcion.Text = "";
             chkEstado.Checked = true;
@@ -253,12 +253,12 @@ namespace CATALOGO
                 MessageBox.Show("Debe seleccionar una familia", "Categorias", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtCodigo.Focus();
             }
-            if (txtCodigo.Text == "")
-            {
-                res = false;
-                MessageBox.Show("Debe agregar el codigo del Categoria", "Categorias", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtCodigo.Focus();
-            }
+            //if (txtCodigo.Text == "")
+            //{
+            //    res = false;
+            //    MessageBox.Show("Debe agregar el codigo del Categoria", "Categorias", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    txtCodigo.Focus();
+            //}
             if (txtNombre.Text == "")
             {
                 res = false;
@@ -301,6 +301,7 @@ namespace CATALOGO
                     if (_res != null)
                         if (_res.Categoria_Id != "")
                         {
+                            txtCodigo.Text = _res.Categoria_Id;
                             MessageBox.Show("Se guardo la Categoria correctamente", "Categorias", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             _Salir = true;
                             txtCodigo.Enabled = false;
@@ -333,12 +334,12 @@ namespace CATALOGO
         {
             try
             {
-                if (txtSubC_Codigo.Text == "")
-                {
-                    MessageBox.Show("Debe agregar el codigo de la SubCategoria", "Categorias", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtCodigo.Focus();
-                    return;
-                }
+                //if (txtSubC_Codigo.Text == "")
+                //{
+                //    MessageBox.Show("Debe agregar el codigo de la SubCategoria", "Categorias", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    txtCodigo.Focus();
+                //    return;
+                //}
                 if (txtSubC_Nombre.Text == "")
                 {
                     MessageBox.Show("Debe agregar el nombre de la SubCategoria", "Categorias", MessageBoxButtons.OK, MessageBoxIcon.Error);
