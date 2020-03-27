@@ -266,7 +266,6 @@ namespace CATALOGO.Productos
         {
             Agregar_Sucursales();
         }
-
         private void bnSuc_Menos_Click(object sender, EventArgs e)
         {
             Eliminar_Sucursal();

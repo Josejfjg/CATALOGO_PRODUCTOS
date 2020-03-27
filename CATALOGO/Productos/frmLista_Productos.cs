@@ -19,15 +19,15 @@ namespace CATALOGO.Productos
         private const int _clmNombre = 3;
         private const int _clmDescripcion = 4;
         //private const int _clmCasa_Comercial = 5;
-        private const int _clmFabricante = 6;
-        private const int _clmMarca = 7;
-        private const int _clmUnidad_Medida = 8;
-        private const int _clmContenido = 9;
-        private const int _clmCompuesto = 10;
-        private const int _clmFamilia = 11;
-        private const int _clmCategoria = 12;
-        private const int _clmSubCategoria = 13;
-        private const int _clmEstado = 14;
+        private const int _clmFabricante = 5;
+        private const int _clmMarca = 6;
+        private const int _clmUnidad_Medida = 7;
+        private const int _clmContenido = 8;
+        private const int _clmCompuesto = 9;
+        private const int _clmFamilia = 10;
+        private const int _clmCategoria = 11;
+        private const int _clmSubCategoria = 12;
+        private const int _clmEstado = 13;
 
         private List<tbFamilias> _dtFamilias;
         private List<tbCategorias> _dtCategorias;
@@ -61,7 +61,7 @@ namespace CATALOGO.Productos
         }
         private void Configuracion_Grid()
         {
-            this.dtgGrid.ColumnCount = 14;
+            this.dtgGrid.ColumnCount = 13;
 
             this.dtgGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.dtgGrid.RowHeadersVisible = false;
@@ -331,18 +331,35 @@ namespace CATALOGO.Productos
         }
         private void Bn_Agregar_Click(object sender, EventArgs e)
         {
-            frmProductos frm = new frmProductos();
-            if (frm.Execute(_Trastienda, new tbProductos()))
-                Refrescar_Grid();
-            else
-                Refrescar_Grid();
+            Bn_Agregar.Enabled = false;
+            Bn_Agregar.Image = CATALOGO.Properties.Resources.F2red;
+            try
+            {
+                frmProductos frm = new frmProductos();
+                if (frm.Execute(_Trastienda, new tbProductos()))
+                    Refrescar_Grid();
+                else
+                    Refrescar_Grid();
+            }
+            catch (Exception ex)
+            {
+                Bn_Agregar.Enabled = true;
+                Bn_Agregar.Image = CATALOGO.Properties.Resources.F2;
+
+                MessageBox.Show("Se produjo un error iniciar la pantalla " + "\n" + ex.Message, "Lista Productos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            Bn_Agregar.Enabled = true;
+            Bn_Agregar.Image = CATALOGO.Properties.Resources.F2;
         }
         private void Bn_Modificar_Click(object sender, EventArgs e)
         {
+            Bn_Modificar.Enabled = false;
+            Bn_Modificar.Image = CATALOGO.Properties.Resources.F3red;
+
             try
             {
                 if (dtgGrid.SelectedRows.Count > 0)
-                {
+                {                  
                     DataGridViewRow row = this.dtgGrid.SelectedRows[0];
                     tbProductos pro = new tbProductos();
 
@@ -362,9 +379,14 @@ namespace CATALOGO.Productos
             }
             catch (Exception ex)
             {
+                Bn_Modificar.Enabled = true;
+                Bn_Modificar.Image = CATALOGO.Properties.Resources.F3;
+
                 MessageBox.Show("Se produjo un error iniciar la pantalla " + "\n" + ex.Message, "Lista Productos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+            Bn_Modificar.Enabled = true;
+            Bn_Modificar.Image = CATALOGO.Properties.Resources.F3;
         }
         private void Bn_Eliminar_Click(object sender, EventArgs e)
         {
