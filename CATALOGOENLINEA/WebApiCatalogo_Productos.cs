@@ -48,6 +48,29 @@ namespace CATALOGOENLINEA
                 throw new Exception(ex.Message);
             }
         }
+        public List<tbProductos> ListaProductos_Nuevos(tbFiltros pFiltros)
+        {
+            try
+            {
+                HttpClient _cliente = new HttpClient();
+
+                string _url = _Conexion + "/Productos/ListaProductos_Nuevos/";  
+                string jsonMobile = JsonConvert.SerializeObject(pFiltros);
+
+                var _Result = _cliente.PostAsync(_url, new StringContent(jsonMobile, Encoding.UTF8, "application/json")).Result;
+                string Status = _Result.Content.ReadAsStringAsync().Result;
+                if (_Result.IsSuccessStatusCode)
+                {
+                    return JsonConvert.DeserializeObject<List<tbProductos>>(Status);
+                }
+                else
+                    throw new Exception(_Result.RequestMessage.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
         public tbProductos AgregarProductos(tbProductos pProductos)
         {
             try

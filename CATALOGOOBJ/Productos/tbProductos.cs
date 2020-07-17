@@ -5,6 +5,7 @@ namespace CATALOGOOBJ
 {
     public class tbProductos
     {
+
         private int _Producto_Id;
         private string _Codigo_Barras;
         private string _Fabricante_Id;
@@ -19,8 +20,6 @@ namespace CATALOGOOBJ
         private string _Categoria_Nombre;
         private string _SubCategoria_Id;
         private string _SubCategorias_Nombre;
-        //private string _Casa_Comercial_Id;
-        //private string _Casa_Comercial_Nombre;
         private string _Nombre;
         private string _Descripcion;
         private string _Descripcion_Corta;
@@ -28,8 +27,10 @@ namespace CATALOGOOBJ
         private bool _Estado;
         private DateTime _Fecha_Crea;
         private int _Usuario_Crea;
+        private string _Usuario_Crea_Nombre;
         private DateTime _Fecha_Modifica;
         private int _Usuario_Modifica;
+        private string _Usuario_Modifica_Nombre;
         private List<tbProducto_Sucursal> _Sucursales;
         private List<tbProducto_Impuestos> _Impuestos;
         private List<tbProducto_Casa_Comercial> _Casas_Comerciales;
@@ -60,9 +61,9 @@ namespace CATALOGOOBJ
         public string Familia_Nombre { get => _Familia_Nombre; set => _Familia_Nombre = value; }
         public string Categoria_Nombre { get => _Categoria_Nombre; set => _Categoria_Nombre = value; }
         public string SubCategorias_Nombre { get => _SubCategorias_Nombre; set => _SubCategorias_Nombre = value; }
-        //public string Casa_Comercial_Id { get => _Casa_Comercial_Id; set => _Casa_Comercial_Id = value; }
-        //public string Casa_Comercial_Nombre { get => _Casa_Comercial_Nombre; set => _Casa_Comercial_Nombre = value; }
         public string Descripcion_Corta { get => _Descripcion_Corta; set => _Descripcion_Corta = value; }
+        public string Usuario_Crea_Nombre { get => _Usuario_Crea_Nombre; set => _Usuario_Crea_Nombre = value; }
+        public string Usuario_Modifica_Nombre { get => _Usuario_Modifica_Nombre; set => _Usuario_Modifica_Nombre = value; }
 
         public tbProductos()
         {
@@ -79,7 +80,7 @@ namespace CATALOGOOBJ
             _Categoria_Id = "";
             _Categoria_Nombre = "";
             _SubCategoria_Id = "";
-            SubCategorias_Nombre = "";
+            _SubCategorias_Nombre = "";
             _Nombre = "";
             _Descripcion = "";
             _Contenido = 0;
@@ -92,8 +93,9 @@ namespace CATALOGOOBJ
             _Impuestos = new List<tbProducto_Impuestos>();
             _Casas_Comerciales = new List<tbProducto_Casa_Comercial>();
             _Descripcion_Corta = "";
-            //_Casa_Comercial_Id = "";
-            //_Casa_Comercial_Nombre = "";
+            _Usuario_Crea_Nombre = "";
+            _Usuario_Modifica_Nombre = "";
+
         }
     }
 }

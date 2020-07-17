@@ -8,33 +8,31 @@ using System.Windows.Forms;
 
 namespace CATALOGO.Productos
 {
-    public partial class frmLista_Productos : Form
+    public partial class rptProductos_X_Categoria : Form
     {
         private bool _Salir;
         private List<tbProductos> _DTProductos;
         private TTrastienda _Trastienda;
         private const int _clmNum = 0;
-        private const int _clmId = 1;
-        private const int _clmCodigo = 2;
-        private const int _clmNombre = 3;
-        private const int _clmDescripcion = 4;
-        //private const int _clmCasa_Comercial = 5;
-        private const int _clmFabricante = 5;
-        private const int _clmMarca = 6;
-        private const int _clmUnidad_Medida = 7;
-        private const int _clmContenido = 8;
-        private const int _clmCompuesto = 9;
-        private const int _clmFamilia = 10;
-        private const int _clmCategoria = 11;
-        private const int _clmSubCategoria = 12;
-        private const int _clmEstado = 13;
+        private const int _clmCodigo = 1;
+        private const int _clmNombre = 2;
+        private const int _clmDescripcion = 3;
+        private const int _clmFabricante = 4;
+        private const int _clmMarca = 5;
+        private const int _clmUnidad_Medida = 6;
+        private const int _clmContenido = 7;
+        private const int _clmCompuesto = 8;
+        private const int _clmFamilia = 9;
+        private const int _clmCategoria = 10;
+        private const int _clmSubCategoria = 11;
+        private const int _clmEstado = 12;
 
         private List<tbFamilias> _dtFamilias;
         private List<tbCategorias> _dtCategorias;
         private List<tbSubCategorias> _dtSubCategoria;
 
         public bool Salir { get => _Salir; set => _Salir = value; }
-        public frmLista_Productos()
+        public rptProductos_X_Categoria()
         {
             InitializeComponent();
         }
@@ -68,15 +66,11 @@ namespace CATALOGO.Productos
 
             this.dtgGrid.Columns[_clmNum].Name = "N°";
             this.dtgGrid.Columns[_clmNum].Width = 30;
-            this.dtgGrid.Columns[_clmId].Name = "Id";
-            this.dtgGrid.Columns[_clmId].Visible = false;
             this.dtgGrid.Columns[_clmCodigo].Name = "Codigo";
             this.dtgGrid.Columns[_clmNombre].Name = "Nombre";
             this.dtgGrid.Columns[_clmNombre].Width = 130;
             this.dtgGrid.Columns[_clmDescripcion].Name = "Descripcion";
             this.dtgGrid.Columns[_clmDescripcion].Width = 150;
-            //this.dtgGrid.Columns[_clmCasa_Comercial].Name = "Casa Comercial";
-            //this.dtgGrid.Columns[_clmCasa_Comercial].Width = 180;
             this.dtgGrid.Columns[_clmFabricante].Name = "Fabricante";
             this.dtgGrid.Columns[_clmFabricante].Width = 150;
             this.dtgGrid.Columns[_clmMarca].Name = "Marca";
@@ -94,11 +88,8 @@ namespace CATALOGO.Productos
             this.dtgGrid.Columns[_clmCategoria].Width = 180;
             this.dtgGrid.Columns[_clmSubCategoria].Name = "SubCategoria";
             this.dtgGrid.Columns[_clmSubCategoria].Width = 200;
-
-
-            DataGridViewCheckBoxColumn col1 = new DataGridViewCheckBoxColumn();
-            col1.HeaderText = "Estado";
-            this.dtgGrid.Columns.Add(col1);
+            this.dtgGrid.Columns[_clmEstado].Name = "Estado";
+            this.dtgGrid.Columns[_clmEstado].Width = 60;
 
             this.dtgGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.dtgGrid.MultiSelect = false;
@@ -112,8 +103,6 @@ namespace CATALOGO.Productos
             try
             {
                 tbProductos _Prod = new tbProductos();
-                _Prod.Codigo_Barras = txtCodigo.Text;
-                _Prod.Nombre = txtNombre.Text;
                 _Prod.Familia_Id = cmbFamilia.SelectedValue.ToString();
                 _Prod.Categoria_Id = cmbCategoria.SelectedValue.ToString();
 
@@ -135,11 +124,9 @@ namespace CATALOGO.Productos
                             var index = dtgGrid.Rows.Add();
                             dtgGrid.Rows[index].Cells[_clmNum].Value = j;
                             dtgGrid.Rows[index].Cells[_clmNum].Tag = j - 1;
-                            dtgGrid.Rows[index].Cells[_clmId].Value = _Row.Producto_Id;
                             dtgGrid.Rows[index].Cells[_clmCodigo].Value = _Row.Codigo_Barras;
                             dtgGrid.Rows[index].Cells[_clmNombre].Value = _Row.Nombre;
                             dtgGrid.Rows[index].Cells[_clmDescripcion].Value = _Row.Descripcion;
-                            //dtgGrid.Rows[index].Cells[_clmCasa_Comercial].Value = _Row.Casa_Comercial_Nombre;
                             dtgGrid.Rows[index].Cells[_clmFabricante].Value = _Row.Fabricante_Nombre;
                             dtgGrid.Rows[index].Cells[_clmMarca].Value = _Row.Marca_Nombre;
                             dtgGrid.Rows[index].Cells[_clmUnidad_Medida].Value = _Row.Unidad_Medida_Nombre;
@@ -147,7 +134,7 @@ namespace CATALOGO.Productos
                             dtgGrid.Rows[index].Cells[_clmFamilia].Value = _Row.Familia_Nombre;
                             dtgGrid.Rows[index].Cells[_clmCategoria].Value = _Row.Categoria_Nombre;
                             dtgGrid.Rows[index].Cells[_clmSubCategoria].Value = _Row.SubCategorias_Nombre;
-                            dtgGrid.Rows[index].Cells[_clmEstado].Value = _Row.Estado;
+                            dtgGrid.Rows[index].Cells[_clmEstado].Value = _Row.Estado ? "Activo" : "Inactivo";
                             dtgGrid.Rows[index].Cells[_clmCompuesto].Value = _Row.Nombre + " " + _Row.Marca_Nombre + " " + _Row.Descripcion + " " + Convert.ToInt32(_Row.Contenido).ToString() + " " + _Row.Unidad_Medida_Nombre;
 
                             dtgGrid.AutoGenerateColumns = true;
@@ -168,36 +155,6 @@ namespace CATALOGO.Productos
             {
                 MessageBox.Show(" Problemas al cargar los productos. /n/n " + ex.Message, "Productos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.dtgGrid.Refresh();
-            }
-        }
-        private void Eliminar_Producto()
-        {
-            try
-            {
-                if (dtgGrid.SelectedRows.Count > 0)
-                {
-                    DataGridViewRow row = this.dtgGrid.SelectedRows[0];
-                    tbProductos pro = new tbProductos();
-
-                    pro.Producto_Id = Convert.ToInt32(row.Cells[_clmId].Value);
-
-                    if (MessageBox.Show("Esta seguro que quiere eliminar el producto", "Productos", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        if (_Trastienda.WebApiProductos.EliminarProducto(pro.Producto_Id))
-                            MessageBox.Show("Se elimino el producto correctamente", "Productos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        else
-                            MessageBox.Show("Produjo un error al eliminar el producto", "Productos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    Buscar();
-                }
-                else
-                {
-                    MessageBox.Show("Bede seleccionar un producto", "Lista Productos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Se produjo un error al eliminar el producto" + "\n" + ex.Message, "Lista Productos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void Buscar()
@@ -267,23 +224,7 @@ namespace CATALOGO.Productos
         {
             dtgGrid.Rows.Clear();
             //Buscar();
-        }
-        private void Bn_Importar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                frmImportar_Excel frm = new frmImportar_Excel();
-                if (frm.Execute(_Trastienda))
-                    Refrescar_Grid();
-                else
-                    Refrescar_Grid();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Se produjo un error iniciar la pantalla " + "\n" + ex.Message, "Importar", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        }       
         private void chkTodas_SubCategorias_CheckedChanged(object sender, EventArgs e)
         {
             if (!chkTodas_SubCategorias.Checked)
@@ -300,17 +241,8 @@ namespace CATALOGO.Productos
                     Buscar();
                     break;
                 case Keys.F2:
-                    Bn_Agregar_Click(null, null);
-                    break;
-                case Keys.F3:
-                    Bn_Modificar_Click(null, null);
-                    break;
-                case Keys.F4:
-                    Eliminar_Producto();
-                    break;
-                case Keys.F5:
                     Bn_Exportar_Click(null, null);
-                    break;
+                    break;                
                 case Keys.Enter:
                     Buscar();
                     break;
@@ -331,101 +263,22 @@ namespace CATALOGO.Productos
         {
             _Salir = true;
             this.Close();
-        }
-        private void Bn_Agregar_Click(object sender, EventArgs e)
+        }   
+        private void Bn_Exportar_Click(object sender, EventArgs e)
         {
-            Bn_Agregar.Enabled = false;
-            Bn_Agregar.Image = CATALOGO.Properties.Resources.F2red;
             try
-            {
-                frmProductos frm = new frmProductos();
-                if (frm.Execute(_Trastienda, new tbProductos()))
-                    Refrescar_Grid();
-                else
-                    Refrescar_Grid();
+            {                
+                Program.Exportar_Excel_DataGrid(dtgGrid);
+
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                Bn_Agregar.Enabled = true;
-                Bn_Agregar.Image = CATALOGO.Properties.Resources.F2;
-
-                MessageBox.Show("Se produjo un error iniciar la pantalla " + "\n" + ex.Message, "Lista Productos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(" Problemas al exportar los productos. /n/n " + ex.Message, "Productos", MessageBoxButtons.OK, MessageBoxIcon.Error);                
             }
-            Bn_Agregar.Enabled = true;
-            Bn_Agregar.Image = CATALOGO.Properties.Resources.F2;
-        }
-        private void Bn_Modificar_Click(object sender, EventArgs e)
-        {
-            Bn_Modificar.Enabled = false;
-            Bn_Modificar.Image = CATALOGO.Properties.Resources.F3red;
-
-            try
-            {
-                if (dtgGrid.SelectedRows.Count > 0)
-                {                  
-                    DataGridViewRow row = this.dtgGrid.SelectedRows[0];
-                    tbProductos pro = new tbProductos();
-
-                    pro.Producto_Id = Convert.ToInt32(row.Cells[_clmId].Value.ToString());
-
-                    frmProductos frm = new frmProductos();
-                    //frm.MdiParent = this.MdiParent;
-                    if (frm.Execute(_Trastienda, pro))
-                        Refrescar_Grid();
-                    else
-                        Refrescar_Grid();
-                }
-                else
-                {
-                    MessageBox.Show("Bede seleccionar un producto", "Lista Productos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (Exception ex)
-            {
-                Bn_Modificar.Enabled = true;
-                Bn_Modificar.Image = CATALOGO.Properties.Resources.F3;
-
-                MessageBox.Show("Se produjo un error iniciar la pantalla " + "\n" + ex.Message, "Lista Productos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            Bn_Modificar.Enabled = true;
-            Bn_Modificar.Image = CATALOGO.Properties.Resources.F3;
-        }
-        private void Bn_Eliminar_Click(object sender, EventArgs e)
-        {
-            Eliminar_Producto();
-        }
-        private void BtnBuscar_Click(object sender, EventArgs e)
-        {
-            frmBuscar_Producto frm = new frmBuscar_Producto();
-            if (frm.Execute(_Trastienda))
-                if (frm.Salir)
-                {
-                    txtCodigo.Text = frm.Producto.Codigo_Barras;
-                    txtNombre.Text = frm.Producto.Nombre;
-                    cmbFamilia.SelectedValue = frm.Producto.Familia_Id;
-                    cmbCategoria.SelectedValue = frm.Producto.Categoria_Id;
-                    cmbSubCategoria.SelectedValue = frm.Producto.SubCategoria_Id;
-
-                    Refrescar_Grid();
-                }
-            //else
-            //    Refrescar_Grid();
         }
 
         #endregion
 
-        private void Bn_Exportar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Program.Exportar_Excel_DataGrid(dtgGrid);
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(" Problemas al exportar los productos. /n/n " + ex.Message, "Productos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+     
     }
 }

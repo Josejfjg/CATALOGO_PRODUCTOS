@@ -17,10 +17,13 @@ namespace CATALOGO
         private frmLista_Impuestos _frmLista_Impuestos;
         private frmLista_Usuarios _frmLista_Usuarios;
         private frmLista_Casa_Comercial _frmLista_Casa_Comercial;
+        private rptProductos_X_Categoria _rptProductos_X_Categoria;
+        private rptProductos_Nuevos _rptProductos_Nuevos;
+        private rptCatalogos _rptCatalogos;
+        private rptProductos_X_Proveedor _rptProductos_X_Proveedor;
         #endregion
 
         #region "Variables Locales"
-        private int childFormNumber = 0;
         private bool _Salir;
         private TTrastienda _Trastienda;
         #endregion
@@ -250,6 +253,90 @@ namespace CATALOGO
             }
             else
                 _frmLista_Casa_Comercial.Activate();// si ya había una ventana abierta, solo se activa   
+        }
+
+        private void opmProductosNuevos_Click(object sender, EventArgs e)
+        {
+            if (_rptProductos_Nuevos != null)                //Si hay una instancia
+            {                                               //Y la ventana ya se cerró 
+                if (_rptProductos_Nuevos.Salir)               //Se libera la instancia
+                {
+                    _rptProductos_Nuevos.Dispose();
+                    _rptProductos_Nuevos = null;
+                }
+            }
+            if (_rptProductos_Nuevos == null)                 //Si no hay instancias de la ventana
+            {
+                _rptProductos_Nuevos = new rptProductos_Nuevos();          // Se crea una
+                _rptProductos_Nuevos.MdiParent = this;       // Se le indica el form padre
+                Inicia_Ventana(_rptProductos_Nuevos);
+                _rptProductos_Nuevos.Execute(_Trastienda);
+            }
+            else
+                _rptProductos_X_Categoria.Activate();// si ya había una ventana abierta, solo se activa   
+        }
+
+        private void opmProductosPorCategoría_Click(object sender, EventArgs e)
+        {  
+            if (_rptProductos_X_Categoria != null)                //Si hay una instancia
+            {                                               //Y la ventana ya se cerró 
+                if (_rptProductos_X_Categoria.Salir)               //Se libera la instancia
+                {
+                    _rptProductos_X_Categoria.Dispose();
+                    _rptProductos_X_Categoria = null;
+                }
+            }
+            if (_rptProductos_X_Categoria == null)                 //Si no hay instancias de la ventana
+            {
+                _rptProductos_X_Categoria = new rptProductos_X_Categoria();          // Se crea una
+                _rptProductos_X_Categoria.MdiParent = this;       // Se le indica el form padre
+                Inicia_Ventana(_rptProductos_X_Categoria);
+                _rptProductos_X_Categoria.Execute(_Trastienda);
+            }
+            else
+                _rptProductos_X_Categoria.Activate();// si ya había una ventana abierta, solo se activa   
+        }
+
+        private void opmCategorias_Todas_Click(object sender, EventArgs e)
+        {
+            if (_rptCatalogos != null)                //Si hay una instancia
+            {                                               //Y la ventana ya se cerró 
+                if (_rptCatalogos.Salir)               //Se libera la instancia
+                {
+                    _rptCatalogos.Dispose();
+                    _rptCatalogos = null;
+                }
+            }
+            if (_rptCatalogos == null)                 //Si no hay instancias de la ventana
+            {
+                _rptCatalogos = new rptCatalogos();          // Se crea una
+                _rptCatalogos.MdiParent = this;       // Se le indica el form padre
+                Inicia_Ventana(_rptCatalogos);
+                _rptCatalogos.Execute(_Trastienda);
+            }
+            else
+                _rptCatalogos.Activate();// si ya había una ventana abierta, solo se activa   
+        }
+
+        private void opmCostoPorProveedor_Click(object sender, EventArgs e)
+        {
+            if (_rptProductos_X_Proveedor != null)                //Si hay una instancia
+            {                                               //Y la ventana ya se cerró 
+                if (_rptProductos_X_Proveedor.Salir)               //Se libera la instancia
+                {
+                    _rptProductos_X_Proveedor.Dispose();
+                    _rptProductos_X_Proveedor = null;
+                }
+            }
+            if (_rptProductos_X_Proveedor == null)                 //Si no hay instancias de la ventana
+            {
+                _rptProductos_X_Proveedor = new rptProductos_X_Proveedor();          // Se crea una
+                _rptProductos_X_Proveedor.MdiParent = this;       // Se le indica el form padre
+                Inicia_Ventana(_rptProductos_X_Proveedor);
+                _rptProductos_X_Proveedor.Execute(_Trastienda);
+            }
+            else
+                _rptProductos_X_Proveedor.Activate();// si ya había una ventana abierta, solo se activa   
         }
     }
 }

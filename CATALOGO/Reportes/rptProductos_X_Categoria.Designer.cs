@@ -1,6 +1,6 @@
 ﻿namespace CATALOGO.Productos
 {
-    partial class frmLista_Productos
+    partial class rptProductos_X_Categoria
     {
         /// <summary>
         /// Required designer variable.
@@ -28,16 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLista_Productos));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rptProductos_X_Categoria));
             this.Barra = new System.Windows.Forms.ToolStrip();
             this.Bn_Buscar = new System.Windows.Forms.ToolStripButton();
-            this.Bn_Agregar = new System.Windows.Forms.ToolStripButton();
-            this.Bn_Modificar = new System.Windows.Forms.ToolStripButton();
-            this.Bn_Eliminar = new System.Windows.Forms.ToolStripButton();
+            this.Bn_Exportar = new System.Windows.Forms.ToolStripButton();
             this.Bn_Salir = new System.Windows.Forms.ToolStripButton();
-            this.Bn_Importar = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.BtnBuscar = new System.Windows.Forms.Button();
             this.chkTodas_SubCategorias = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbSubCategoria = new System.Windows.Forms.ComboBox();
@@ -46,13 +42,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.cmbFamilia = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtCodigo = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.dtgGrid = new System.Windows.Forms.DataGridView();
             this.Pb_LDCOM = new System.Windows.Forms.PictureBox();
-            this.Bn_Exportar = new System.Windows.Forms.ToolStripButton();
             this.Barra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -73,15 +64,11 @@
             this.Barra.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.Barra.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Bn_Buscar,
-            this.Bn_Agregar,
-            this.Bn_Modificar,
-            this.Bn_Eliminar,
             this.Bn_Exportar,
-            this.Bn_Salir,
-            this.Bn_Importar});
-            this.Barra.Location = new System.Drawing.Point(486, 550);
+            this.Bn_Salir});
+            this.Barra.Location = new System.Drawing.Point(706, 550);
             this.Barra.Name = "Barra";
-            this.Barra.Size = new System.Drawing.Size(415, 60);
+            this.Barra.Size = new System.Drawing.Size(195, 60);
             this.Barra.TabIndex = 41;
             this.Barra.Text = "ToolStrip1";
             // 
@@ -98,44 +85,18 @@
             this.Bn_Buscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Bn_Buscar.Click += new System.EventHandler(this.Bn_Buscar_Click);
             // 
-            // Bn_Agregar
+            // Bn_Exportar
             // 
-            this.Bn_Agregar.AutoSize = false;
-            this.Bn_Agregar.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.Bn_Agregar.Image = global::CATALOGO.Properties.Resources.F2;
-            this.Bn_Agregar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.Bn_Agregar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Bn_Agregar.Name = "Bn_Agregar";
-            this.Bn_Agregar.Size = new System.Drawing.Size(57, 51);
-            this.Bn_Agregar.Text = "Agregar";
-            this.Bn_Agregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.Bn_Agregar.Click += new System.EventHandler(this.Bn_Agregar_Click);
-            // 
-            // Bn_Modificar
-            // 
-            this.Bn_Modificar.AutoSize = false;
-            this.Bn_Modificar.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.Bn_Modificar.Image = global::CATALOGO.Properties.Resources.F3;
-            this.Bn_Modificar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.Bn_Modificar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Bn_Modificar.Name = "Bn_Modificar";
-            this.Bn_Modificar.Size = new System.Drawing.Size(57, 51);
-            this.Bn_Modificar.Text = "Modificar";
-            this.Bn_Modificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.Bn_Modificar.Click += new System.EventHandler(this.Bn_Modificar_Click);
-            // 
-            // Bn_Eliminar
-            // 
-            this.Bn_Eliminar.AutoSize = false;
-            this.Bn_Eliminar.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.Bn_Eliminar.Image = global::CATALOGO.Properties.Resources.F4;
-            this.Bn_Eliminar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.Bn_Eliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Bn_Eliminar.Name = "Bn_Eliminar";
-            this.Bn_Eliminar.Size = new System.Drawing.Size(57, 51);
-            this.Bn_Eliminar.Text = "Eliminar";
-            this.Bn_Eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.Bn_Eliminar.Click += new System.EventHandler(this.Bn_Eliminar_Click);
+            this.Bn_Exportar.AutoSize = false;
+            this.Bn_Exportar.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.Bn_Exportar.Image = global::CATALOGO.Properties.Resources.F2;
+            this.Bn_Exportar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.Bn_Exportar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Bn_Exportar.Name = "Bn_Exportar";
+            this.Bn_Exportar.Size = new System.Drawing.Size(57, 51);
+            this.Bn_Exportar.Text = "Exportar";
+            this.Bn_Exportar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Bn_Exportar.Click += new System.EventHandler(this.Bn_Exportar_Click);
             // 
             // Bn_Salir
             // 
@@ -150,20 +111,6 @@
             this.Bn_Salir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Bn_Salir.Click += new System.EventHandler(this.Bn_Salir_Click);
             // 
-            // Bn_Importar
-            // 
-            this.Bn_Importar.AutoSize = false;
-            this.Bn_Importar.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.Bn_Importar.Image = global::CATALOGO.Properties.Resources.F5;
-            this.Bn_Importar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.Bn_Importar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Bn_Importar.Name = "Bn_Importar";
-            this.Bn_Importar.Size = new System.Drawing.Size(57, 51);
-            this.Bn_Importar.Text = "Importar";
-            this.Bn_Importar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.Bn_Importar.Visible = false;
-            this.Bn_Importar.Click += new System.EventHandler(this.Bn_Importar_Click);
-            // 
             // splitContainer1
             // 
             this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -175,7 +122,6 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.BtnBuscar);
             this.splitContainer1.Panel1.Controls.Add(this.chkTodas_SubCategorias);
             this.splitContainer1.Panel1.Controls.Add(this.label7);
             this.splitContainer1.Panel1.Controls.Add(this.cmbSubCategoria);
@@ -184,10 +130,6 @@
             this.splitContainer1.Panel1.Controls.Add(this.label12);
             this.splitContainer1.Panel1.Controls.Add(this.cmbFamilia);
             this.splitContainer1.Panel1.Controls.Add(this.pictureBox1);
-            this.splitContainer1.Panel1.Controls.Add(this.txtNombre);
-            this.splitContainer1.Panel1.Controls.Add(this.label2);
-            this.splitContainer1.Panel1.Controls.Add(this.txtCodigo);
-            this.splitContainer1.Panel1.Controls.Add(this.label1);
             // 
             // splitContainer1.Panel2
             // 
@@ -196,20 +138,10 @@
             this.splitContainer1.SplitterDistance = 181;
             this.splitContainer1.TabIndex = 43;
             // 
-            // BtnBuscar
-            // 
-            this.BtnBuscar.Location = new System.Drawing.Point(796, 133);
-            this.BtnBuscar.Name = "BtnBuscar";
-            this.BtnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.BtnBuscar.TabIndex = 52;
-            this.BtnBuscar.Text = "Buscar";
-            this.BtnBuscar.UseVisualStyleBackColor = true;
-            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
-            // 
             // chkTodas_SubCategorias
             // 
             this.chkTodas_SubCategorias.AutoSize = true;
-            this.chkTodas_SubCategorias.Location = new System.Drawing.Point(647, 138);
+            this.chkTodas_SubCategorias.Location = new System.Drawing.Point(657, 127);
             this.chkTodas_SubCategorias.Name = "chkTodas_SubCategorias";
             this.chkTodas_SubCategorias.Size = new System.Drawing.Size(143, 17);
             this.chkTodas_SubCategorias.TabIndex = 51;
@@ -220,7 +152,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(419, 139);
+            this.label7.Location = new System.Drawing.Point(429, 128);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(77, 13);
             this.label7.TabIndex = 50;
@@ -230,7 +162,7 @@
             // 
             this.cmbSubCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSubCategoria.FormattingEnabled = true;
-            this.cmbSubCategoria.Location = new System.Drawing.Point(502, 136);
+            this.cmbSubCategoria.Location = new System.Drawing.Point(512, 125);
             this.cmbSubCategoria.Name = "cmbSubCategoria";
             this.cmbSubCategoria.Size = new System.Drawing.Size(139, 21);
             this.cmbSubCategoria.TabIndex = 49;
@@ -239,7 +171,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(206, 139);
+            this.label8.Location = new System.Drawing.Point(216, 128);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(58, 13);
             this.label8.TabIndex = 48;
@@ -249,7 +181,7 @@
             // 
             this.cmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategoria.FormattingEnabled = true;
-            this.cmbCategoria.Location = new System.Drawing.Point(270, 135);
+            this.cmbCategoria.Location = new System.Drawing.Point(280, 124);
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(139, 21);
             this.cmbCategoria.TabIndex = 47;
@@ -258,7 +190,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(8, 138);
+            this.label12.Location = new System.Drawing.Point(18, 127);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(50, 13);
             this.label12.TabIndex = 46;
@@ -268,7 +200,7 @@
             // 
             this.cmbFamilia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFamilia.FormattingEnabled = true;
-            this.cmbFamilia.Location = new System.Drawing.Point(64, 135);
+            this.cmbFamilia.Location = new System.Drawing.Point(74, 124);
             this.cmbFamilia.Name = "cmbFamilia";
             this.cmbFamilia.Size = new System.Drawing.Size(139, 21);
             this.cmbFamilia.TabIndex = 45;
@@ -286,40 +218,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 44;
             this.pictureBox1.TabStop = false;
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(270, 101);
-            this.txtNombre.MaxLength = 100;
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(139, 20);
-            this.txtNombre.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(214, 104);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Nombre :";
-            // 
-            // txtCodigo
-            // 
-            this.txtCodigo.Location = new System.Drawing.Point(64, 100);
-            this.txtCodigo.MaxLength = 20;
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(139, 20);
-            this.txtCodigo.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 103);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Codigo :";
             // 
             // dtgGrid
             // 
@@ -346,20 +244,7 @@
             this.Pb_LDCOM.TabIndex = 42;
             this.Pb_LDCOM.TabStop = false;
             // 
-            // Bn_Exportar
-            // 
-            this.Bn_Exportar.AutoSize = false;
-            this.Bn_Exportar.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.Bn_Exportar.Image = global::CATALOGO.Properties.Resources.F5;
-            this.Bn_Exportar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.Bn_Exportar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Bn_Exportar.Name = "Bn_Exportar";
-            this.Bn_Exportar.Size = new System.Drawing.Size(57, 51);
-            this.Bn_Exportar.Text = "Exportar";
-            this.Bn_Exportar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.Bn_Exportar.Click += new System.EventHandler(this.Bn_Exportar_Click);
-            // 
-            // frmLista_Productos
+            // rptProductos_X_Categoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -369,9 +254,9 @@
             this.Controls.Add(this.Barra);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.Name = "frmLista_Productos";
-            this.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Text = "Productos";
+            this.Name = "rptProductos_X_Categoria";
+            this.Padding = new System.Windows.Forms.Padding(4);
+            this.Text = "Productos por Categoría";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmLista_Productos_FormClosed);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmLista_Productos_KeyDown);
             this.Barra.ResumeLayout(false);
@@ -395,14 +280,7 @@
         internal System.Windows.Forms.PictureBox Pb_LDCOM;
         private System.Windows.Forms.SplitContainer splitContainer1;
         internal System.Windows.Forms.ToolStripButton Bn_Buscar;
-        internal System.Windows.Forms.ToolStripButton Bn_Agregar;
-        private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtCodigo;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dtgGrid;
-        internal System.Windows.Forms.ToolStripButton Bn_Modificar;
-        internal System.Windows.Forms.ToolStripButton Bn_Eliminar;
         internal System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox cmbFamilia;
@@ -411,8 +289,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cmbSubCategoria;
         private System.Windows.Forms.CheckBox chkTodas_SubCategorias;
-        internal System.Windows.Forms.ToolStripButton Bn_Importar;
-        private System.Windows.Forms.Button BtnBuscar;
         internal System.Windows.Forms.ToolStripButton Bn_Exportar;
     }
 }

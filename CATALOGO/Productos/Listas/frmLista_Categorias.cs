@@ -56,7 +56,7 @@ namespace CATALOGO
             this.dtgGrid.Columns[_clmNum].Width = 30;
             this.dtgGrid.Columns[_clmFamilia].Name = "Familia";
             this.dtgGrid.Columns[_clmCodigo].Name = "Codigo";
-            this.dtgGrid.Columns[_clmNombre].Name = "Nombre";
+            this.dtgGrid.Columns[_clmNombre].Name = "Categoria";
             this.dtgGrid.Columns[_clmNombre].Width = 400;
             this.dtgGrid.Columns[_clmDescripcion].Name = "Descripcion";
             this.dtgGrid.Columns[_clmDescripcion].Width = 800;

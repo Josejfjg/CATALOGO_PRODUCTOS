@@ -50,6 +50,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="WebApiCatalogo_Reportes.cs" />
     <Compile Include="WebApiCatalogo_Seguridad.cs" />
     <Compile Include="WebApiCatalogo_Productos.cs" />
   </ItemGroup>

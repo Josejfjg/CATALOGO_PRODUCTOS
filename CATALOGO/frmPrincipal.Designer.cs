@@ -44,6 +44,12 @@
             this.opmUnidadDeMedida = new System.Windows.Forms.ToolStripMenuItem();
             this.opmImpuestos = new System.Windows.Forms.ToolStripMenuItem();
             this.opmCasaComercial = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.opmProductosNuevos = new System.Windows.Forms.ToolStripMenuItem();
+            this.opmProductosPorCategoría = new System.Windows.Forms.ToolStripMenuItem();
+            this.categoríasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.opmCategorias_Todas = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Barra = new System.Windows.Forms.ToolStrip();
@@ -52,6 +58,7 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolEstado = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.opmCostoPorProveedor = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_Principal.SuspendLayout();
             this.Barra.SuspendLayout();
             this.BarraEstado.SuspendLayout();
@@ -63,6 +70,7 @@
             this.fileMenu,
             this.seguridadToolStripMenuItem,
             this.toolsMenu,
+            this.reportesToolStripMenuItem,
             this.helpMenu});
             this.Menu_Principal.Location = new System.Drawing.Point(0, 0);
             this.Menu_Principal.Name = "Menu_Principal";
@@ -172,6 +180,54 @@
             this.opmCasaComercial.Text = "Casa Comercial";
             this.opmCasaComercial.Click += new System.EventHandler(this.opmCasaComercial_Click);
             // 
+            // reportesToolStripMenuItem
+            // 
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.productosToolStripMenuItem,
+            this.categoríasToolStripMenuItem});
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.reportesToolStripMenuItem.Text = "Reportes";
+            // 
+            // productosToolStripMenuItem
+            // 
+            this.productosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.opmProductosNuevos,
+            this.opmProductosPorCategoría,
+            this.opmCostoPorProveedor});
+            this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
+            this.productosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.productosToolStripMenuItem.Text = "Productos";
+            // 
+            // opmProductosNuevos
+            // 
+            this.opmProductosNuevos.Name = "opmProductosNuevos";
+            this.opmProductosNuevos.Size = new System.Drawing.Size(193, 22);
+            this.opmProductosNuevos.Text = "Nuevos o Modificados";
+            this.opmProductosNuevos.Click += new System.EventHandler(this.opmProductosNuevos_Click);
+            // 
+            // opmProductosPorCategoría
+            // 
+            this.opmProductosPorCategoría.Name = "opmProductosPorCategoría";
+            this.opmProductosPorCategoría.Size = new System.Drawing.Size(193, 22);
+            this.opmProductosPorCategoría.Text = "Por Categoría";
+            this.opmProductosPorCategoría.Click += new System.EventHandler(this.opmProductosPorCategoría_Click);
+            // 
+            // categoríasToolStripMenuItem
+            // 
+            this.categoríasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.opmCategorias_Todas});
+            this.categoríasToolStripMenuItem.Name = "categoríasToolStripMenuItem";
+            this.categoríasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.categoríasToolStripMenuItem.Text = "Categorías";
+            // 
+            // opmCategorias_Todas
+            // 
+            this.opmCategorias_Todas.Name = "opmCategorias_Todas";
+            this.opmCategorias_Todas.Size = new System.Drawing.Size(180, 22);
+            this.opmCategorias_Todas.Text = "Todas";
+            this.opmCategorias_Todas.Click += new System.EventHandler(this.opmCategorias_Todas_Click);
+            // 
             // helpMenu
             // 
             this.helpMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -230,6 +286,13 @@
             this.toolEstado.Size = new System.Drawing.Size(42, 17);
             this.toolEstado.Text = "Estado";
             // 
+            // opmCostoPorProveedor
+            // 
+            this.opmCostoPorProveedor.Name = "opmCostoPorProveedor";
+            this.opmCostoPorProveedor.Size = new System.Drawing.Size(193, 22);
+            this.opmCostoPorProveedor.Text = "Costo Por Proveedor";
+            this.opmCostoPorProveedor.Click += new System.EventHandler(this.opmCostoPorProveedor_Click);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -283,6 +346,13 @@
         private System.Windows.Forms.ToolStripMenuItem opmUsuarios;
         private System.Windows.Forms.ToolStripMenuItem opmCasaComercial;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem opmProductosNuevos;
+        private System.Windows.Forms.ToolStripMenuItem opmProductosPorCategoría;
+        private System.Windows.Forms.ToolStripMenuItem categoríasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem opmCategorias_Todas;
+        private System.Windows.Forms.ToolStripMenuItem opmCostoPorProveedor;
     }
 }
 

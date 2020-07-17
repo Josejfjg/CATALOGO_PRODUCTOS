@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Reportes\tbReportes.cs" />
+    <Compile Include="Reportes\tbFiltros.cs" />
     <Compile Include="Parametros\tbSucursales.cs" />
     <Compile Include="Productos\tbImpuestos.cs" />
     <Compile Include="Productos\tbCasa_Comercial.cs" />

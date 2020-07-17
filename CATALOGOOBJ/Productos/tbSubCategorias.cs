@@ -11,6 +11,7 @@ namespace CATALOGOOBJ
         private string _Descripcion;
         private bool _Estado;
         private string _Categoria_Nombre;
+        private string _Familia_Nombre;
         private DateTime _Fecha_Crea;
         private int _Usuario_Crea;
         private DateTime _Fecha_Modifica;
@@ -27,7 +28,7 @@ namespace CATALOGOOBJ
         public int Usuario_Crea { get => _Usuario_Crea; set => _Usuario_Crea = value; }
         public DateTime Fecha_Modifica { get => _Fecha_Modifica; set => _Fecha_Modifica = value; }
         public int Usuario_Modifica { get => _Usuario_Modifica; set => _Usuario_Modifica = value; }
-
+        public string Familia_Nombre { get => _Familia_Nombre; set => _Familia_Nombre = value; }
 
         public tbSubCategorias()
         {
